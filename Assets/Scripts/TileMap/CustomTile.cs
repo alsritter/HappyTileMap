@@ -19,6 +19,14 @@ public class CustomTile : Tile
 
     private void OnEnable()
     {
+        RefreshTileInfo();
+    }
+
+    /// <summary>
+    /// 注意，内部也有个 RefreshTile 方法
+    /// </summary>
+    public void RefreshTileInfo()
+    {
         // 动态加载
         foreach (var effectKey in effectKeys)
         {

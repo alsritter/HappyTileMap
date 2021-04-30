@@ -11,13 +11,17 @@ public class GlobalTileSpriteManage
     public static Sprite GetSprite(string name)
     {
         // 首次使用加载
-        if (sa == null)
+        // 加载 Assets/Resources/TileSprite/TileSpriteAtlas.asset
+        // 不用加文件后缀
+        if (sa == null) sa = Resources.Load<SpriteLibraryAsset>("TileSprite/TileSpriteAtlas");
+
+
+        var s = sa.GetSprite("Tiles", name);
+        if (s == null)
         {
-            // 加载 Assets/Resources/TileSprite/TileSpriteAtlas.asset
-            // 不用加文件后缀
-            sa = Resources.Load<SpriteLibraryAsset>("TileSprite/TileSpriteAtlas");
+            s = sa.GetSprite("Tiles", "000");
         }
 
-        return sa.GetSprite("Tiles", name);
+        return s;
     }
 }

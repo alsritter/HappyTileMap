@@ -16,9 +16,12 @@ MonoBehaviour:
   - m_Name: Tiles
     m_Hash: -573264961
     m_CategoryList:
-    - m_Name: tils001
+    - m_Name: 000
       m_Hash: 621491123
-      m_Sprite: {fileID: 21300000, guid: 6362641fb6b188546a8044a9c3d6cbc0, type: 3}
-    - m_Name: tils002
+      m_Sprite: {fileID: 21300000, guid: ed1d1d6233df3494bb3f32097528fa02, type: 3}
+    - m_Name: 001
       m_Hash: -1140694519
       m_Sprite: {fileID: 21300000, guid: 40d045e3f34a5854f8c98d7520feb277, type: 3}
+    - m_Name: 002
+      m_Hash: -1140694519
+      m_Sprite: {fileID: 21300000, guid: 6362641fb6b188546a8044a9c3d6cbc0, type: 3}
