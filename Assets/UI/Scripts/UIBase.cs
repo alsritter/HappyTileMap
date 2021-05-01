@@ -38,12 +38,18 @@ namespace UIFrame
         {
             if (isInit)
                 return;
+
             isInit = true;
+
+            // CanvasGroup 组件可以用来控制一组 UI 元素的某些方面（如同它名字一样，用于管理一组 UI），
+            // CanvasGroup 的属性会影响他所有 children 的 GameObject
+
             mCanvasGroup = GetComponent<CanvasGroup>();
             if (mCanvasGroup == null)
             {
                 gameObject.AddComponent<CanvasGroup>();
                 mCanvasGroup = GetComponent<CanvasGroup>();
+                // 初始化
                 mCanvasGroup.alpha = 1;
                 mCanvasGroup.ignoreParentGroups = false;
                 mCanvasGroup.interactable = false;
@@ -51,6 +57,7 @@ namespace UIFrame
             }
 
             gameObject.SetActive(true);
+
             var buttons = GetComponentsInChildren<Button>();
             foreach (var item in buttons)
             {
@@ -79,15 +86,21 @@ namespace UIFrame
             }
         }
 
+        /// <summary>
+        /// 打开时的动画
+        /// </summary>
         public void OpenActivity()
         {
             mSelfShowed = true;
             gameObject.SetActive(true);
             mTransform.position = mDefaultPos + new Vector3(Screen.width, 0, 0);
-            
+
             mTransform.DOMoveX(mDefaultPos.x, 0.2f);
         }
 
+        /// <summary>
+        /// 关闭时的动画
+        /// </summary>
         public void CloseActivity()
         {
             mSelfShowed = false;
