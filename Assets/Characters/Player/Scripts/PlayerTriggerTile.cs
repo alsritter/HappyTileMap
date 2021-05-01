@@ -1,56 +1,61 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using CustomTileFrame;
+using PlayerController.FSM;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-/// <summary>
-/// 用于触发脚下的 Tile
-/// </summary>
-[DisallowMultipleComponent]
-[RequireComponent(typeof(PlayerFSMSystem))]
-public class PlayerTriggerTile : MonoBehaviour
+namespace PlayerController
 {
-    public Tilemap tileMap; // 绘制的 TileMap
-
-    private PlayerFSMSystem pm;
-
-    private class WingTiles
+    /// <summary>
+    /// 用于触发脚下的 Tile
+    /// </summary>
+    [DisallowMultipleComponent]
+    [RequireComponent(typeof(PlayerFSMSystem))]
+    public class PlayerTriggerTile : MonoBehaviour
     {
-        public CustomTile leftTile { get; set; }
-        public CustomTile rightTile { get; set; }
-    }
+        public Tilemap tileMap; // 绘制的 TileMap
 
-    private void Start()
-    {
-        pm = GetComponent<PlayerFSMSystem>();
-    }
+        private PlayerFSMSystem pm;
 
-    // Update is called once per frame
-    private void Update()
-    {
-        var wingTiles = CastUnderFoot();
-        if (wingTiles.leftTile != null)
+        private class WingTiles
         {
-            wingTiles.leftTile.SetPlayer(pm);
+            public CustomTile leftTile { get; set; }
+            public CustomTile rightTile { get; set; }
         }
 
-        if (wingTiles.rightTile != null)
+        private void Start()
         {
-            wingTiles.rightTile.SetPlayer(pm);
+            pm = GetComponent<PlayerFSMSystem>();
         }
-    }
 
-    private WingTiles CastUnderFoot()
-    {
-        // 左右两边的 CustomTile
-        var wingTiles = new WingTiles();
+        // Update is called once per frame
+        private void Update()
+        {
+            var wingTiles = CastUnderFoot();
+            if (wingTiles.leftTile != null)
+            {
+                wingTiles.leftTile.SetPlayer(pm);
+            }
 
-        var leftCell = tileMap.WorldToCell(pm.leftFoot.transform.position);
-        var rightCell = tileMap.WorldToCell(pm.rightFoot.transform.position);
+            if (wingTiles.rightTile != null)
+            {
+                wingTiles.rightTile.SetPlayer(pm);
+            }
+        }
 
-        wingTiles.leftTile = tileMap.GetTile<CustomTile>(leftCell);
-        wingTiles.rightTile = tileMap.GetTile<CustomTile>(rightCell);
+        private WingTiles CastUnderFoot()
+        {
+            // 左右两边的 CustomTile
+            var wingTiles = new WingTiles();
 
-        return wingTiles;
+            var leftCell = tileMap.WorldToCell(pm.leftFoot.transform.position);
+            var rightCell = tileMap.WorldToCell(pm.rightFoot.transform.position);
+
+            wingTiles.leftTile = tileMap.GetTile<CustomTile>(leftCell);
+            wingTiles.rightTile = tileMap.GetTile<CustomTile>(rightCell);
+
+            return wingTiles;
+        }
     }
 }

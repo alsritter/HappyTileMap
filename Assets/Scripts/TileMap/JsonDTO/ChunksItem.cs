@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace MapDataEntity.Dto
+namespace CustomTileFrame.MapDataEntity.Dto
 {
     public class ChunksItem
     {

@@ -2,32 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jump2State : PlayerBaseState
+namespace PlayerController.FSM
 {
-    public override string name => "Jump2State";
-
-    private readonly InTheAirState parentSate;
-
-    public override void Enter(PlayerFSMSystem player)
+    public class Jump2State : PlayerBaseState
     {
-        // 先跳跃
-        if (player != null)
+        public override string name => "Jump2State";
+
+        private readonly InTheAirState parentSate;
+
+        public override void Enter(PlayerFSMSystem player)
         {
-            player.rb.AddForce(
-                new Vector2(0f, player.jumpForce / player.jump2ForceDivisor), ForceMode2D.Impulse);
+            // 先跳跃
+            if (player != null)
+            {
+                player.rb.AddForce(
+                    new Vector2(0f, player.jumpForce / player.jump2ForceDivisor), ForceMode2D.Impulse);
+            }
         }
-    }
 
-    public Jump2State(InTheAirState parentSate)
-    {
-        this.parentSate = parentSate;
-    }
+        public Jump2State(InTheAirState parentSate)
+        {
+            this.parentSate = parentSate;
+        }
 
-    public override void Update(PlayerFSMSystem player)
-    {
-    }
+        public override void Update(PlayerFSMSystem player)
+        {
+        }
 
-    public override void FixedUpdate(PlayerFSMSystem player)
-    {
+        public override void FixedUpdate(PlayerFSMSystem player)
+        {
+        }
     }
 }

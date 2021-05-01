@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using EffectDocumentTools.EffectDocumentAttributeNamespace;
-using UnityEngine;
 
 namespace EffectDocumentTools
 {
     // 创建专门用于生成文档的 Attribute
-    namespace EffectDocumentAttributeNamespace
+    namespace EffectDocumentAttribute
     {
         // 只能用在类上面，用于读取该类的用途和版本号之类的信息
         [AttributeUsage(AttributeTargets.Class)]

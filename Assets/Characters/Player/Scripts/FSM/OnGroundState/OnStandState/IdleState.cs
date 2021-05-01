@@ -2,30 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 站立的待机状态
-/// </summary>
-public class IdleState : PlayerBaseState
+namespace PlayerController.FSM
 {
-    public IdleState(OnStandState parentState)
+    /// <summary>
+    /// 站立的待机状态
+    /// </summary>
+    public class IdleState : PlayerBaseState
     {
-        this.parentState = parentState;
-    }
-
-    private readonly OnStandState parentState;
-
-    public override string name => "IdleState";
-
-    public override void Update(PlayerFSMSystem player)
-    {
-        if (Mathf.Abs(player.xVelocity) > 0.001)
+        public IdleState(OnStandState parentState)
         {
-            TransitionOtherState(parentState, parentState.walkState, player);
+            this.parentState = parentState;
         }
-    }
+
+        private readonly OnStandState parentState;
+
+        public override string name => "IdleState";
+
+        public override void Update(PlayerFSMSystem player)
+        {
+            if (Mathf.Abs(player.xVelocity) > 0.001)
+            {
+                TransitionOtherState(parentState, parentState.walkState, player);
+            }
+        }
 
 
-    public override void FixedUpdate(PlayerFSMSystem player)
-    {
+        public override void FixedUpdate(PlayerFSMSystem player)
+        {
+        }
     }
 }

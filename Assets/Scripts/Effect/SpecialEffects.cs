@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using EffectDocumentTools.EffectDocumentAttributeNamespace;
+using EffectDocumentTools.EffectDocumentAttribute;
+using PlayerController.FSM;
 using UnityEngine;
 
-namespace SpecialEffects
+namespace TileEffect.SpecialEffects
 {
     [EffectInfo("空效果", 1, "alsritter")]
     public class EmptyEffect : BaseObjectEffect

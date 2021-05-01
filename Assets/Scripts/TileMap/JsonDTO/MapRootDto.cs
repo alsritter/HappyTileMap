@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using UnityEngine;
 
-namespace MapDataEntity.Dto
+namespace CustomTileFrame.MapDataEntity.Dto
 {
     public class MapRootDto
     {

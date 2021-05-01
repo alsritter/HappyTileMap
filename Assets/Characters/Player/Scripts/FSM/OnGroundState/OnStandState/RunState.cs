@@ -2,44 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RunState : PlayerBaseState
+namespace PlayerController.FSM
 {
-    public RunState(OnStandState parentState)
+    public class RunState : PlayerBaseState
     {
-        this.parentState = parentState;
-    }
-
-    private readonly OnStandState parentState;
-
-    public override string name => "RunState";
-
-    public override void Enter(PlayerFSMSystem player)
-    {
-        player.isRun = true;
-    }
-
-    public override void Update(PlayerFSMSystem player)
-    {
-        if (Mathf.Abs(player.xVelocity) < 0.001)
+        public RunState(OnStandState parentState)
         {
-            TransitionOtherState(parentState, parentState.idleState, player);
+            this.parentState = parentState;
         }
 
-        if (Input.GetButtonUp("Run"))
+        private readonly OnStandState parentState;
+
+        public override string name => "RunState";
+
+        public override void Enter(PlayerFSMSystem player)
         {
-            TransitionOtherState(parentState, parentState.walkState, player);
+            player.isRun = true;
         }
-    }
 
-    public override void FixedUpdate(PlayerFSMSystem player)
-    {
-        player.rb.velocity =
-            new Vector2(player.xVelocity * (player.speed + player.speed / player.runDivisor),
-                player.rb.velocity.y);
-    }
+        public override void Update(PlayerFSMSystem player)
+        {
+            if (Mathf.Abs(player.xVelocity) < 0.001)
+            {
+                TransitionOtherState(parentState, parentState.idleState, player);
+            }
 
-    public override void Exit(PlayerFSMSystem player)
-    {
-        player.isRun = false;
+            if (Input.GetButtonUp("Run"))
+            {
+                TransitionOtherState(parentState, parentState.walkState, player);
+            }
+        }
+
+        public override void FixedUpdate(PlayerFSMSystem player)
+        {
+            player.rb.velocity =
+                new Vector2(player.xVelocity * (player.speed + player.speed / player.runDivisor),
+                    player.rb.velocity.y);
+        }
+
+        public override void Exit(PlayerFSMSystem player)
+        {
+            player.isRun = false;
+        }
     }
 }

@@ -2,56 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 站立状态
-/// </summary>
-public class OnStandState : PlayerBaseState
+namespace PlayerController.FSM
 {
-    // 站起的状态
-    public readonly WalkState walkState;
-    public readonly IdleState idleState; // 初始状态
-    public readonly RunState runState;
-
-    private readonly OnGroundState parentSate;
-
     /// <summary>
-    /// 在入口点重置当前状态
+    /// 站立状态
     /// </summary>
-    /// <param name="player"></param>
-    public override void Enter(PlayerFSMSystem player)
+    public class OnStandState : PlayerBaseState
     {
-        TransitionState(idleState, player);
-    }
+        // 站起的状态
+        public readonly WalkState walkState;
+        public readonly IdleState idleState; // 初始状态
+        public readonly RunState runState;
 
-    public OnStandState(OnGroundState parentSate)
-    {
-        this.parentSate = parentSate;
-        idleState = new IdleState(this);
-        runState = new RunState(this);
-        walkState = new WalkState(this);
-        TransitionState(idleState, null);
-    }
+        private readonly OnGroundState parentSate;
 
-    public override string name => "OnStandState";
-
-    public override void Update(PlayerFSMSystem player)
-    {
-        if (Input.GetButton("Crouch"))
+        /// <summary>
+        /// 在入口点重置当前状态
+        /// </summary>
+        /// <param name="player"></param>
+        public override void Enter(PlayerFSMSystem player)
         {
-            TransitionOtherState(parentSate, parentSate.onCrouchState, player);
-            return;
+            TransitionState(idleState, player);
         }
 
-        currentState.Update(player);
-    }
+        public OnStandState(OnGroundState parentSate)
+        {
+            this.parentSate = parentSate;
+            idleState = new IdleState(this);
+            runState = new RunState(this);
+            walkState = new WalkState(this);
+            TransitionState(idleState, null);
+        }
 
-    public override void FixedUpdate(PlayerFSMSystem player)
-    {
-        currentState.FixedUpdate(player);
-    }
+        public override string name => "OnStandState";
 
-    public override void Exit(PlayerFSMSystem player)
-    {
-        currentState.Exit(player);
+        public override void Update(PlayerFSMSystem player)
+        {
+            if (Input.GetButton("Crouch"))
+            {
+                TransitionOtherState(parentSate, parentSate.onCrouchState, player);
+                return;
+            }
+
+            currentState.Update(player);
+        }
+
+        public override void FixedUpdate(PlayerFSMSystem player)
+        {
+            currentState.FixedUpdate(player);
+        }
+
+        public override void Exit(PlayerFSMSystem player)
+        {
+            currentState.Exit(player);
+        }
     }
 }

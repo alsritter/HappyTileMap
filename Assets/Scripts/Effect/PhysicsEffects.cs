@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using EffectDocumentTools.EffectDocumentAttributeNamespace;
+using EffectDocumentTools.EffectDocumentAttribute;
+using PlayerController.FSM;
 using UnityEngine;
 
-namespace PhysicsEffects
+namespace TileEffect.PhysicsEffects
 {
     [EffectInfo("蹦床效果", 1, "alsritter")]
     public class TrampolineEffect : BaseObjectEffect

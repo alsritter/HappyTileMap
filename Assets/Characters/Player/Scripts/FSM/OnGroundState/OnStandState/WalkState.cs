@@ -2,34 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkState : PlayerBaseState
+namespace PlayerController.FSM
 {
-    public WalkState(OnStandState parentState)
+    public class WalkState : PlayerBaseState
     {
-        this.parentState = parentState;
-    }
-
-    private readonly OnStandState parentState;
-
-    public override string name => "WalkState";
-
-    public override void Update(PlayerFSMSystem player)
-    {
-        if (Mathf.Abs(player.xVelocity) < 0.001)
+        public WalkState(OnStandState parentState)
         {
-            TransitionOtherState(parentState, parentState.idleState, player);
+            this.parentState = parentState;
         }
 
-        if (Input.GetButton("Run"))
-        {
-            TransitionOtherState(parentState, parentState.runState, player);
-        }
-    }
+        private readonly OnStandState parentState;
 
-    public override void FixedUpdate(PlayerFSMSystem player)
-    {
-        player.rb.velocity =
-            new Vector2(player.xVelocity * player.speed,
-                player.rb.velocity.y);
+        public override string name => "WalkState";
+
+        public override void Update(PlayerFSMSystem player)
+        {
+            if (Mathf.Abs(player.xVelocity) < 0.001)
+            {
+                TransitionOtherState(parentState, parentState.idleState, player);
+            }
+
+            if (Input.GetButton("Run"))
+            {
+                TransitionOtherState(parentState, parentState.runState, player);
+            }
+        }
+
+        public override void FixedUpdate(PlayerFSMSystem player)
+        {
+            player.rb.velocity =
+                new Vector2(player.xVelocity * player.speed,
+                    player.rb.velocity.y);
+        }
     }
 }

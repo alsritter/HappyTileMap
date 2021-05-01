@@ -2,43 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClimbingState : PlayerBaseState
+namespace PlayerController.FSM
 {
-    public readonly InClimbState parentState;
-
-    public override string name => "Climbing";
-
-
-    public override void Update(PlayerFSMSystem player)
+    public class ClimbingState : PlayerBaseState
     {
-        if (Mathf.Abs(player.yVelocity) < 0.01)
-        {
-            TransitionOtherState(parentState, parentState.hangWallState, player);
-        }
-    }
+        public readonly InClimbState parentState;
 
-    public override void FixedUpdate(PlayerFSMSystem player)
-    {
-        switch (player.isOnGround)
+        public override string name => "Climbing";
+
+
+        public override void Update(PlayerFSMSystem player)
         {
-            // 如果已经在地面了就无法再下降了
-            case true when player.yVelocity < 0:
-                return;
-            // 如果到顶端了无法向上移动
-            case false when player.isOnWallTap && player.yVelocity > 0:
-                //player.rb.bodyType = RigidbodyType2D.Dynamic;
-                //player.rb.AddForce(new Vector2(0, player.jumpForce / player.jump2ForceDivisor / 2),ForceMode2D.Impulse);
-                player.yVelocity = 0;
-                break;
+            if (Mathf.Abs(player.yVelocity) < 0.01)
+            {
+                TransitionOtherState(parentState, parentState.hangWallState, player);
+            }
         }
 
-        player.transform.position =
-            new Vector2(player.transform.position.x,
-                player.transform.position.y + player.climbSpeed * player.yVelocity);
-    }
+        public override void FixedUpdate(PlayerFSMSystem player)
+        {
+            switch (player.isOnGround)
+            {
+                // 如果已经在地面了就无法再下降了
+                case true when player.yVelocity < 0:
+                    return;
+                // 如果到顶端了无法向上移动
+                case false when player.isOnWallTap && player.yVelocity > 0:
+                    //player.rb.bodyType = RigidbodyType2D.Dynamic;
+                    //player.rb.AddForce(new Vector2(0, player.jumpForce / player.jump2ForceDivisor / 2),ForceMode2D.Impulse);
+                    player.yVelocity = 0;
+                    break;
+            }
 
-    public ClimbingState(InClimbState parentState)
-    {
-        this.parentState = parentState;
+            player.transform.position =
+                new Vector2(player.transform.position.x,
+                    player.transform.position.y + player.climbSpeed * player.yVelocity);
+        }
+
+        public ClimbingState(InClimbState parentState)
+        {
+            this.parentState = parentState;
+        }
     }
 }

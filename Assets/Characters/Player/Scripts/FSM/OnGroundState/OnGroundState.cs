@@ -2,50 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 在地面的状态
-/// </summary>
-public class OnGroundState : PlayerBaseState
+namespace PlayerController.FSM
 {
-    // 地面的状态
-    public readonly OnStandState onStandState;
-    public readonly OnCrouchState onCrouchState;
-
-    public override string name => "OnGroundState";
-
     /// <summary>
-    /// 在入口点重置当前状态
+    /// 在地面的状态
     /// </summary>
-    /// <param name="player"></param>
-    public override void Enter(PlayerFSMSystem player)
+    public class OnGroundState : PlayerBaseState
     {
-        TransitionState(onStandState, player);
-    }
+        // 地面的状态
+        public readonly OnStandState onStandState;
+        public readonly OnCrouchState onCrouchState;
 
-    public override void Update(PlayerFSMSystem player)
-    {
-        currentState.Update(player);
-    }
+        public override string name => "OnGroundState";
 
-    public override void FixedUpdate(PlayerFSMSystem player)
-    {
-        currentState.FixedUpdate(player);
-    }
+        /// <summary>
+        /// 在入口点重置当前状态
+        /// </summary>
+        /// <param name="player"></param>
+        public override void Enter(PlayerFSMSystem player)
+        {
+            TransitionState(onStandState, player);
+        }
 
-    public OnGroundState()
-    {
-        onStandState = new OnStandState(this);
-        onCrouchState = new OnCrouchState(this);
-        TransitionState(onStandState,null);
-    }
+        public override void Update(PlayerFSMSystem player)
+        {
+            currentState.Update(player);
+        }
 
-    /// <summary>
-    /// 在入口点重置当前状态
-    /// </summary>
-    /// <param name="player"></param>
-    public override void Exit(PlayerFSMSystem player)
-    {
-        // 退出状态时也修改一下当前的状态
-        TransitionState(onStandState, player);
+        public override void FixedUpdate(PlayerFSMSystem player)
+        {
+            currentState.FixedUpdate(player);
+        }
+
+        public OnGroundState()
+        {
+            onStandState = new OnStandState(this);
+            onCrouchState = new OnCrouchState(this);
+            TransitionState(onStandState, null);
+        }
+
+        /// <summary>
+        /// 在入口点重置当前状态
+        /// </summary>
+        /// <param name="player"></param>
+        public override void Exit(PlayerFSMSystem player)
+        {
+            // 退出状态时也修改一下当前的状态
+            TransitionState(onStandState, player);
+        }
     }
 }

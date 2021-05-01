@@ -2,26 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HangWallState : PlayerBaseState
+namespace PlayerController.FSM
 {
-    public readonly InClimbState parentState;
-
-    public override string name => "HangWallState";
-
-    public override void Update(PlayerFSMSystem player)
+    public class HangWallState : PlayerBaseState
     {
-        if (Mathf.Abs(player.yVelocity) > 0.01)
+        public readonly InClimbState parentState;
+
+        public override string name => "HangWallState";
+
+        public override void Update(PlayerFSMSystem player)
         {
-            TransitionOtherState(parentState, parentState.climbingState, player);
+            if (Mathf.Abs(player.yVelocity) > 0.01)
+            {
+                TransitionOtherState(parentState, parentState.climbingState, player);
+            }
         }
-    }
 
-    public override void FixedUpdate(PlayerFSMSystem player)
-    {
-    }
+        public override void FixedUpdate(PlayerFSMSystem player)
+        {
+        }
 
-    public HangWallState(InClimbState parentState)
-    {
-        this.parentState = parentState;
+        public HangWallState(InClimbState parentState)
+        {
+            this.parentState = parentState;
+        }
     }
 }
