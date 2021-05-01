@@ -23,6 +23,8 @@ public class InTheAirState : PlayerBaseState
         // 只有按下 Jump 进入的状态才需要进入跳跃（注意这个 GetButtonDown 是获取的同一帧的是否按下）
         TransitionState(jumpState, player, Input.GetButtonDown("Jump"), true);
         player.inTheAir = true;
+        // 跳跃时无摩擦
+        player.rb.sharedMaterial = player.noFriction;
     }
 
     public override void Update(PlayerFSMSystem player)
@@ -51,5 +53,7 @@ public class InTheAirState : PlayerBaseState
     {
         currentState.Exit(player);
         player.inTheAir = false;
+        // 站在时有摩擦
+        player.rb.sharedMaterial = player.hasFriction;
     }
 }

@@ -34,11 +34,11 @@ public class GlobalEffectRegistry
     private static void RegistryPhysics()
     {
         // 向左移动的传送带
-        allEffect.Add("00001", new ConveyorEffect(true, 10));
+        allEffect.Add("00001", new ConveyorEffect(true, 15));
         // 向右移动的传送带
-        allEffect.Add("00002", new ConveyorEffect(false, 10));
+        allEffect.Add("00002", new ConveyorEffect(false, 15));
         // 蹦床效果
-        allEffect.Add("00003", new TrampolineEffect(10));
+        allEffect.Add("00003", new TrampolineEffect(3));
     }
 
     public static BaseObjectEffect GetEffect(string key)

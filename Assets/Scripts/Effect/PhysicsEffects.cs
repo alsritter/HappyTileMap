@@ -11,7 +11,7 @@ namespace PhysicsEffects
         private readonly float jumpForce;
         
         /// <summary>
-        /// 
+        /// 蹦床效果
         /// </summary>
         /// <param name="jumpForce">跳跃的力</param>
         public TrampolineEffect(float jumpForce)

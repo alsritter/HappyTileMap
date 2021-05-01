@@ -7,14 +7,14 @@ using UnityEngine;
 /// <summary>
 /// 这个用于刷新修改的 Tile 效果
 /// </summary>
-[CustomEditor(typeof(CustomTile))]
+[CustomEditor(typeof(TestToolTile))]
 public class TileBuilderEditor : Editor
 {
     public override void OnInspectorGUI() {
         DrawDefaultInspector();
-        var myTile = (CustomTile)target;
+        var myTile = (TestToolTile)target;
 
-        if(GUILayout.Button("刷新效果")) {
+        if(GUILayout.Button("刷新更改")) {
             myTile.RefreshTileInfo();
         }
     }

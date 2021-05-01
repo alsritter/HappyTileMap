@@ -29,6 +29,11 @@ public class PlayerFSMSystem : MonoBehaviour
     public float climbSpeed = 2f;
     public float crouchSpeedDivisor = 3f; // 下蹲走路时的除数
 
+    // 用于解决卡墙的问题
+    // 参考资料：Unity 横版2D移动跳跃问题——关于一段跳与二段跳 https://www.cnblogs.com/AMzz/p/11802502.html
+    [Header("物理")] 
+    public PhysicsMaterial2D hasFriction;  //有摩擦力的
+    public PhysicsMaterial2D noFriction;  //无摩擦力的
 
     [Header("跳跃参数")]
     [Tooltip("跳跃的基础力")]
