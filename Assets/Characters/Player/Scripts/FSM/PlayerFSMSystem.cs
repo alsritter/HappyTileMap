@@ -7,6 +7,8 @@ using UnityEngine;
 /// 注意，状态机不能直接读取下面的这些 Public 修饰的状态，
 /// 它们是用于在编辑面板配置的，状态机应该读取 PlayerFSMGlobalVariable 里面的参数
 /// </summary>
+[DisallowMultipleComponent]
+[RequireComponent(typeof(Rigidbody2D),typeof(BoxCollider2D))]
 public class PlayerFSMSystem : MonoBehaviour
 {
     [HideInInspector] public PlayerBaseState curState { get; private set; } // 指向当前的状态
@@ -15,12 +17,6 @@ public class PlayerFSMSystem : MonoBehaviour
     public Rigidbody2D rb;
     [HideInInspector]
     public BoxCollider2D coll;
-    [HideInInspector]
-    public GameObject rightFoot;
-    [HideInInspector]
-    public GameObject leftFoot;
-    [HideInInspector]
-    public GameObject hand;
 
     [Header("移动参数")]
     public float speed = 8f;
@@ -43,10 +39,6 @@ public class PlayerFSMSystem : MonoBehaviour
     [Tooltip("蹬墙跳给的推力")]
     public float climbLateralForce = 10f;
 
-    [Header("当前需要检查的Layer")]
-    public LayerMask groundLayer; // 当前需要检查的“地面”的 Layer
-    public LayerMask ladderLayer; // 当前需要检查的“楼梯”的 Layer
-
 
     // 这里只存根状态
     public PlayerBaseState onGroundState; // 地面的状态
@@ -56,11 +48,21 @@ public class PlayerFSMSystem : MonoBehaviour
     // 临时变量
     [HideInInspector]
     public float xVelocity; // 临时存储移动速度，可以用于判断方向
+    [HideInInspector]
     public float yVelocity;
 
-    private float footDistance; // 脚距离中心点的距离
-    private float handDistance; // 脚距离中心点的距离
-    private Vector2 handDirection;
+    // 手的方向
+    [HideInInspector]
+    public Vector2 handDirection;
+
+    [HideInInspector]
+    public GameObject rightFoot;
+    [HideInInspector]
+    public GameObject leftFoot;
+    [HideInInspector]
+    public GameObject hand;
+    [HideInInspector]
+    public GameObject head;
 
     [Header("Debug 相关 检查状态用")]
     public bool isCrouching; // 在下蹲
@@ -86,17 +88,13 @@ public class PlayerFSMSystem : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        coll = GetComponent<BoxCollider2D>();
         rightFoot = GameObject.FindGameObjectWithTag("rightFoot");
         leftFoot = GameObject.FindGameObjectWithTag("leftFoot");
         hand = GameObject.FindGameObjectWithTag("hand");
+        head = GameObject.FindGameObjectWithTag("head");
 
-
-        footDistance = Mathf.Abs(leftFoot.transform.position.y - coll.transform.TransformPoint(coll.offset).y);
-        handDistance = Mathf.Abs(hand.transform.position.x - coll.transform.TransformPoint(coll.offset).x);
-
-        handDirection = gameObject.transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+        rb = GetComponent<Rigidbody2D>();
+        coll = GetComponent<BoxCollider2D>();
 
         // 最开始的状态
         curState = onGroundState;
@@ -115,7 +113,6 @@ public class PlayerFSMSystem : MonoBehaviour
     {
         FlipDirection();
         curState.FixedUpdate(this);
-        PhysicsCheck(); // 射线检查
         if (showState) Debug.Log(curState.GetCurrentStateName(curState)); // 打印当前的状态
     }
 
@@ -132,11 +129,9 @@ public class PlayerFSMSystem : MonoBehaviour
             handDirection = Vector2.left;
         }
 
-        if (xVelocity > 0.01)
-        {
-            gameObject.transform.localScale = new Vector3(1, 1, 1);
-            handDirection = Vector2.right;
-        }
+        if (!(xVelocity > 0.01)) return;
+        gameObject.transform.localScale = new Vector3(1, 1, 1);
+        handDirection = Vector2.right;
     }
 
 
@@ -172,45 +167,6 @@ public class PlayerFSMSystem : MonoBehaviour
         }
     }
 
-
-    /// <summary>
-    /// 射线检查
-    /// </summary>
-    private void PhysicsCheck()
-    {
-        Vector2 leftPos = leftFoot.transform.position;
-        Vector2 rightPos = rightFoot.transform.position;
-        Vector2 handPos = hand.transform.position;
-        Vector2 blockPos = handPos - new Vector2(0, coll.offset.y);
-
-        // 头顶的射线，用于判断是否刚好够到岩壁（头顶不应该被遮住）
-        RaycastHit2D blockedCheck = Physics2D.Raycast(blockPos, handDirection, -handDistance, ladderLayer);
-
-
-        RaycastHit2D leftCheck =
-            Physics2D.Raycast(leftPos, Vector2.up, footDistance, groundLayer);
-
-        RaycastHit2D rightCheck =
-            Physics2D.Raycast(rightPos, Vector2.up, footDistance, groundLayer);
-
-        RaycastHit2D footBottom = Physics2D.Raycast(leftPos, handDirection,  Mathf.Abs(leftPos.x - rightPos.x), groundLayer);
-        
-        RaycastHit2D handCheck =
-            Physics2D.Raycast(handPos, handDirection, -handDistance, ladderLayer);
-
-        Debug.DrawRay(leftPos, handDirection * Mathf.Abs(leftPos.x - rightPos.x), footBottom ? Color.red : Color.green);
-        Debug.DrawRay(blockPos, -handDirection * handDistance, blockedCheck ? Color.red : Color.green);
-        Debug.DrawRay(handPos, -handDirection * handDistance, handCheck ? Color.red : Color.green);
-        Debug.DrawRay(leftPos, Vector2.up * footDistance, leftCheck ? Color.red : Color.green);
-        Debug.DrawRay(rightPos, Vector2.up * footDistance,
-            rightCheck ? Color.red : Color.green);
-
-        graspWall = handCheck;
-        isOnWallTap = !blockedCheck;
-
-        // 判断当前是否在地面（这里使用了隐式转换，RaycastHit2D 转成 bool类型 标识它是否被击中）
-        isOnGround = leftCheck || rightCheck || footBottom;
-    }
 
     private void SetRootCurrentState(PlayerBaseState state)
     {

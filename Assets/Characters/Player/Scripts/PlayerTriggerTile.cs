@@ -6,18 +6,13 @@ using UnityEngine.Tilemaps;
 /// <summary>
 /// 用于触发脚下的 Tile
 /// </summary>
+[DisallowMultipleComponent]
+[RequireComponent(typeof(PlayerFSMSystem))]
 public class PlayerTriggerTile : MonoBehaviour
 {
     public Tilemap tileMap; // 绘制的 TileMap
 
     private PlayerFSMSystem pm;
-
-    [HideInInspector]
-    public GameObject rightFoot;
-    [HideInInspector]
-    public GameObject leftFoot;
-    [HideInInspector]
-    public GameObject hand;
 
     private class WingTiles
     {
@@ -27,8 +22,6 @@ public class PlayerTriggerTile : MonoBehaviour
 
     private void Start()
     {
-        rightFoot = GameObject.FindGameObjectWithTag("rightFoot");
-        leftFoot = GameObject.FindGameObjectWithTag("leftFoot");
         pm = GetComponent<PlayerFSMSystem>();
     }
 
@@ -51,8 +44,9 @@ public class PlayerTriggerTile : MonoBehaviour
     {
         // 左右两边的 CustomTile
         var wingTiles = new WingTiles();
-        var leftCell = tileMap.WorldToCell(leftFoot.transform.position);
-        var rightCell = tileMap.WorldToCell(rightFoot.transform.position);
+
+        var leftCell = tileMap.WorldToCell(pm.leftFoot.transform.position);
+        var rightCell = tileMap.WorldToCell(pm.rightFoot.transform.position);
 
         wingTiles.leftTile = tileMap.GetTile<CustomTile>(leftCell);
         wingTiles.rightTile = tileMap.GetTile<CustomTile>(rightCell);

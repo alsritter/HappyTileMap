@@ -19,6 +19,7 @@ public class InClimbState : PlayerBaseState
     public override void Update(PlayerFSMSystem player)
     {
         currentState.Update(player);
+        // 如果跳跃
         if (Input.GetButtonDown("Jump"))
         {
             player.rb.bodyType = RigidbodyType2D.Dynamic;

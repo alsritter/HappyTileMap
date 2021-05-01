@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 [RequireComponent(typeof(Animator), typeof(PlayerFSMSystem))]
 public class PlayerAnimation : MonoBehaviour
 {

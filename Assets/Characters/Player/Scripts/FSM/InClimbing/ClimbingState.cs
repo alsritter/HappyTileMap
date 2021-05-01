@@ -24,11 +24,11 @@ public class ClimbingState : PlayerBaseState
             // 如果已经在地面了就无法再下降了
             case true when player.yVelocity < 0:
                 return;
-            // 如果到顶端了会自动跳跃
+            // 如果到顶端了无法向上移动
             case false when player.isOnWallTap && player.yVelocity > 0:
-                player.rb.bodyType = RigidbodyType2D.Dynamic;
-                player.rb.AddForce(new Vector2(0, player.jumpForce / player.jump2ForceDivisor / 2),
-                    ForceMode2D.Impulse);
+                //player.rb.bodyType = RigidbodyType2D.Dynamic;
+                //player.rb.AddForce(new Vector2(0, player.jumpForce / player.jump2ForceDivisor / 2),ForceMode2D.Impulse);
+                player.yVelocity = 0;
                 break;
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using CommonTileEnum;
 using MapDataEntity.Dto;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -37,7 +38,7 @@ public class CreateMap : MonoBehaviour
         tileInfos.ForEach(tileInfo =>
         {
             var tile = ScriptableObject.CreateInstance<CustomTile>();
-            tile.InitializeMyTileInfo(tileInfo.EffectKeys, tileInfo.TileImageId, tileInfo.DisplayModel);
+            tile.InitializeMyTileInfo(tileInfo.EffectKeys, tileInfo.TileImageId, tileInfo.DisplayModel, tileInfo.Tags);
             ColorUtility.TryParseHtmlString(tileInfo.Color, out var nowColor);
             tile.color = nowColor;
             tiles.Add(tile);
