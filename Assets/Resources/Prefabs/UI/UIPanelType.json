@@ -1,0 +1,22 @@
+[
+    {
+        "panelType": "LoginPanel",
+        "path": "Prefabs/UI/Panel/LoginPanel"
+    },
+    {
+        "panelType": "SelectModePanel",
+        "path": "Prefabs/UI/Panel/SelectModePanel"
+    },
+    {
+        "panelType": "SettingPanel",
+        "path": "Prefabs/UI/Panel/SettingPanel"
+    },
+    {
+        "panelType": "StartPanel",
+        "path": "Prefabs/UI/Panel/StartPanel"
+    },
+    {
+        "panelType": "StoryModePanel",
+        "path": "Prefabs/UI/Panel/StoryModePanel"
+    }
+]

@@ -22,7 +22,7 @@ namespace CustomTileFrame.Tool
         // Start is called before the first frame update
         private void Start()
         {
-            mapDto = LoadJsonToTile.LoadJsonData();
+            mapDto = LoadJsonTool.ParseJsonMapData();
             LoadingTile(mapDto);
             StartCoroutine(InitData(mapDto));
         }
