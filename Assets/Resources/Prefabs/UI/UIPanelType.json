@@ -18,5 +18,13 @@
     {
         "panelType": "StoryModePanel",
         "path": "Prefabs/UI/Panel/StoryModePanel"
+    },
+    {
+        "panelType": "GamePanel",
+        "path": "Prefabs/UI/Panel/GamePanel"
+    },
+    {
+        "panelType": "GameMenuPanel",
+        "path": "Prefabs/UI/Panel/GameMenuPanel"
     }
 ]

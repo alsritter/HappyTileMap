@@ -12,7 +12,6 @@ using UnityEngine;
 /// </summary>
 public class LoadJsonTool
 {
-
     /// <summary>
     /// 加载地图数据
     /// </summary>

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class StartPanelController : BasePanel
 {
+    public override UIPanelType uiType => UIPanelType.StartPanel;
+
     public override void DidOnClick(GameObject sender)
     {
         if (IsPause) return;

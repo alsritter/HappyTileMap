@@ -8,6 +8,8 @@ using UnityEngine;
 
 public class LoginPanelController : BasePanel
 {
+    public override UIPanelType uiType => UIPanelType.LoginPanel;
+
     public override void DidOnClick(GameObject sender)
     {
         // 如果暂停了则不再执行按钮操作

@@ -6,6 +6,8 @@ namespace UIFrame
 {
     public class TestMenuUI : BasePanel
     {
+        public override UIPanelType uiType => UIPanelType.StartPanel;
+
         /// <summary>
         /// 这里能收到这个面板下的所有 Button 的消息
         /// 所以根据名字来判断它的职责

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class StoryModePanelController : BasePanel
 {
+    public override UIPanelType uiType => UIPanelType.StoryModePanel;
+
     public override void DidOnClick(GameObject sender)
     {
         if (IsPause) return;

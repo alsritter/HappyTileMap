@@ -17,6 +17,8 @@ namespace UIFrame
         private bool isInit = false;
         private bool isPause = false;
 
+        public abstract UIPanelType uiType { get; }
+
         // UI 是否被冻结（暂停）
         internal bool IsPause
         {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UIFrame;
 using UnityEngine;
 
-public class GamePanelController : BasePanel
+public class GameMenuPanelController : BasePanel
 {
-    public override UIPanelType uiType => UIPanelType.GamePanel;
+    public override UIPanelType uiType => UIPanelType.GameMenuPanel;
 
     public override void DidOnClick(GameObject sender)
     {
@@ -13,8 +13,8 @@ public class GamePanelController : BasePanel
 
         switch (sender.name)
         {
-            case "GameMenuButton":
-                UIManager.instance.PushPanel(UIPanelType.GameMenuPanel);
+            case "CloseButton":
+                UIManager.instance.PopPanel();
                 break;
             default:
                 break;

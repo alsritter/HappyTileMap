@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SelectModePanelController : BasePanel
 {
+    public override UIPanelType uiType => UIPanelType.SelectModePanel;
+
     public override void DidOnClick(GameObject sender)
     {
         // 如果暂停了则不再执行按钮操作

@@ -25,6 +25,14 @@ namespace UIFrame
         /// <summary>
         /// 故事模式窗口
         /// </summary>
-        StoryModePanel
+        StoryModePanel,
+        /// <summary>
+        /// 游戏 UI 窗口
+        /// </summary>
+        GamePanel,
+        /// <summary>
+        /// 游戏菜单窗口
+        /// </summary>
+        GameMenuPanel
     }
 }

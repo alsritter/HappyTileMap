@@ -51,6 +51,17 @@ namespace UIFrame
         {
             // 解析JSON，获取所有面板的路径信息
             LoadJsonTool.ParseUIPanelTypeJsonData(ref panelPathDict);
+            // 把场景里面的已经存在的 UI 实例塞进字典
+            var panels = FindObjectsOfType<BasePanel>().ToList();
+            panels.Sort((x, y) => x.transform.GetSiblingIndex() - y.transform.GetSiblingIndex()); // 升序
+            panels.ForEach(x =>
+            {
+                panelDict.Add(x.uiType, x);
+                // 入栈
+                panelStack.Push(x);
+                Debug.Log($"当前入栈的是：{x.uiType} 它的索引为：{x.transform.GetSiblingIndex()}");
+            });
+
         }
 
         /// <summary>
@@ -60,7 +71,7 @@ namespace UIFrame
         /// <returns>返回该面板组件</returns>
         private BasePanel GetPanel(UIPanelType panelType)
         {
-            panelDict.TryGetValue(panelType,out var basePanel);
+            panelDict.TryGetValue(panelType, out var basePanel);
             //如果panel为空，根据该面板 prefab 的路径，实例化该面板
             if (basePanel == null)
             {
