@@ -1,0 +1,342 @@
+[
+    {
+        "spriteId": "000",
+        "path": "TileSprite/errorTile",
+        "describe": "错误贴图"
+    },
+    {
+        "spriteId": "001",
+        "path": "TileSprite/001",
+        "describe": "石砖"
+    },
+    {
+        "spriteId": "002",
+        "path": "TileSprite/002",
+        "describe": "石砖"
+    },
+    {
+        "spriteId": "003",
+        "path": "TileSprite/003",
+        "describe": "石砖"
+    },
+    {
+        "spriteId": "004",
+        "path": "TileSprite/004",
+        "describe": "石砖"
+    },
+    {
+        "spriteId": "005",
+        "path": "TileSprite/005",
+        "describe": "石砖"
+    },
+    {
+        "spriteId": "006",
+        "path": "TileSprite/006",
+        "describe": "石砖"
+    },
+    {
+        "spriteId": "007",
+        "path": "TileSprite/001",
+        "describe": "石砖"
+    },
+    {
+        "spriteId": "008",
+        "path": "TileSprite/008",
+        "describe": "石砖"
+    },
+    {
+        "spriteId": "009",
+        "path": "TileSprite/009",
+        "describe": "石砖"
+    },
+    {
+        "spriteId": "010",
+        "path": "TileSprite/010",
+        "describe": "石砖"
+    },
+    {
+        "spriteId": "011",
+        "path": "TileSprite/011",
+        "describe": "石砖"
+    },
+    {
+        "spriteId": "012",
+        "path": "TileSprite/012",
+        "describe": "尖刺陷阱"
+    },
+    {
+        "spriteId": "013",
+        "path": "TileSprite/013",
+        "describe": "尖刺陷阱"
+    },
+    {
+        "spriteId": "014",
+        "path": "TileSprite/014",
+        "describe": "左边的楼梯"
+    },
+    {
+        "spriteId": "015",
+        "path": "TileSprite/015",
+        "describe": "右边的楼梯"
+    },
+    {
+        "spriteId": "016",
+        "path": "TileSprite/016",
+        "describe": "向下箭头"
+    },
+    {
+        "spriteId": "017",
+        "path": "TileSprite/017",
+        "describe": "向上箭头"
+    },
+    {
+        "spriteId": "018",
+        "path": "TileSprite/018",
+        "describe": "红框"
+    },
+    {
+        "spriteId": "019",
+        "path": "TileSprite/019",
+        "describe": "蓝框"
+    },
+    {
+        "spriteId": "020",
+        "path": "TileSprite/020",
+        "describe": "蓝块"
+    },
+    {
+        "spriteId": "021",
+        "path": "TileSprite/021",
+        "describe": "红块"
+    },
+    {
+        "spriteId": "022",
+        "path": "TileSprite/022",
+        "describe": "白墙"
+    },
+    {
+        "spriteId": "023",
+        "path": "TileSprite/023",
+        "describe": "上半截粗木台"
+    },
+    {
+        "spriteId": "024",
+        "path": "TileSprite/024",
+        "describe": "下半截粗木台"
+    },
+    {
+        "spriteId": "025",
+        "path": "TileSprite/025",
+        "describe": "上半截中木台"
+    },
+    {
+        "spriteId": "026",
+        "path": "TileSprite/026",
+        "describe": "上半截细木台"
+    },
+    {
+        "spriteId": "027",
+        "path": "TileSprite/027",
+        "describe": "地面尖刺"
+    },
+    {
+        "spriteId": "028",
+        "path": "TileSprite/028",
+        "describe": "上半截石台"
+    },
+    {
+        "spriteId": "029",
+        "path": "TileSprite/029",
+        "describe": "下半截石台"
+    },
+    {
+        "spriteId": "030",
+        "path": "TileSprite/030",
+        "describe": "实草方块"
+    },
+    {
+        "spriteId": "031",
+        "path": "TileSprite/031",
+        "describe": "草方块"
+    },
+    {
+        "spriteId": "032",
+        "path": "TileSprite/032",
+        "describe": "草方块"
+    },
+    {
+        "spriteId": "033",
+        "path": "TileSprite/033",
+        "describe": "草方块"
+    },
+    {
+        "spriteId": "034",
+        "path": "TileSprite/034",
+        "describe": "草方块"
+    },
+    {
+        "spriteId": "035",
+        "path": "TileSprite/035",
+        "describe": "草方块"
+    },
+    {
+        "spriteId": "036",
+        "path": "TileSprite/036",
+        "describe": "草方块"
+    },
+    {
+        "spriteId": "037",
+        "path": "TileSprite/037",
+        "describe": "草方块"
+    },
+    {
+        "spriteId": "038",
+        "path": "TileSprite/038",
+        "describe": "草方块"
+    },
+    {
+        "spriteId": "039",
+        "path": "TileSprite/031",
+        "describe": "草方块"
+    },
+    {
+        "spriteId": "040",
+        "path": "TileSprite/040",
+        "describe": "草方块"
+    },
+    {
+        "spriteId": "041",
+        "path": "TileSprite/041",
+        "describe": "草方块"
+    },
+    {
+        "spriteId": "042",
+        "path": "TileSprite/042",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "043",
+        "path": "TileSprite/043",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "044",
+        "path": "TileSprite/044",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "045",
+        "path": "TileSprite/045",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "046",
+        "path": "TileSprite/046",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "047",
+        "path": "TileSprite/047",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "048",
+        "path": "TileSprite/048",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "049",
+        "path": "TileSprite/049",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "050",
+        "path": "TileSprite/050",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "051",
+        "path": "TileSprite/051",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "052",
+        "path": "TileSprite/052",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "053",
+        "path": "TileSprite/053",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "054",
+        "path": "TileSprite/054",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "055",
+        "path": "TileSprite/055",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "056",
+        "path": "TileSprite/056",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "057",
+        "path": "TileSprite/057",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "058",
+        "path": "TileSprite/058",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "059",
+        "path": "TileSprite/059",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "060",
+        "path": "TileSprite/060",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "061",
+        "path": "TileSprite/061",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "062",
+        "path": "TileSprite/062",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "063",
+        "path": "TileSprite/063",
+        "describe": "土块"
+    },
+    {
+        "spriteId": "064",
+        "path": "TileSprite/064",
+        "describe": "黑色砖块"
+    },
+    {
+        "spriteId": "065",
+        "path": "TileSprite/065",
+        "describe": "黑色砖块"
+    },
+    {
+        "spriteId": "066",
+        "path": "TileSprite/066",
+        "describe": "黑色砖块"
+    },
+    {
+        "spriteId": "067",
+        "path": "TileSprite/067",
+        "describe": "黑色砖块"
+    }
+]

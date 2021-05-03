@@ -24,8 +24,8 @@ namespace CustomTileFrame.MapDataEntity.Dto
         /// <summary>
         /// 图片的编号
         /// </summary>
-        [JsonProperty("tile_image_id")]
-        public string TileImageId { get; set; }
+        [JsonProperty("tile_sprite_id")]
+        public string TileSpriteId { get; set; }
 
         /// <summary>
         /// 16 进制颜色码

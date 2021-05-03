@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using CustomTileFrame.CommonTileEnum;
+using CustomTileFrame.Tool;
 using PlayerController.FSM;
 using TileEffect;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace CustomTileFrame.Tile
     public abstract class CustomBaseTile : UnityEngine.Tilemaps.Tile
     {
         public string[] effectKeys;
-        public string tileImageId;
+        public string tileSpriteId;
 
         public DisplayModel model;
 
@@ -33,7 +34,7 @@ namespace CustomTileFrame.Tile
                 }
             }
 
-            sprite = GlobalTileSpriteManage.GetSprite(tileImageId);
+            sprite = CreateMap.GetSprite(tileSpriteId);
         }
 
         public void SetPlayer(PlayerFSMSystem player)

@@ -22,7 +22,7 @@ namespace CustomTileFrame.Tool
         // Start is called before the first frame update
         private void Start()
         {
-            mapDto = LoadJsonTool.ParseJsonMapData();
+            mapDto = LoadJsonTool.ParseMapJsonData();
             LoadingTile(mapDto);
             StartCoroutine(InitData(mapDto));
         }
@@ -40,7 +40,7 @@ namespace CustomTileFrame.Tool
             tileInfos.ForEach(tileInfo =>
             {
                 var tile = ScriptableObject.CreateInstance<CustomTile>();
-                tile.InitializeMyTileInfo(tileInfo.EffectKeys, tileInfo.TileImageId, tileInfo.DisplayModel,
+                tile.InitializeMyTileInfo(tileInfo.EffectKeys, tileInfo.TileSpriteId, tileInfo.DisplayModel,
                     tileInfo.Tags);
                 ColorUtility.TryParseHtmlString(tileInfo.Color, out var nowColor);
                 tile.color = nowColor;
@@ -98,47 +98,34 @@ namespace CustomTileFrame.Tool
                     }
                 }
             }
+        }
 
+        // 用于表示它是否初始化
+        private static bool _isSpriteInfoDictInit = false;
+        // 这里用于装载地图
+        private static Dictionary<string, string> _spriteInfoDict = new Dictionary<string, string>();
 
-            /*        const int levelW = 10;
-    
-            arrTiles = new CustomTile[2];
-    
-            for (var i = 0; i < 2; i++)
+        public static Sprite GetSprite(string name)
+        {
+            // 如果没有初始化
+            if (!_isSpriteInfoDictInit)
             {
-                arrTiles[i] = ScriptableObject.CreateInstance<CustomTile>(); //创建Tile，注意，要使用这种方式
-                arrTiles[i].sprite = sprite;
-                arrTiles[i].color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1);
-                arrTiles[i].name = "编号为：" + i.ToString();
+                LoadJsonTool.ParseTileSpritePathJsonData(ref _spriteInfoDict);
+                _isSpriteInfoDictInit = true;
             }
-    
-            //这里就是设置每个Tile的信息了
-            for (var j = 0; j < levelW; j++)
-            {
-                tileMap.SetTile(new Vector3Int(j, -4, 0), arrTiles[Random.Range(0, arrTiles.Length)]);
-                yield return null;
-            }*/
-            yield return null;
-        }
 
-        private void Update()
-        {
-/*        if (!Input.GetMouseButtonDown(0)) return;
-        var mousePosition = Input.mousePosition;
-        var wordPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        var cellPosition = tileMap.WorldToCell(wordPosition);
-        var tb = tileMap.GetTile(cellPosition);
-        if (tb == null)
-        {
-            return;
-        }
+            _spriteInfoDict.TryGetValue(name, out var saPath);
 
-        //tb.hideFlags = HideFlags.None;
-        Debug.Log(
-            "鼠标坐标：" + mousePosition +
-            "世界：" + wordPosition +
-            "cell：" + cellPosition +
-            "tb：" + tb.name);*/
+            Sprite sa = null;
+
+            // 首次使用加载
+            // 加载 Assets/Resources/TileSprite/TileSpriteAtlas.asset
+            // 不用加文件后缀
+            sa = Resources.Load<Sprite>(saPath ?? _spriteInfoDict["000"]);
+            // 找不到也返回错误贴图
+            if (sa == null) sa = Resources.Load<Sprite>(_spriteInfoDict["000"]);
+
+            return sa;
         }
     }
 }

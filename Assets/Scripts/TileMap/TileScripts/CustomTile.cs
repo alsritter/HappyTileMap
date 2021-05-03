@@ -19,11 +19,11 @@ namespace CustomTileFrame
         /// <param name="effectKeys0"></param>
         /// <param name="tileImageId0"></param>
         /// <param name="model0"></param>
-        public void InitializeMyTileInfo(string[] effectKeys0, string tileImageId0, DisplayModel model0,
+        public void InitializeMyTileInfo(string[] effectKeys0, string tileSpriteId0, DisplayModel model0,
             TileTag[] tags0)
         {
             this.effectKeys = effectKeys0;
-            this.tileImageId = tileImageId0;
+            this.tileSpriteId = tileSpriteId0;
             this.model = model0;
             this.tags = tags0;
             RefreshTileInfo();

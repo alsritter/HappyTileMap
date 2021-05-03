@@ -16,7 +16,7 @@ public class LoadJsonTool
     /// 加载地图数据
     /// </summary>
     /// <returns></returns>
-    public static MapRootDto ParseJsonMapData()
+    public static MapRootDto ParseMapJsonData()
     {
         // Assets/Resources/Json/testData.json
         var text = Resources.Load<TextAsset>("Json/testData");
@@ -32,12 +32,27 @@ public class LoadJsonTool
     {
         var ta = Resources.Load<TextAsset>("Prefabs/UI/UIPanelType");
         var array = JArray.Parse(ta.text);
-        
+
         foreach (var item in array)
         {
-            var panelType = (UIPanelType)Enum.Parse(typeof(UIPanelType), item["panelType"].ToString());
+            var panelType = (UIPanelType) Enum.Parse(typeof(UIPanelType), item["panelType"].ToString());
             var path = item["path"].ToString();
             panelPathDict.Add(panelType, path);
+        }
+    }
+
+    public static void ParseTileSpritePathJsonData(ref Dictionary<string, string> spriteInfoDict)
+    {
+        var ta = Resources.Load<TextAsset>("TileSprite/TileSpritePath");
+        var array = JArray.Parse(ta.text);
+
+        foreach (var item in array)
+        {
+            var spriteId = item["spriteId"].ToString();
+            var path = item["path"].ToString();
+
+            // Debug.Log($"{spriteId}       {path}");
+            spriteInfoDict.Add(spriteId, path);
         }
     }
 }

@@ -10,7 +10,7 @@
     "tiles": [
         {
             "display_model": 2,
-            "tile_image_id": "002",
+            "tile_sprite_id": "002",
             "color": "#edb7a4",
             "effect_keys": [
                 "00001"
@@ -21,7 +21,7 @@
         },
         {
             "display_model": 2,
-            "tile_image_id": "001",
+            "tile_sprite_id": "001",
             "color": "#bfdef8",
             "effect_keys": [
             ],
