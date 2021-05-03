@@ -49,6 +49,7 @@ namespace UIFrame
 
         private void Start()
         {
+
             // 解析JSON，获取所有面板的路径信息
             LoadJsonTool.ParseUIPanelTypeJsonData(ref panelPathDict);
             // 把场景里面的已经存在的 UI 实例塞进字典

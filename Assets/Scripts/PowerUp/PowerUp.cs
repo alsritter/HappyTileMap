@@ -24,17 +24,25 @@ namespace PowerUpSystem
         // 道具具体效果（例如失效时间之类的）
         public string powerUpQuote;
 
+        // 注意，如果为 false 需要自己手动调用 PowerUpHasExpired() 方法使之过期
         [Tooltip("这个效果是否是一次性的")]
-        public bool expiresImmediately;
+        public bool expiresImmediately = true;
 
-        // 执行的效果
+
+        /// <summary>
+        /// 拾取的特效
+        /// </summary>
         public GameObject specialEffect;
+
+        /// <summary>
+        /// 拾取的音效
+        /// </summary>
         public AudioClip soundEffect;
 
         /// <summary>
         /// 这里则是游戏对象
         /// </summary>
-        public PlayerFSMSystem player;
+        private PlayerFSMSystem player;
 
 
         protected SpriteRenderer spriteRenderer;
@@ -65,6 +73,8 @@ namespace PowerUpSystem
         {
             // 道具的初始状态是 “吸引模式”
             powerUpState = PowerUpState.InAttractMode;
+            // 找到玩家
+            player = GameObject.FindObjectOfType<PlayerFSMSystem>();
         }
 
         /// <summary>
@@ -101,13 +111,6 @@ namespace PowerUpSystem
             // Payload      
             PowerUpPayload();
 
-/*            // 发送消息通知所有观察这个事件的对象当前
-
-            foreach (GameObject go in EventSystemListeners.instance.listeners)
-            {
-                ExecuteEvents.Execute<IPowerUpEvents>(go, null, (x, y) => x.OnPowerUpCollected(this, playerBrain));
-            }*/
-
             // 现在可以让当前对象消失了（只是关闭了渲染，但是这个道具本身还在 Player 身上）
             spriteRenderer.enabled = false;
         }
@@ -123,18 +126,18 @@ namespace PowerUpSystem
             }
 
             if (soundEffect != null)
-            { 
+            {
                 // 播放音乐
                 //MainGameController.main.PlaySound(soundEffect);
             }
         }
 
         /// <summary>
-        /// 道具开始作用
+        /// 道具开始作用，这个一定会被调用
         /// </summary>
         protected virtual void PowerUpPayload()
         {
-            Debug.Log("Power Up collected, issuing payload for: " + gameObject.name);
+            //Debug.Log("Power Up collected, issuing payload for: " + gameObject.name);
 
             // 如果这个道具是一次性的则直接消失
             if (expiresImmediately)
@@ -148,26 +151,16 @@ namespace PowerUpSystem
         /// </summary>
         protected virtual void PowerUpHasExpired()
         {
-            if (powerUpState == PowerUpState.IsExpiring)
-            {
-                return;
-            }
-
+            if (powerUpState == PowerUpState.IsExpiring) return;
             powerUpState = PowerUpState.IsExpiring;
 
-/*            // 发送消息给事件监听器
-            foreach (GameObject go in EventSystemListeners.instance.listeners)
-            {
-                ExecuteEvents.Execute<IPowerUpEvents>(go, null, (x, y) => x.OnPowerUpExpired(this, playerBrain));
-            }*/
-
-            Debug.Log("Power Up has expired, removing after a delay for: " + gameObject.name);
+            //Debug.Log("Power Up has expired, removing after a delay for: " + gameObject.name);
             DestroySelfAfterDelay();
         }
 
         protected virtual void DestroySelfAfterDelay()
         {
-            // Arbitrary delay of some seconds to allow particle, audio is all done
+            // 任意延迟几秒钟允许粒子，音频全部完成
             // TODO could tighten this and inspect the sfx? Hard to know how many, as subclasses could have spawned their own
             Destroy(gameObject, 10f);
         }

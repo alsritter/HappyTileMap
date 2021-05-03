@@ -10,7 +10,7 @@ namespace EventFrame
     {
         public EventID eid;
 
-        public EventData(EventID eid)
+        protected EventData(EventID eid)
         {
             this.eid = eid;
         }

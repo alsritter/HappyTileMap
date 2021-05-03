@@ -17,10 +17,6 @@ namespace EventFrame
 
         private readonly Queue<EventData> eventQueue = new Queue<EventData>(); //消息队列
 
-        private void Awake()
-        {
-            Debug.Log("===========启动消息系统===========");
-        }
 
         private void Update()
         {
@@ -46,7 +42,7 @@ namespace EventFrame
         /// 发送事件
         /// </summary>
         /// <param name="eve"></param>
-        public void SendEvent(EventData eve)
+        internal void SendEvent(EventData eve)
         {
             eventQueue.Enqueue(eve);
         }

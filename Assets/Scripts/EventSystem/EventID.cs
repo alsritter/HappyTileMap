@@ -13,7 +13,10 @@ namespace EventFrame
     /// </summary>
     public enum EventID
     {
-        EVENT_1 = 10001,
+        /// <summary>
+        /// 捡到收集品时的事件
+        /// </summary>
+        Scores = 10001,
         EVENT_2 = 10002,
     }
 }
