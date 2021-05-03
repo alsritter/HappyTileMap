@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PowerUpSystem.EventFrame
+namespace EventFrame
 {
     /// <summary>
     /// 事件的管理器

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using PlayerController.FSM;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -14,21 +15,27 @@ namespace PowerUpSystem
     /// 2. Optionally Implement PowerUpHasExpired() to remove what was given in the payload
     /// 3. Call PowerUpHasExpired() when the power up has expired or tick ExpiresImmediately in inspector
     /// </summary>
-    public class PowerUp : MonoBehaviour
+    public abstract class PowerUp : MonoBehaviour
     {
+        // 道具名称
         public string powerUpName;
+        // 道具说明
         public string powerUpExplanation;
+        // 道具具体效果（例如失效时间之类的）
         public string powerUpQuote;
 
-        [Tooltip("这个效果是否是有时效限制的")]
+        [Tooltip("这个效果是否是一次性的")]
         public bool expiresImmediately;
+
+        // 执行的效果
         public GameObject specialEffect;
         public AudioClip soundEffect;
 
         /// <summary>
         /// 这里则是游戏对象
         /// </summary>
-        public GameObject playerBrain;
+        public PlayerFSMSystem player;
+
 
         protected SpriteRenderer spriteRenderer;
 
@@ -73,7 +80,10 @@ namespace PowerUpSystem
             PowerUpCollected(other.gameObject);
         }
 
-
+        /// <summary>
+        /// 拾取这个道具时要做的事情
+        /// </summary>
+        /// <param name="gameObjectCollectingPowerUp"></param>
         protected virtual void PowerUpCollected(GameObject gameObjectCollectingPowerUp)
         {
             // 将道具的状态修改为已经拾取了
@@ -82,8 +92,8 @@ namespace PowerUpSystem
             // 这里可以把道具的位置移动到玩家那里去（这块使用 Tween 可以平滑移动）
             // 将升级游戏对象移动到收集它的玩家的下方，这对于功能来说并不是必要的
             // 但它在游戏对象层次结构中更简洁
-            gameObject.transform.DOLocalMove(playerBrain.gameObject.transform.position, .5f)
-                .OnComplete(() => gameObject.transform.parent = playerBrain.gameObject.transform);
+            gameObject.transform.DOLocalMove(player.gameObject.transform.position, .5f)
+                .OnComplete(() => gameObject.transform.parent = player.gameObject.transform);
 
             // 执行道具的效果
             PowerUpEffects();
@@ -91,16 +101,20 @@ namespace PowerUpSystem
             // Payload      
             PowerUpPayload();
 
-            // Send message to any listeners
-            foreach (GameObject go in EventSystemListeners.main.listeners)
+/*            // 发送消息通知所有观察这个事件的对象当前
+
+            foreach (GameObject go in EventSystemListeners.instance.listeners)
             {
                 ExecuteEvents.Execute<IPowerUpEvents>(go, null, (x, y) => x.OnPowerUpCollected(this, playerBrain));
-            }
+            }*/
 
-            // Now the power up visuals can go away
+            // 现在可以让当前对象消失了（只是关闭了渲染，但是这个道具本身还在 Player 身上）
             spriteRenderer.enabled = false;
         }
 
+        /// <summary>
+        /// 物品被拾取时的消息（特效）
+        /// </summary>
         protected virtual void PowerUpEffects()
         {
             if (specialEffect != null)
@@ -109,22 +123,29 @@ namespace PowerUpSystem
             }
 
             if (soundEffect != null)
-            {
-                MainGameController.main.PlaySound(soundEffect);
+            { 
+                // 播放音乐
+                //MainGameController.main.PlaySound(soundEffect);
             }
         }
 
+        /// <summary>
+        /// 道具开始作用
+        /// </summary>
         protected virtual void PowerUpPayload()
         {
             Debug.Log("Power Up collected, issuing payload for: " + gameObject.name);
 
-            // If we're instant use we also expire self immediately
+            // 如果这个道具是一次性的则直接消失
             if (expiresImmediately)
             {
                 PowerUpHasExpired();
             }
         }
 
+        /// <summary>
+        /// 道具过期时调用
+        /// </summary>
         protected virtual void PowerUpHasExpired()
         {
             if (powerUpState == PowerUpState.IsExpiring)
@@ -134,11 +155,11 @@ namespace PowerUpSystem
 
             powerUpState = PowerUpState.IsExpiring;
 
-            // 发送消息给事件监听器
-            foreach (GameObject go in EventSystemListeners.main.listeners)
+/*            // 发送消息给事件监听器
+            foreach (GameObject go in EventSystemListeners.instance.listeners)
             {
                 ExecuteEvents.Execute<IPowerUpEvents>(go, null, (x, y) => x.OnPowerUpExpired(this, playerBrain));
-            }
+            }*/
 
             Debug.Log("Power Up has expired, removing after a delay for: " + gameObject.name);
             DestroySelfAfterDelay();
