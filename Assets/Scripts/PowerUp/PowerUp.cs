@@ -46,6 +46,7 @@ namespace PowerUpSystem
 
 
         protected SpriteRenderer spriteRenderer;
+        protected BoxCollider2D box;
 
         /// <summary>
         /// 内部维护着一个状态
@@ -61,6 +62,8 @@ namespace PowerUpSystem
 
         protected virtual void Awake()
         {
+            // 取得碰撞盒
+            box = GetComponent<BoxCollider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
 
             // 如果没有精灵渲染器要给它加上
@@ -113,6 +116,7 @@ namespace PowerUpSystem
 
             // 现在可以让当前对象消失了（只是关闭了渲染，但是这个道具本身还在 Player 身上）
             spriteRenderer.enabled = false;
+            box.enabled = false;
         }
 
         /// <summary>

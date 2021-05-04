@@ -1,342 +1,410 @@
 [
-    {
-        "spriteId": "000",
-        "path": "TileSprite/errorTile",
-        "describe": "´íÎóÌùÍ¼"
-    },
-    {
-        "spriteId": "001",
-        "path": "TileSprite/001",
-        "describe": "Ê¯×©"
-    },
-    {
-        "spriteId": "002",
-        "path": "TileSprite/002",
-        "describe": "Ê¯×©"
-    },
-    {
-        "spriteId": "003",
-        "path": "TileSprite/003",
-        "describe": "Ê¯×©"
-    },
-    {
-        "spriteId": "004",
-        "path": "TileSprite/004",
-        "describe": "Ê¯×©"
-    },
-    {
-        "spriteId": "005",
-        "path": "TileSprite/005",
-        "describe": "Ê¯×©"
-    },
-    {
-        "spriteId": "006",
-        "path": "TileSprite/006",
-        "describe": "Ê¯×©"
-    },
-    {
-        "spriteId": "007",
-        "path": "TileSprite/001",
-        "describe": "Ê¯×©"
-    },
-    {
-        "spriteId": "008",
-        "path": "TileSprite/008",
-        "describe": "Ê¯×©"
-    },
-    {
-        "spriteId": "009",
-        "path": "TileSprite/009",
-        "describe": "Ê¯×©"
-    },
-    {
-        "spriteId": "010",
-        "path": "TileSprite/010",
-        "describe": "Ê¯×©"
-    },
-    {
-        "spriteId": "011",
-        "path": "TileSprite/011",
-        "describe": "Ê¯×©"
-    },
-    {
-        "spriteId": "012",
-        "path": "TileSprite/012",
-        "describe": "¼â´ÌÏİÚå"
-    },
-    {
-        "spriteId": "013",
-        "path": "TileSprite/013",
-        "describe": "¼â´ÌÏİÚå"
-    },
-    {
-        "spriteId": "014",
-        "path": "TileSprite/014",
-        "describe": "×ó±ßµÄÂ¥Ìİ"
-    },
-    {
-        "spriteId": "015",
-        "path": "TileSprite/015",
-        "describe": "ÓÒ±ßµÄÂ¥Ìİ"
-    },
-    {
-        "spriteId": "016",
-        "path": "TileSprite/016",
-        "describe": "ÏòÏÂ¼ıÍ·"
-    },
-    {
-        "spriteId": "017",
-        "path": "TileSprite/017",
-        "describe": "ÏòÉÏ¼ıÍ·"
-    },
-    {
-        "spriteId": "018",
-        "path": "TileSprite/018",
-        "describe": "ºì¿ò"
-    },
-    {
-        "spriteId": "019",
-        "path": "TileSprite/019",
-        "describe": "À¶¿ò"
-    },
-    {
-        "spriteId": "020",
-        "path": "TileSprite/020",
-        "describe": "À¶¿é"
-    },
-    {
-        "spriteId": "021",
-        "path": "TileSprite/021",
-        "describe": "ºì¿é"
-    },
-    {
-        "spriteId": "022",
-        "path": "TileSprite/022",
-        "describe": "°×Ç½"
-    },
-    {
-        "spriteId": "023",
-        "path": "TileSprite/023",
-        "describe": "ÉÏ°ë½Ø´ÖÄ¾Ì¨"
-    },
-    {
-        "spriteId": "024",
-        "path": "TileSprite/024",
-        "describe": "ÏÂ°ë½Ø´ÖÄ¾Ì¨"
-    },
-    {
-        "spriteId": "025",
-        "path": "TileSprite/025",
-        "describe": "ÉÏ°ë½ØÖĞÄ¾Ì¨"
-    },
-    {
-        "spriteId": "026",
-        "path": "TileSprite/026",
-        "describe": "ÉÏ°ë½ØÏ¸Ä¾Ì¨"
-    },
-    {
-        "spriteId": "027",
-        "path": "TileSprite/027",
-        "describe": "µØÃæ¼â´Ì"
-    },
-    {
-        "spriteId": "028",
-        "path": "TileSprite/028",
-        "describe": "ÉÏ°ë½ØÊ¯Ì¨"
-    },
-    {
-        "spriteId": "029",
-        "path": "TileSprite/029",
-        "describe": "ÏÂ°ë½ØÊ¯Ì¨"
-    },
-    {
-        "spriteId": "030",
-        "path": "TileSprite/030",
-        "describe": "Êµ²İ·½¿é"
-    },
-    {
-        "spriteId": "031",
-        "path": "TileSprite/031",
-        "describe": "²İ·½¿é"
-    },
-    {
-        "spriteId": "032",
-        "path": "TileSprite/032",
-        "describe": "²İ·½¿é"
-    },
-    {
-        "spriteId": "033",
-        "path": "TileSprite/033",
-        "describe": "²İ·½¿é"
-    },
-    {
-        "spriteId": "034",
-        "path": "TileSprite/034",
-        "describe": "²İ·½¿é"
-    },
-    {
-        "spriteId": "035",
-        "path": "TileSprite/035",
-        "describe": "²İ·½¿é"
-    },
-    {
-        "spriteId": "036",
-        "path": "TileSprite/036",
-        "describe": "²İ·½¿é"
-    },
-    {
-        "spriteId": "037",
-        "path": "TileSprite/037",
-        "describe": "²İ·½¿é"
-    },
-    {
-        "spriteId": "038",
-        "path": "TileSprite/038",
-        "describe": "²İ·½¿é"
-    },
-    {
-        "spriteId": "039",
-        "path": "TileSprite/031",
-        "describe": "²İ·½¿é"
-    },
-    {
-        "spriteId": "040",
-        "path": "TileSprite/040",
-        "describe": "²İ·½¿é"
-    },
-    {
-        "spriteId": "041",
-        "path": "TileSprite/041",
-        "describe": "²İ·½¿é"
-    },
-    {
-        "spriteId": "042",
-        "path": "TileSprite/042",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "043",
-        "path": "TileSprite/043",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "044",
-        "path": "TileSprite/044",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "045",
-        "path": "TileSprite/045",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "046",
-        "path": "TileSprite/046",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "047",
-        "path": "TileSprite/047",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "048",
-        "path": "TileSprite/048",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "049",
-        "path": "TileSprite/049",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "050",
-        "path": "TileSprite/050",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "051",
-        "path": "TileSprite/051",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "052",
-        "path": "TileSprite/052",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "053",
-        "path": "TileSprite/053",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "054",
-        "path": "TileSprite/054",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "055",
-        "path": "TileSprite/055",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "056",
-        "path": "TileSprite/056",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "057",
-        "path": "TileSprite/057",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "058",
-        "path": "TileSprite/058",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "059",
-        "path": "TileSprite/059",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "060",
-        "path": "TileSprite/060",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "061",
-        "path": "TileSprite/061",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "062",
-        "path": "TileSprite/062",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "063",
-        "path": "TileSprite/063",
-        "describe": "ÍÁ¿é"
-    },
-    {
-        "spriteId": "064",
-        "path": "TileSprite/064",
-        "describe": "ºÚÉ«×©¿é"
-    },
-    {
-        "spriteId": "065",
-        "path": "TileSprite/065",
-        "describe": "ºÚÉ«×©¿é"
-    },
-    {
-        "spriteId": "066",
-        "path": "TileSprite/066",
-        "describe": "ºÚÉ«×©¿é"
-    },
-    {
-        "spriteId": "067",
-        "path": "TileSprite/067",
-        "describe": "ºÚÉ«×©¿é"
-    }
+  {
+    "spriteId": "000",
+    "mode": "0",
+    "path": "TileSprite/TestTile/errorTile",
+    "describe": "é”™è¯¯è´´å›¾"
+  },
+  {
+    "spriteId": "001",
+    "mode": "0",
+    "path": "TileSprite/TestTile/001",
+    "describe": "çŸ³ç –"
+  },
+  {
+    "spriteId": "002",
+    "mode": "0",
+    "path": "TileSprite/TestTile/002",
+    "describe": "çŸ³ç –"
+  },
+  {
+    "spriteId": "003",
+    "mode": "0",
+    "path": "TileSprite/TestTile/003",
+    "describe": "çŸ³ç –"
+  },
+  {
+    "spriteId": "004",
+    "mode": "0",
+    "path": "TileSprite/TestTile/004",
+    "describe": "çŸ³ç –"
+  },
+  {
+    "spriteId": "005",
+    "mode": "0",
+    "path": "TileSprite/TestTile/005",
+    "describe": "çŸ³ç –"
+  },
+  {
+    "spriteId": "006",
+    "mode": "0",
+    "path": "TileSprite/TestTile/006",
+    "describe": "çŸ³ç –"
+  },
+  {
+    "spriteId": "007",
+    "mode": "0",
+    "path": "TileSprite/TestTile/001",
+    "describe": "çŸ³ç –"
+  },
+  {
+    "spriteId": "008",
+    "mode": "0",
+    "path": "TileSprite/TestTile/008",
+    "describe": "çŸ³ç –"
+  },
+  {
+    "spriteId": "009",
+    "mode": "0",
+    "path": "TileSprite/TestTile/009",
+    "describe": "çŸ³ç –"
+  },
+  {
+    "spriteId": "010",
+    "mode": "0",
+    "path": "TileSprite/TestTile/010",
+    "describe": "çŸ³ç –"
+  },
+  {
+    "spriteId": "011",
+    "mode": "0",
+    "path": "TileSprite/TestTile/011",
+    "describe": "çŸ³ç –"
+  },
+  {
+    "spriteId": "012",
+    "mode": "0",
+    "path": "TileSprite/TestTile/012",
+    "describe": "å°–åˆºé™·é˜±"
+  },
+  {
+    "spriteId": "013",
+    "mode": "0",
+    "path": "TileSprite/TestTile/013",
+    "describe": "å°–åˆºé™·é˜±"
+  },
+  {
+    "spriteId": "014",
+    "mode": "0",
+    "path": "TileSprite/TestTile/014",
+    "describe": "å·¦è¾¹çš„æ¥¼æ¢¯"
+  },
+  {
+    "spriteId": "015",
+    "mode": "0",
+    "path": "TileSprite/TestTile/015",
+    "describe": "å³è¾¹çš„æ¥¼æ¢¯"
+  },
+  {
+    "spriteId": "016",
+    "mode": "0",
+    "path": "TileSprite/TestTile/016",
+    "describe": "å‘ä¸‹ç®­å¤´"
+  },
+  {
+    "spriteId": "017",
+    "mode": "0",
+    "path": "TileSprite/TestTile/017",
+    "describe": "å‘ä¸Šç®­å¤´"
+  },
+  {
+    "spriteId": "018",
+    "mode": "0",
+    "path": "TileSprite/TestTile/018",
+    "describe": "çº¢æ¡†"
+  },
+  {
+    "spriteId": "019",
+    "mode": "0",
+    "path": "TileSprite/TestTile/019",
+    "describe": "è“æ¡†"
+  },
+  {
+    "spriteId": "020",
+    "mode": "0",
+    "path": "TileSprite/TestTile/020",
+    "describe": "è“å—"
+  },
+  {
+    "spriteId": "021",
+    "mode": "0",
+    "path": "TileSprite/TestTile/021",
+    "describe": "çº¢å—"
+  },
+  {
+    "spriteId": "022",
+    "mode": "0",
+    "path": "TileSprite/TestTile/022",
+    "describe": "ç™½å¢™"
+  },
+  {
+    "spriteId": "023",
+    "mode": "0",
+    "path": "TileSprite/TestTile/023",
+    "describe": "ä¸ŠåŠæˆªç²—æœ¨å°"
+  },
+  {
+    "spriteId": "024",
+    "mode": "0",
+    "path": "TileSprite/TestTile/024",
+    "describe": "ä¸‹åŠæˆªç²—æœ¨å°"
+  },
+  {
+    "spriteId": "025",
+    "mode": "0",
+    "path": "TileSprite/TestTile/025",
+    "describe": "ä¸ŠåŠæˆªä¸­æœ¨å°"
+  },
+  {
+    "spriteId": "026",
+    "mode": "0",
+    "path": "TileSprite/TestTile/026",
+    "describe": "ä¸ŠåŠæˆªç»†æœ¨å°"
+  },
+  {
+    "spriteId": "027",
+    "mode": "0",
+    "path": "TileSprite/TestTile/027",
+    "describe": "åœ°é¢å°–åˆº"
+  },
+  {
+    "spriteId": "028",
+    "mode": "0",
+    "path": "TileSprite/TestTile/028",
+    "describe": "ä¸ŠåŠæˆªçŸ³å°"
+  },
+  {
+    "spriteId": "029",
+    "mode": "0",
+    "path": "TileSprite/TestTile/029",
+    "describe": "ä¸‹åŠæˆªçŸ³å°"
+  },
+  {
+    "spriteId": "030",
+    "mode": "0",
+    "path": "TileSprite/TestTile/030",
+    "describe": "å®è‰æ–¹å—"
+  },
+  {
+    "spriteId": "031",
+    "mode": "0",
+    "path": "TileSprite/TestTile/031",
+    "describe": "è‰æ–¹å—"
+  },
+  {
+    "spriteId": "032",
+    "mode": "0",
+    "path": "TileSprite/TestTile/032",
+    "describe": "è‰æ–¹å—"
+  },
+  {
+    "spriteId": "033",
+    "mode": "0",
+    "path": "TileSprite/TestTile/033",
+    "describe": "è‰æ–¹å—"
+  },
+  {
+    "spriteId": "034",
+    "mode": "0",
+    "path": "TileSprite/TestTile/034",
+    "describe": "è‰æ–¹å—"
+  },
+  {
+    "spriteId": "035",
+    "mode": "0",
+    "path": "TileSprite/TestTile/035",
+    "describe": "è‰æ–¹å—"
+  },
+  {
+    "spriteId": "036",
+    "mode": "0",
+    "path": "TileSprite/TestTile/036",
+    "describe": "è‰æ–¹å—"
+  },
+  {
+    "spriteId": "037",
+    "mode": "0",
+    "path": "TileSprite/TestTile/037",
+    "describe": "è‰æ–¹å—"
+  },
+  {
+    "spriteId": "038",
+    "mode": "0",
+    "path": "TileSprite/TestTile/038",
+    "describe": "è‰æ–¹å—"
+  },
+  {
+    "spriteId": "039",
+    "mode": "0",
+    "path": "TileSprite/TestTile/031",
+    "describe": "è‰æ–¹å—"
+  },
+  {
+    "spriteId": "040",
+    "mode": "0",
+    "path": "TileSprite/TestTile/040",
+    "describe": "è‰æ–¹å—"
+  },
+  {
+    "spriteId": "041",
+    "mode": "0",
+    "path": "TileSprite/TestTile/041",
+    "describe": "è‰æ–¹å—"
+  },
+  {
+    "spriteId": "042",
+    "mode": "0",
+    "path": "TileSprite/TestTile/042",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "043",
+    "mode": "0",
+    "path": "TileSprite/TestTile/043",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "044",
+    "mode": "0",
+    "path": "TileSprite/TestTile/044",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "045",
+    "mode": "0",
+    "path": "TileSprite/TestTile/045",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "046",
+    "mode": "0",
+    "path": "TileSprite/TestTile/046",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "047",
+    "mode": "0",
+    "path": "TileSprite/TestTile/047",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "048",
+    "mode": "0",
+    "path": "TileSprite/TestTile/048",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "049",
+    "mode": "0",
+    "path": "TileSprite/TestTile/049",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "050",
+    "mode": "0",
+    "path": "TileSprite/TestTile/050",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "051",
+    "mode": "0",
+    "path": "TileSprite/TestTile/051",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "052",
+    "mode": "0",
+    "path": "TileSprite/TestTile/052",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "053",
+    "mode": "0",
+    "path": "TileSprite/TestTile/053",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "054",
+    "mode": "0",
+    "path": "TileSprite/TestTile/054",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "055",
+    "mode": "0",
+    "path": "TileSprite/TestTile/055",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "056",
+    "mode": "0",
+    "path": "TileSprite/TestTile/056",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "057",
+    "mode": "0",
+    "path": "TileSprite/TestTile/057",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "058",
+    "mode": "0",
+    "path": "TileSprite/TestTile/058",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "059",
+    "mode": "0",
+    "path": "TileSprite/TestTile/059",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "060",
+    "mode": "0",
+    "path": "TileSprite/TestTile/060",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "061",
+    "mode": "0",
+    "path": "TileSprite/TestTile/061",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "062",
+    "mode": "0",
+    "path": "TileSprite/TestTile/062",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "063",
+    "mode": "0",
+    "path": "TileSprite/TestTile/063",
+    "describe": "åœŸå—"
+  },
+  {
+    "spriteId": "064",
+    "mode": "0",
+    "path": "TileSprite/TestTile/064",
+    "describe": "é»‘è‰²ç –å—"
+  },
+  {
+    "spriteId": "065",
+    "mode": "0",
+    "path": "TileSprite/TestTile/065",
+    "describe": "é»‘è‰²ç –å—"
+  },
+  {
+    "spriteId": "066",
+    "mode": "0",
+    "path": "TileSprite/TestTile/066",
+    "describe": "é»‘è‰²ç –å—"
+  },
+  {
+    "spriteId": "067",
+    "mode": "0",
+    "path": "TileSprite/TestTile/067",
+    "describe": "é»‘è‰²ç –å—"
+  }
 ]

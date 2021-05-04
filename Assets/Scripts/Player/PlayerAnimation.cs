@@ -22,11 +22,22 @@ namespace PlayerController
         private int inTheAirId;
         private int inTheClimbId;
         private int isClimbingId;
+        // 用于告诉 antState 当前是否更新了状态
+        private int isStateUpdateId;
+        // 因为状态改变可能需要两帧才反应过来，所以应该加个缓存
+        [Header("缓存状态更新帧")]
+        public int updateNumber = 5;
+        private int stateUpdateCacheNumber;
+        private bool stateUpdateCache = false;
+
+   
 
         // 临时存储
         private bool isWalk;
         private bool isClimbing;
 
+        // 用来记录上一个状态
+        private PlayerBaseState lastState;
 
         private void Start()
         {
@@ -42,24 +53,51 @@ namespace PlayerController
             inTheAirId = Animator.StringToHash("inTheAir");
             inTheClimbId = Animator.StringToHash("inTheClimb");
             verticalVelocityId = Animator.StringToHash("verticalVelocity");
+            isStateUpdateId = Animator.StringToHash("isStateUpdateId");
         }
 
         // Update is called once per frame
         private void Update()
         {
-            // 只有状态改变了才调用 SetBool 方法（因为每次调用 SetBool 都会通知 anyState）
+            // 注意！！！ 这个只管根状态，子状态不管（如果需要则拓展）
+            if (lastState == pm.curState && stateUpdateCacheNumber >= 1)
+            {
+                stateUpdateCacheNumber--;
+            }
+
+            if (lastState != pm.curState)
+            {
+                stateUpdateCacheNumber = updateNumber;
+                stateUpdateCache = true;
+            }
+            
+            if (stateUpdateCacheNumber < 1)
+            {
+                stateUpdateCache = false;
+            }
+
+            anim.SetBool(isStateUpdateId, stateUpdateCache);
+            lastState = pm.curState;
+
+/*            // 只有状态改变了才调用 SetBool 方法（因为每次调用 SetBool 都会通知 anyState）
+            // 反编译看这个 SetBool 方法内部是  MethodImplOptions.InternalCall     所以应该避免更新无意义的动画状态
             if (anim.GetBool(isCrouchingId) != pm.isCrouching) anim.SetBool(isCrouchingId, pm.isCrouching);
             if (anim.GetBool(isRunId) != pm.isRun) anim.SetBool(isRunId, pm.isRun);
             if (anim.GetBool(inTheAirId) != pm.inTheAir) anim.SetBool(inTheAirId, pm.inTheAir);
             if (anim.GetBool(inTheClimbId) != pm.graspWall) anim.SetBool(inTheClimbId, pm.graspWall);
+*/
+            anim.SetBool(isCrouchingId, pm.isCrouching);
+            anim.SetBool(isRunId, pm.isRun);
+            anim.SetBool(inTheAirId, pm.inTheAir);
+            anim.SetBool(inTheClimbId, pm.graspWall);
 
             anim.SetFloat(verticalVelocityId, rb.velocity.y);
 
             isWalk = Mathf.Abs(pm.xVelocity) > 0.01;
             isClimbing = Mathf.Abs(pm.yVelocity) > 0.01;
 
-            if (anim.GetBool(isWalkId) != isWalk) anim.SetBool(isWalkId, isWalk);
-            if (anim.GetBool(isClimbingId) != isClimbing) anim.SetBool(isClimbingId, isClimbing);
+            anim.SetBool(isWalkId, isWalk);
+            anim.SetBool(isClimbingId, isClimbing);
         }
     }
 }

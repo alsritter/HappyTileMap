@@ -43,6 +43,6 @@ public class GamePanelController : BasePanel,IEventObserver
     {
         // 收到得分事件
         if (resp.eid != EventID.Scores) return;
-        text.text = (Convert.ToInt32(text.text) + 1).ToString();
+        text.text = $"{(Convert.ToInt32(text.text) + 1):d3}";
     }
 }

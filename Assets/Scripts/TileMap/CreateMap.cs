@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using CustomTileFrame.CommonTileEnum;
 using CustomTileFrame.MapDataEntity.Dto;
+using CustomTileFrame.Tile;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -126,6 +128,27 @@ namespace CustomTileFrame.Tool
             if (sa == null) sa = Resources.Load<Sprite>(_spriteInfoDict["000"]);
 
             return sa;
+        }
+
+        private void Update()
+        {
+            if (!Application.isEditor) return;
+
+            if (!Input.GetMouseButtonDown(0)) return;
+            var mousePosition = Input.mousePosition;
+            var wordPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            var cellPosition = CrashMap.WorldToCell(wordPosition);
+            //tilemap.SetTile(cellPosition, gameUI.GetSelectColor().colorData.mTile);
+            var tb = CrashMap.GetTile<CustomBaseTile>(cellPosition);
+            if (tb == null)
+            {
+                return;
+            }
+
+            //tb.hideFlags = HideFlags.None;
+            Debug.Log($"鼠标坐标：{mousePosition}  世界坐标：{wordPosition}  cell：{cellPosition}");
+            tb.effectKeys.ToList().ForEach(Debug.Log);
+            tb.tags.ToList().ForEach(x=>Debug.Log(x.ToString()));
         }
     }
 }
