@@ -5,6 +5,8 @@ using System.Linq;
 using CustomTileFrame.CommonTileEnum;
 using CustomTileFrame.MapDataEntity.Dto;
 using CustomTileFrame.Tile;
+using DTO;
+using ExceptionHandler;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -13,11 +15,11 @@ namespace CustomTileFrame.Tool
 {
     public class CreateMap : MonoBehaviour
     {
-        public Tilemap BackgroundMap; // 背景 Map
-        public Tilemap CrashMap; // 碰撞层 Map
-        public Tilemap ForegroundMap; // 前景层 Map
+        public Tilemap backgroundMap; // 背景 Map
+        public Tilemap crashMap; // 碰撞层 Map
+        public Tilemap foregroundMap; // 前景层 Map
 
-        private CustomTile[] OrderTiles; // 全部 Tile，Map 用于读取
+        private CustomTile[] orderTiles; // 全部 Tile，Map 用于读取
 
         private MapRootDto mapDto;
 
@@ -49,7 +51,7 @@ namespace CustomTileFrame.Tool
                 tiles.Add(tile);
             });
 
-            OrderTiles = tiles.ToArray();
+            orderTiles = tiles.ToArray();
         }
 
         /// <summary>
@@ -78,18 +80,18 @@ namespace CustomTileFrame.Tool
                             // 默认 -1 为空
                             if (chunk.Data[i][j] == -1) continue;
 
-                            var tile = OrderTiles[chunk.Data[i][j]];
+                            var tile = orderTiles[chunk.Data[i][j]];
                             var pos = new Vector3Int(Convert.ToInt32(x + j), Convert.ToInt32(y + i), 0);
                             switch (tile.model)
                             {
                                 case DisplayModel.Background:
-                                    BackgroundMap.SetTile(pos, tile);
+                                    backgroundMap.SetTile(pos, tile);
                                     break;
                                 case DisplayModel.Crash:
-                                    CrashMap.SetTile(pos, tile);
+                                    crashMap.SetTile(pos, tile);
                                     break;
                                 case DisplayModel.Foreground:
-                                    ForegroundMap.SetTile(pos, tile);
+                                    foregroundMap.SetTile(pos, tile);
                                     break;
                                 default:
                                     throw new ArgumentOutOfRangeException();
@@ -105,7 +107,7 @@ namespace CustomTileFrame.Tool
         // 用于表示它是否初始化
         private static bool _isSpriteInfoDictInit = false;
         // 这里用于装载地图
-        private static Dictionary<string, string> _spriteInfoDict = new Dictionary<string, string>();
+        private static Dictionary<string, TileResourcePath> _spriteInfoDict = new Dictionary<string, TileResourcePath>();
 
         public static Sprite GetSprite(string name)
         {
@@ -116,16 +118,31 @@ namespace CustomTileFrame.Tool
                 _isSpriteInfoDictInit = true;
             }
 
-            _spriteInfoDict.TryGetValue(name, out var saPath);
-
+            _spriteInfoDict.TryGetValue(name, out var saPathInfo);
             Sprite sa = null;
 
-            // 首次使用加载
-            // 加载 Assets/Resources/TileSprite/TileSpriteAtlas.asset
-            // 不用加文件后缀
-            sa = Resources.Load<Sprite>(saPath ?? _spriteInfoDict["000"]);
+            if (saPathInfo == null)
+            {
+                sa = Resources.Load<Sprite>(_spriteInfoDict["000"].path);
+                var message = $"sprite: \"{name}\" Can't find! Please check the path";
+                Debug.LogWarning(message);
+                throw new ResourceException(message);
+            }
+
+            // 先判断贴图类型
+            switch (saPathInfo.mode)
+            {
+                case TileResourcePath.SpriteMode.Single:
+                    sa = Resources.Load<Sprite>(saPathInfo.path);
+                    break;
+                case TileResourcePath.SpriteMode.Multiple:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
             // 找不到也返回错误贴图
-            if (sa == null) sa = Resources.Load<Sprite>(_spriteInfoDict["000"]);
+            if (sa == null) sa = Resources.Load<Sprite>(_spriteInfoDict["000"].path);
 
             return sa;
         }
@@ -137,9 +154,9 @@ namespace CustomTileFrame.Tool
             if (!Input.GetMouseButtonDown(0)) return;
             var mousePosition = Input.mousePosition;
             var wordPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            var cellPosition = CrashMap.WorldToCell(wordPosition);
+            var cellPosition = crashMap.WorldToCell(wordPosition);
             //tilemap.SetTile(cellPosition, gameUI.GetSelectColor().colorData.mTile);
-            var tb = CrashMap.GetTile<CustomBaseTile>(cellPosition);
+            var tb = crashMap.GetTile<CustomBaseTile>(cellPosition);
             if (tb == null)
             {
                 return;

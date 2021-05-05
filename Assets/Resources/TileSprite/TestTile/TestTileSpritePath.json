@@ -1,11 +1,5 @@
 [
-  {
-    "spriteId": "000",
-    "mode": "0",
-    "path": "TileSprite/TestTile/errorTile",
-    "describe": "错误贴图"
-  },
-  {
+    {
     "spriteId": "001",
     "mode": "0",
     "path": "TileSprite/TestTile/001",

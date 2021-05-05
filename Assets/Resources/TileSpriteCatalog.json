@@ -1,0 +1,10 @@
+[
+    {
+        "name": "TestSpirit",
+        "path": "TileSprite/TestTileSpritePath"
+    },
+    {
+        "name": "SpecialSprite",
+        "path": "TileSprite/SpecialTile/SpecialTileSpritePath"
+    }
+]
