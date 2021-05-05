@@ -1,31 +1,40 @@
 fileFormatVersion: 2
-guid: 8194db15dc579e241bd01a85b3319593
+guid: df318d0c1afb60d4aa74a81dcd6c6c85
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3925065873267040755
-    second: crouch-walk_0
+      213: -768234536410337086
+    second: Tropics_entities (16 x 16)_0
   - first:
-      213: 6366966719912570195
-    second: crouch-walk_1
+      213: 1278627490152989477
+    second: Tropics_entities (16 x 16)_1
   - first:
-      213: 7408875511315769260
-    second: crouch-walk_2
+      213: -8591564945142080606
+    second: Tropics_entities (16 x 16)_2
   - first:
-      213: -2061594221211425951
-    second: crouch-walk_3
+      213: 808587544178781701
+    second: Tropics_entities (16 x 16)_3
   - first:
-      213: -7711906535450122088
-    second: crouch-walk_4
+      213: -6144717249680659681
+    second: Tropics_entities (16 x 16)_4
   - first:
-      213: -626267531129910146
-    second: crouch-walk_5
+      213: -8095344990927549359
+    second: Tropics_entities (16 x 16)_5
   - first:
-      213: -5773463833353028876
-    second: crouch-walk_6
+      213: 6023601190790498133
+    second: Tropics_entities (16 x 16)_6
   - first:
-      213: -1178804122456259214
-    second: crouch-walk_7
+      213: 2214257346866131166
+    second: Tropics_entities (16 x 16)_7
+  - first:
+      213: 4720048639599742247
+    second: Tropics_entities (16 x 16)_8
+  - first:
+      213: 3817733128199561193
+    second: Tropics_entities (16 x 16)_9
+  - first:
+      213: -7929009622148525126
+    second: Tropics_entities (16 x 16)_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -69,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crouch-walk_0
+      name: Tropics_entities (16 x 16)_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 0
-        width: 21
-        height: 33
+        x: 26
+        y: 80
+        width: 29
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f12718ad92a87630800000000000000
-      internalID: 3925065873267040755
+      spriteID: 2c0331962cea655f0800000000000000
+      internalID: -768234536410337086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_1
+      name: Tropics_entities (16 x 16)_1
       rect:
         serializedVersion: 2
-        x: 40
-        y: 0
-        width: 17
-        height: 33
+        x: 86
+        y: 80
+        width: 36
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35d6f158f720c5850800000000000000
-      internalID: 6366966719912570195
+      spriteID: 5234e968de89eb110800000000000000
+      internalID: 1278627490152989477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_2
+      name: Tropics_entities (16 x 16)_2
       rect:
         serializedVersion: 2
-        x: 72
-        y: 0
+        x: 144
+        y: 80
         width: 16
-        height: 33
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,19 +188,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca7211d060d91d660800000000000000
-      internalID: 7408875511315769260
+      spriteID: 2ab9b14d331a4c880800000000000000
+      internalID: -8591564945142080606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_3
+      name: Tropics_entities (16 x 16)_3
       rect:
         serializedVersion: 2
-        x: 103
-        y: 0
-        width: 17
+        x: 179
+        y: 80
+        width: 74
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -200,20 +209,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 163e1b58afeb363e0800000000000000
-      internalID: -2061594221211425951
+      spriteID: 50ee49c561ea83b00800000000000000
+      internalID: 808587544178781701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_4
+      name: Tropics_entities (16 x 16)_4
       rect:
         serializedVersion: 2
-        x: 134
-        y: 0
-        width: 20
-        height: 33
+        x: 192
+        y: 32
+        width: 16
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +230,125 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8986b7d8dddc9f490800000000000000
-      internalID: -7711906535450122088
+      spriteID: f1ba19fa73499baa0800000000000000
+      internalID: -6144717249680659681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_5
+      name: Tropics_entities (16 x 16)_5
       rect:
         serializedVersion: 2
-        x: 170
-        y: 0
+        x: 224
+        y: 32
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15c86892f9e87af80800000000000000
+      internalID: -8095344990927549359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tropics_entities (16 x 16)_6
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 21
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55700bd5e51289350800000000000000
+      internalID: 6023601190790498133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tropics_entities (16 x 16)_7
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 21
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed03149435f9abe10800000000000000
+      internalID: 2214257346866131166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tropics_entities (16 x 16)_8
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 5
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72d88e5da3bf08140800000000000000
+      internalID: 4720048639599742247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tropics_entities (16 x 16)_9
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 6
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ef53998d005bf430800000000000000
+      internalID: 3817733128199561193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tropics_entities (16 x 16)_10
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 5
         width: 13
-        height: 33
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,50 +356,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7c04a0affc0f47f0800000000000000
-      internalID: -626267531129910146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crouch-walk_6
-      rect:
-        serializedVersion: 2
-        x: 202
-        y: 0
-        width: 16
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fa7d619b3980efa0800000000000000
-      internalID: -5773463833353028876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crouch-walk_7
-      rect:
-        serializedVersion: 2
-        x: 232
-        y: 0
-        width: 17
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2758a3d65eb04afe0800000000000000
-      internalID: -1178804122456259214
+      spriteID: ab3de2322cf76f190800000000000000
+      internalID: -7929009622148525126
       vertices: []
       indices: 
       edges: []

@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 134085773}
   - component: {fileID: 134085772}
   m_Layer: 0
-  m_Name: EventManager
+  m_Name: MyEventManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -713,7 +713,7 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!224 &508603923 stripped
@@ -1554,12 +1554,6 @@ MonoBehaviour:
   leftFoot: {fileID: 0}
   hand: {fileID: 0}
   head: {fileID: 0}
-  isCrouching: 0
-  isRun: 0
-  isOnGround: 0
-  graspWall: 0
-  isOnWallTap: 0
-  inTheAir: 0
   showState: 0
 --- !u!114 &1112518734
 MonoBehaviour:
@@ -1715,7 +1709,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7772727, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

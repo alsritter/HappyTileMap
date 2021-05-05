@@ -34,6 +34,14 @@ namespace EventFrame
         /// <summary>
         /// 头顶撞墙事件
         /// </summary>
-        OnWallTap = 10005
+        OnWallTap = 10005,
+        /// <summary>
+        /// 在空中的事件
+        /// </summary>
+        InTheAir = 10006,
+        /// <summary>
+        /// 在下蹲的事件
+        /// </summary>
+        IsCrouching = 10007
     }
 }

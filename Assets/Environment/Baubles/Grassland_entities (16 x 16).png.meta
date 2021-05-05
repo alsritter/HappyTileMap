@@ -1,31 +1,34 @@
 fileFormatVersion: 2
-guid: 8194db15dc579e241bd01a85b3319593
+guid: 91c29ef691cedcb43b650fd3c19d063d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3925065873267040755
-    second: crouch-walk_0
+      213: 7209383779109950796
+    second: Grassland_entities (16 x 16)_0
   - first:
-      213: 6366966719912570195
-    second: crouch-walk_1
+      213: 6552889776755588209
+    second: Grassland_entities (16 x 16)_1
   - first:
-      213: 7408875511315769260
-    second: crouch-walk_2
+      213: 1005101958320914242
+    second: Grassland_entities (16 x 16)_2
   - first:
-      213: -2061594221211425951
-    second: crouch-walk_3
+      213: -219912757961798916
+    second: Grassland_entities (16 x 16)_3
   - first:
-      213: -7711906535450122088
-    second: crouch-walk_4
+      213: -516603167571801937
+    second: Grassland_entities (16 x 16)_4
   - first:
-      213: -626267531129910146
-    second: crouch-walk_5
+      213: -4425045917409265430
+    second: Grassland_entities (16 x 16)_5
   - first:
-      213: -5773463833353028876
-    second: crouch-walk_6
+      213: 1665711953458769838
+    second: Grassland_entities (16 x 16)_6
   - first:
-      213: -1178804122456259214
-    second: crouch-walk_7
+      213: -5149134790791671858
+    second: Grassland_entities (16 x 16)_7
+  - first:
+      213: -7386257474755204809
+    second: Grassland_entities (16 x 16)_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -69,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crouch-walk_0
+      name: Grassland_entities (16 x 16)_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 0
-        width: 21
-        height: 33
+        x: 21
+        y: 48
+        width: 38
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f12718ad92a87630800000000000000
-      internalID: 3925065873267040755
+      spriteID: c45df43a950ec0460800000000000000
+      internalID: 7209383779109950796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_1
+      name: Grassland_entities (16 x 16)_1
       rect:
         serializedVersion: 2
-        x: 40
-        y: 0
-        width: 17
-        height: 33
+        x: 83
+        y: 48
+        width: 42
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +161,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35d6f158f720c5850800000000000000
-      internalID: 6366966719912570195
+      spriteID: 17c3ec3888a80fa50800000000000000
+      internalID: 6552889776755588209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_2
+      name: Grassland_entities (16 x 16)_2
       rect:
         serializedVersion: 2
-        x: 72
-        y: 0
+        x: 149
+        y: 48
+        width: 38
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24f74c4e7e6d2fd00800000000000000
+      internalID: 1005101958320914242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grassland_entities (16 x 16)_3
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 64
+        width: 45
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfa4c140386b2fcf0800000000000000
+      internalID: -219912757961798916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grassland_entities (16 x 16)_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
         width: 16
-        height: 33
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,19 +224,82 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca7211d060d91d660800000000000000
-      internalID: 7408875511315769260
+      spriteID: fa88a0bf728a4d8f0800000000000000
+      internalID: -516603167571801937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_3
+      name: Grassland_entities (16 x 16)_5
       rect:
         serializedVersion: 2
-        x: 103
-        y: 0
-        width: 17
+        x: 49
+        y: 16
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae8370ade241792c0800000000000000
+      internalID: -4425045917409265430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grassland_entities (16 x 16)_6
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 16
+        width: 47
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf2804423ccd1710800000000000000
+      internalID: 1665711953458769838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grassland_entities (16 x 16)_7
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 16
+        width: 39
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecfc14660399a88b0800000000000000
+      internalID: -5149134790791671858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grassland_entities (16 x 16)_8
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 16
+        width: 74
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -200,92 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 163e1b58afeb363e0800000000000000
-      internalID: -2061594221211425951
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crouch-walk_4
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 0
-        width: 20
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8986b7d8dddc9f490800000000000000
-      internalID: -7711906535450122088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crouch-walk_5
-      rect:
-        serializedVersion: 2
-        x: 170
-        y: 0
-        width: 13
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7c04a0affc0f47f0800000000000000
-      internalID: -626267531129910146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crouch-walk_6
-      rect:
-        serializedVersion: 2
-        x: 202
-        y: 0
-        width: 16
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fa7d619b3980efa0800000000000000
-      internalID: -5773463833353028876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crouch-walk_7
-      rect:
-        serializedVersion: 2
-        x: 232
-        y: 0
-        width: 17
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2758a3d65eb04afe0800000000000000
-      internalID: -1178804122456259214
+      spriteID: 73964a5f5fdbe7990800000000000000
+      internalID: -7386257474755204809
       vertices: []
       indices: 
       edges: []

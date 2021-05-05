@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 8194db15dc579e241bd01a85b3319593
+guid: 56415e24e62dbf849b01dc9e7c0c9899
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3925065873267040755
-    second: crouch-walk_0
+      213: -406687925534975052
+    second: Autumn_entities (16 x 16)_0
   - first:
-      213: 6366966719912570195
-    second: crouch-walk_1
+      213: 4687957587714963813
+    second: Autumn_entities (16 x 16)_1
   - first:
-      213: 7408875511315769260
-    second: crouch-walk_2
+      213: -2329183655849485194
+    second: Autumn_entities (16 x 16)_2
   - first:
-      213: -2061594221211425951
-    second: crouch-walk_3
+      213: 3079233502528036278
+    second: Autumn_entities (16 x 16)_3
   - first:
-      213: -7711906535450122088
-    second: crouch-walk_4
+      213: 5458939830573632764
+    second: Autumn_entities (16 x 16)_4
   - first:
-      213: -626267531129910146
-    second: crouch-walk_5
+      213: -1965664334430982820
+    second: Autumn_entities (16 x 16)_5
   - first:
-      213: -5773463833353028876
-    second: crouch-walk_6
+      213: -2705358519395448153
+    second: Autumn_entities (16 x 16)_6
   - first:
-      213: -1178804122456259214
-    second: crouch-walk_7
+      213: -1810565749971843173
+    second: Autumn_entities (16 x 16)_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -69,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crouch-walk_0
+      name: Autumn_entities (16 x 16)_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 0
-        width: 21
-        height: 33
+        x: 19
+        y: 48
+        width: 42
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f12718ad92a87630800000000000000
-      internalID: 3925065873267040755
+      spriteID: 4bb1c088c772b5af0800000000000000
+      internalID: -406687925534975052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_1
+      name: Autumn_entities (16 x 16)_1
       rect:
         serializedVersion: 2
-        x: 40
-        y: 0
-        width: 17
-        height: 33
+        x: 83
+        y: 48
+        width: 42
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35d6f158f720c5850800000000000000
-      internalID: 6366966719912570195
+      spriteID: 569f8d19698fe0140800000000000000
+      internalID: 4687957587714963813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_2
+      name: Autumn_entities (16 x 16)_2
       rect:
         serializedVersion: 2
-        x: 72
-        y: 0
-        width: 16
-        height: 33
+        x: 145
+        y: 80
+        width: 47
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,19 +179,61 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca7211d060d91d660800000000000000
-      internalID: 7408875511315769260
+      spriteID: 67c12783ec31dafd0800000000000000
+      internalID: -2329183655849485194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_3
+      name: Autumn_entities (16 x 16)_3
       rect:
         serializedVersion: 2
-        x: 103
-        y: 0
-        width: 17
+        x: 241
+        y: 80
+        width: 45
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd5aaa5e82abba20800000000000000
+      internalID: 3079233502528036278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Autumn_entities (16 x 16)_4
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 48
+        width: 39
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfc829b6adc02cb40800000000000000
+      internalID: 5458939830573632764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Autumn_entities (16 x 16)_5
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 32
+        width: 74
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -200,62 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 163e1b58afeb363e0800000000000000
-      internalID: -2061594221211425951
+      spriteID: c5d269ec3be88b4e0800000000000000
+      internalID: -1965664334430982820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_4
+      name: Autumn_entities (16 x 16)_6
       rect:
         serializedVersion: 2
-        x: 134
-        y: 0
-        width: 20
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8986b7d8dddc9f490800000000000000
-      internalID: -7711906535450122088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crouch-walk_5
-      rect:
-        serializedVersion: 2
-        x: 170
-        y: 0
-        width: 13
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7c04a0affc0f47f0800000000000000
-      internalID: -626267531129910146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crouch-walk_6
-      rect:
-        serializedVersion: 2
-        x: 202
-        y: 0
+        x: 16
+        y: 16
         width: 16
-        height: 33
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fa7d619b3980efa0800000000000000
-      internalID: -5773463833353028876
+      spriteID: 7aa8b5d92c2a47ad0800000000000000
+      internalID: -2705358519395448153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_7
+      name: Autumn_entities (16 x 16)_7
       rect:
         serializedVersion: 2
-        x: 232
-        y: 0
-        width: 17
-        height: 32
+        x: 49
+        y: 16
+        width: 14
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2758a3d65eb04afe0800000000000000
-      internalID: -1178804122456259214
+      spriteID: b97807e0b049fd6e0800000000000000
+      internalID: -1810565749971843173
       vertices: []
       indices: 
       edges: []

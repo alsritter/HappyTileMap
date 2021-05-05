@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using EventFrame;
+using EventFrame.CustomEvent;
 using PlayerController.FSM;
 using UnityEngine;
 
@@ -8,7 +10,7 @@ namespace PlayerController
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Animator), typeof(PlayerFSMSystem))]
-    public class PlayerAnimation : MonoBehaviour
+    public class PlayerAnimation : MonoBehaviour, IEventObserver
     {
         private Animator anim;
         private PlayerFSMSystem pm;
@@ -30,14 +32,15 @@ namespace PlayerController
         private int stateUpdateCacheNumber;
         private bool stateUpdateCache = false;
 
-   
 
         // 临时存储
         private bool isWalk;
         private bool isClimbing;
 
-        // 用来记录上一个状态
-        private PlayerBaseState lastState;
+        private void Awake()
+        {
+            EventManager.Register(this, EventID.IsCrouching, EventID.Run, EventID.InTheAir, EventID.GraspWall);
+        }
 
         private void Start()
         {
@@ -60,24 +63,18 @@ namespace PlayerController
         private void Update()
         {
             // 注意！！！ 这个只管根状态，子状态不管（如果需要则拓展）
-            if (lastState == pm.curState && stateUpdateCacheNumber >= 1)
+            if (stateUpdateCacheNumber >= 1)
             {
                 stateUpdateCacheNumber--;
             }
 
-            if (lastState != pm.curState)
-            {
-                stateUpdateCacheNumber = updateNumber;
-                stateUpdateCache = true;
-            }
-            
+
             if (stateUpdateCacheNumber < 1)
             {
                 stateUpdateCache = false;
             }
 
             anim.SetBool(isStateUpdateId, stateUpdateCache);
-            lastState = pm.curState;
 
 /*            // 只有状态改变了才调用 SetBool 方法（因为每次调用 SetBool 都会通知 anyState）
             // 反编译看这个 SetBool 方法内部是  MethodImplOptions.InternalCall     所以应该避免更新无意义的动画状态
@@ -86,10 +83,7 @@ namespace PlayerController
             if (anim.GetBool(inTheAirId) != pm.inTheAir) anim.SetBool(inTheAirId, pm.inTheAir);
             if (anim.GetBool(inTheClimbId) != pm.graspWall) anim.SetBool(inTheClimbId, pm.graspWall);
 */
-            anim.SetBool(isCrouchingId, pm.isCrouching);
-            anim.SetBool(isRunId, pm.isRun);
-            anim.SetBool(inTheAirId, pm.inTheAir);
-            anim.SetBool(inTheClimbId, pm.graspWall);
+
 
             anim.SetFloat(verticalVelocityId, rb.velocity.y);
 
@@ -98,6 +92,33 @@ namespace PlayerController
 
             anim.SetBool(isWalkId, isWalk);
             anim.SetBool(isClimbingId, isClimbing);
+        }
+
+        public void HandleEvent(EventData resp)
+        {
+            stateUpdateCacheNumber = updateNumber;
+            stateUpdateCache = true;
+            anim.SetBool(isStateUpdateId, stateUpdateCache);
+            
+            switch (resp.eid)
+            {
+                case EventID.IsCrouching:
+                    // anim.SetBool(isCrouchingId, pm.isCrouching);
+                    anim.SetBool(isCrouchingId, ((PlayerStateEventData) resp).trigger);
+                    break;
+                case EventID.Run:
+                    // anim.SetBool(isRunId, pm.isRun);
+                    anim.SetBool(isRunId, ((PlayerStateEventData) resp).trigger);
+                    break;
+                case EventID.InTheAir:
+                    //  anim.SetBool(inTheAirId, pm.inTheAir);
+                    anim.SetBool(inTheAirId, ((PlayerStateEventData) resp).trigger);
+                    break;
+                case EventID.GraspWall:
+                    //  anim.SetBool(inTheClimbId, pm.graspWall);
+                    anim.SetBool(inTheClimbId, ((PlayerStateEventData) resp).trigger);
+                    break;
+            }
         }
     }
 }

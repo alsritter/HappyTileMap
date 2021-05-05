@@ -1,0 +1,38 @@
+[
+  {
+    "PrefabId": "0001",
+    "name": "灯柱",
+    "size_w": 1,
+    "size_h": 2,
+    "type": "0",
+    "describe": "普通的灯柱",
+    "path": "Prefabs/Environment/Baubles/tiki_torch_props_strip"
+  },
+  {
+    "PrefabId": "0002",
+    "name": "瀑布",
+    "size_w": 1,
+    "size_h": 2,
+    "type": "0",
+    "describe": "普通的灯柱",
+    "path": "Prefabs/Environment/Baubles/waterfall"
+  },
+  {
+    "PrefabId": "0003",
+    "name": "秋天的树",
+    "size_w": 3,
+    "size_h": 3,
+    "type": "0",
+    "describe": "秋天的树",
+    "path": "Prefabs/Environment/Baubles/Autumn_tree"
+  },
+  {
+    "PrefabId": "0004",
+    "name": "秋天的树02",
+    "size_w": 3,
+    "size_h": 3,
+    "type": "0",
+    "describe": "秋天的树02",
+    "path": "Prefabs/Environment/Baubles/Autumn_tree02"
+  }
+]

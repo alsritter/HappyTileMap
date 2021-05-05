@@ -16,7 +16,8 @@ namespace PlayerController.FSM
     [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
     public class PlayerFSMSystem : MonoBehaviour, IEventObserver
     {
-        [HideInInspector] public PlayerBaseState curState { get; private set; } // 指向当前的状态
+        [HideInInspector] 
+        private PlayerBaseState curState { get;  set; } // 指向当前的状态
 
         [HideInInspector]
         public Rigidbody2D rb;

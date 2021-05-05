@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using EventFrame;
+using EventFrame.CustomEvent;
 using UnityEngine;
 
 namespace PlayerController.FSM
@@ -24,7 +26,23 @@ namespace PlayerController.FSM
         private Vector2 colliderCrouchSize;
         private Vector2 colliderCrouchOffset;
 
+        private readonly PlayerStateEventData isCrouchingEvent;
+
         private bool isInit = false;
+
+        
+        public override string name => "OnCrouchState";
+
+        public OnCrouchState(OnGroundState parentSate)
+        {
+            this.parentSate = parentSate;
+            crouchWalkState = new CrouchWalkState(this);
+            crouchIdleState = new CrouchIdleState(this);
+            isCrouchingEvent = new PlayerStateEventData(EventID.IsCrouching);
+
+            TransitionState(crouchIdleState, null);
+        }
+
 
         /// <summary>
         /// 在入口点重置当前状态
@@ -42,23 +60,15 @@ namespace PlayerController.FSM
                 isInit = true;
             }
 
-            player.isCrouching = true;
-
             TransitionState(crouchIdleState, player);
             // 修改当前角色的碰撞盒大小
             player.coll.size = colliderCrouchSize;
             player.coll.offset = colliderCrouchOffset;
+
+            // player.isCrouching = true;
+            isCrouchingEvent.UpdateState(true);
         }
 
-        public OnCrouchState(OnGroundState parentSate)
-        {
-            this.parentSate = parentSate;
-            crouchWalkState = new CrouchWalkState(this);
-            crouchIdleState = new CrouchIdleState(this);
-            TransitionState(crouchIdleState, null);
-        }
-
-        public override string name => "OnCrouchState";
 
         public override void Update(PlayerFSMSystem player)
         {
@@ -86,7 +96,8 @@ namespace PlayerController.FSM
             player.coll.size = colliderStandSize;
             player.coll.offset = colliderStandOffset;
 
-            player.isCrouching = false;
+            // player.isCrouching = false;
+            isCrouchingEvent.UpdateState(false);
 
             currentState.Exit(player);
         }

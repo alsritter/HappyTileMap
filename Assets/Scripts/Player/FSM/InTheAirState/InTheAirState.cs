@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using EventFrame;
+using EventFrame.CustomEvent;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -16,6 +18,16 @@ namespace PlayerController.FSM
 
         public override string name => "InTheAirState";
 
+        private readonly PlayerStateEventData inTheAirEvent;
+
+        public InTheAirState()
+        {
+            jumpState = new JumpState(this);
+            jump2State = new Jump2State(this);
+            inTheAirEvent = new PlayerStateEventData(EventID.InTheAir);
+            TransitionState(jumpState, null);
+        }
+
         /// <summary>
         /// 在入口点重置当前状态
         /// </summary>
@@ -24,7 +36,8 @@ namespace PlayerController.FSM
         {
             // 只有按下 Jump 进入的状态才需要进入跳跃（注意这个 GetButtonDown 是获取的同一帧的是否按下）
             TransitionState(jumpState, player, Input.GetButtonDown("Jump"), true);
-            player.inTheAir = true;
+            //player.inTheAir = true;
+            inTheAirEvent.UpdateState(true);
             // 跳跃时无摩擦
             player.rb.sharedMaterial = player.noFriction;
         }
@@ -44,17 +57,13 @@ namespace PlayerController.FSM
             currentState.FixedUpdate(player);
         }
 
-        public InTheAirState()
-        {
-            jumpState = new JumpState(this);
-            jump2State = new Jump2State(this);
-            TransitionState(jumpState, null);
-        }
+
 
         public override void Exit(PlayerFSMSystem player)
         {
             currentState.Exit(player);
-            player.inTheAir = false;
+            //  player.inTheAir = false;
+            inTheAirEvent.UpdateState(false);
             // 站在时有摩擦
             player.rb.sharedMaterial = player.hasFriction;
         }

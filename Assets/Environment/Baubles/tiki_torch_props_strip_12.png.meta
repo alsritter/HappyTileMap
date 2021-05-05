@@ -1,31 +1,43 @@
 fileFormatVersion: 2
-guid: 8194db15dc579e241bd01a85b3319593
+guid: 5c07c9f2bc4fed44cb7b83e5e5e3380a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3925065873267040755
-    second: crouch-walk_0
+      213: -8974410232410316223
+    second: tiki_torch_props_strip_12_0
   - first:
-      213: 6366966719912570195
-    second: crouch-walk_1
+      213: 1498906083326099771
+    second: tiki_torch_props_strip_12_1
   - first:
-      213: 7408875511315769260
-    second: crouch-walk_2
+      213: 2751739751471309403
+    second: tiki_torch_props_strip_12_2
   - first:
-      213: -2061594221211425951
-    second: crouch-walk_3
+      213: 919758375637544363
+    second: tiki_torch_props_strip_12_3
   - first:
-      213: -7711906535450122088
-    second: crouch-walk_4
+      213: 4022848014859782190
+    second: tiki_torch_props_strip_12_4
   - first:
-      213: -626267531129910146
-    second: crouch-walk_5
+      213: -2954988681772520180
+    second: tiki_torch_props_strip_12_5
   - first:
-      213: -5773463833353028876
-    second: crouch-walk_6
+      213: -5963787550267610800
+    second: tiki_torch_props_strip_12_6
   - first:
-      213: -1178804122456259214
-    second: crouch-walk_7
+      213: -2930700272432633912
+    second: tiki_torch_props_strip_12_7
+  - first:
+      213: 9220060651002216085
+    second: tiki_torch_props_strip_12_8
+  - first:
+      213: -4785800935177176279
+    second: tiki_torch_props_strip_12_9
+  - first:
+      213: -2983329550747964576
+    second: tiki_torch_props_strip_12_10
+  - first:
+      213: -1372650879670133750
+    second: tiki_torch_props_strip_12_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -69,7 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crouch-walk_0
+      name: tiki_torch_props_strip_12_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 0
-        width: 21
-        height: 33
+        width: 8
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +149,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f12718ad92a87630800000000000000
-      internalID: 3925065873267040755
+      spriteID: 1426d8c217d747380800000000000000
+      internalID: -8974410232410316223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_1
+      name: tiki_torch_props_strip_12_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b310358242f2dc410800000000000000
+      internalID: 1498906083326099771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiki_torch_props_strip_12_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b52e4c089b4203620800000000000000
+      internalID: 2751739751471309403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiki_torch_props_strip_12_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bade01b9e53a3cc00800000000000000
+      internalID: 919758375637544363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiki_torch_props_strip_12_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e284a1f94f604d730800000000000000
+      internalID: 4022848014859782190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiki_torch_props_strip_12_5
       rect:
         serializedVersion: 2
         x: 40
         y: 0
-        width: 17
-        height: 33
+        width: 8
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +254,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35d6f158f720c5850800000000000000
-      internalID: 6366966719912570195
+      spriteID: c0d26ab3375cdf6d0800000000000000
+      internalID: -2954988681772520180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_2
+      name: tiki_torch_props_strip_12_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 059e66e02de5c3da0800000000000000
+      internalID: -5963787550267610800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiki_torch_props_strip_12_7
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c7238631af0457d0800000000000000
+      internalID: -2930700272432633912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiki_torch_props_strip_12_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59e3b86ef4c34ff70800000000000000
+      internalID: 9220060651002216085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiki_torch_props_strip_12_9
       rect:
         serializedVersion: 2
         x: 72
         y: 0
-        width: 16
-        height: 33
+        width: 8
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +338,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca7211d060d91d660800000000000000
-      internalID: 7408875511315769260
+      spriteID: 92b380dd76b659db0800000000000000
+      internalID: -4785800935177176279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_3
+      name: tiki_torch_props_strip_12_10
       rect:
         serializedVersion: 2
-        x: 103
+        x: 80
         y: 0
-        width: 17
-        height: 32
+        width: 8
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +359,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 163e1b58afeb363e0800000000000000
-      internalID: -2061594221211425951
+      spriteID: 06bedb774951996d0800000000000000
+      internalID: -2983329550747964576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crouch-walk_4
+      name: tiki_torch_props_strip_12_11
       rect:
         serializedVersion: 2
-        x: 134
+        x: 88
         y: 0
-        width: 20
-        height: 33
+        width: 8
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,71 +380,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8986b7d8dddc9f490800000000000000
-      internalID: -7711906535450122088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crouch-walk_5
-      rect:
-        serializedVersion: 2
-        x: 170
-        y: 0
-        width: 13
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7c04a0affc0f47f0800000000000000
-      internalID: -626267531129910146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crouch-walk_6
-      rect:
-        serializedVersion: 2
-        x: 202
-        y: 0
-        width: 16
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fa7d619b3980efa0800000000000000
-      internalID: -5773463833353028876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crouch-walk_7
-      rect:
-        serializedVersion: 2
-        x: 232
-        y: 0
-        width: 17
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2758a3d65eb04afe0800000000000000
-      internalID: -1178804122456259214
+      spriteID: a0c52ac2c4d53fce0800000000000000
+      internalID: -1372650879670133750
       vertices: []
       indices: 
       edges: []

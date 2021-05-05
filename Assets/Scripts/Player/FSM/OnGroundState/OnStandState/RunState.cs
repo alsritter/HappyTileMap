@@ -1,23 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using EventFrame;
+using EventFrame.CustomEvent;
 using UnityEngine;
 
 namespace PlayerController.FSM
 {
     public class RunState : PlayerBaseState
     {
-        public RunState(OnStandState parentState)
-        {
-            this.parentState = parentState;
-        }
 
         private readonly OnStandState parentState;
+        private readonly PlayerStateEventData isRunEvent;
 
         public override string name => "RunState";
 
+        public RunState(OnStandState parentState)
+        {
+            this.parentState = parentState;
+            isRunEvent = new PlayerStateEventData(EventID.Run);
+        }
+
         public override void Enter(PlayerFSMSystem player)
         {
-            player.isRun = true;
+            // player.isRun = true;
+            isRunEvent.UpdateState(true);
         }
 
         public override void Update(PlayerFSMSystem player)
@@ -42,7 +48,8 @@ namespace PlayerController.FSM
 
         public override void Exit(PlayerFSMSystem player)
         {
-            player.isRun = false;
+            // player.isRun = false;
+            isRunEvent.UpdateState(false);
         }
     }
 }

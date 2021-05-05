@@ -20,7 +20,7 @@ namespace EventFrame.CustomEvent
 
         public void UpdateState(bool state)
         {
-            Debug.Log($"当前 {eid} 的状态为：{trigger}");
+            //Debug.Log($"当前 {eid} 的状态为：{trigger}");
             trigger = state;
             Send();
         }
