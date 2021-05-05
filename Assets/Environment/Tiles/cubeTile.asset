@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50131e81fda2ae4baaf6026fa5136aa, type: 3}
   m_Name: cubeTile
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 376c9d1068b3d6a4bba8aa890602e3f3, type: 3}
+  m_Sprite: {fileID: 7654806567737475841, guid: 02125aa143d5076439da89c3b9e4b316,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -35,6 +36,6 @@ MonoBehaviour:
   m_Flags: 1
   m_ColliderType: 1
   effectKeys: []
-  tileSpriteId: 001
+  tileSpriteId: 354
   model: 2
   tags: 

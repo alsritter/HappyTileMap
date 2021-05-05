@@ -48,6 +48,8 @@ public class LoadJsonTool
     /// 加载资源信息
     /// mode：0  单独的贴图
     /// mode：1  位于精灵集里面（就是一个贴图多个精灵）如果是这种模式，则它在精灵集的名字就是它的索引
+    ///
+    /// TODO 这里需要重写一下错误处理
     /// </summary>
     /// <param name="spriteInfoDict"></param>
     public static void ParseTileSpritePathJsonData(ref Dictionary<string, TileResourcePath> spriteInfoDict)
@@ -64,11 +66,25 @@ public class LoadJsonTool
                 var resourceArr = JArray.Parse(resource.text);
                 foreach (var item in resourceArr)
                 {
-                    var spriteId = item["spriteId"].ToString();
-                    var path = item["path"].ToString();
-                    var mode = item["mode"].ToString();
-                    spriteInfoDict.Add(spriteId, new TileResourcePath(spriteId, path,
-                        (TileResourcePath.SpriteMode) Enum.Parse(typeof(TileResourcePath.SpriteMode), mode)));
+                    try
+                    {
+                        var spriteId = item["spriteId"].ToString();
+                        var path = item["path"].ToString();
+                        var mode = item["mode"].ToString();
+
+                        // 先检查一下是否已经存在这个了，如果有则抛出警告
+                        if (spriteInfoDict.ContainsKey(spriteId))
+                        {
+                            throw new ResourceException($"already existed {spriteId}!!");
+                        }
+
+                        spriteInfoDict.Add(spriteId, new TileResourcePath(spriteId, path,
+                            (TileResourcePath.SpriteMode) Enum.Parse(typeof(TileResourcePath.SpriteMode), mode)));
+                    }
+                    catch (Exception e)
+                    {
+                        throw new ResourceException($"Error Cause: {e} ;Please check the resource file path {filePath["path"].ToString()}");
+                    }
                 }
             }
         }

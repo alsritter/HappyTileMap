@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using CustomTileFrame.CommonTileEnum;
 using CustomTileFrame.Tile;
+using EventFrame;
+using EventFrame.CustomEvent;
 using PlayerController.FSM;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -15,7 +17,6 @@ namespace PlayerController
     public class RayCheck : MonoBehaviour
     {
         private PlayerFSMSystem pm;
-
         public Tilemap tileMap; // 只需取得可碰撞的那个 TileMap
 
 
@@ -29,6 +30,22 @@ namespace PlayerController
         private HandCollision handCollision;
         private HeadCollision headCollision;
 
+        private readonly PlayerStateEventData onGroundEvent;
+        private readonly PlayerStateEventData graspWallEvent;
+        private readonly PlayerStateEventData onWallTapEvent;
+
+        // 保存本地状态，只有在状态不一样时才需要更新状态
+        private bool isOnGround;
+        private bool isOnWallTap;
+        private bool graspWall;
+
+
+        public RayCheck()
+        {
+            onGroundEvent = new PlayerStateEventData(EventID.OnGround);
+            graspWallEvent = new PlayerStateEventData(EventID.GraspWall);
+            onWallTapEvent = new PlayerStateEventData(EventID.OnWallTap);
+        }
 
         // Start is called before the first frame update
         private void Start()
@@ -76,9 +93,12 @@ namespace PlayerController
             Debug.DrawRay(rightPos, Vector2.up * footDistance,
                 rightCheck ? Color.red : Color.green);
 
-
             // 判断当前是否在地面（这里使用了隐式转换，RaycastHit2D 转成 bool类型 标识它是否被击中）
-            pm.isOnGround = leftCheck || rightCheck || footBottom;
+            var temp = leftCheck || rightCheck || footBottom;
+
+            if (isOnGround == temp) return;
+            isOnGround = temp;
+            onGroundEvent.UpdateState(isOnGround);
         }
 
         /// <summary>
@@ -136,9 +156,19 @@ namespace PlayerController
             Debug.DrawRay(pm.hand.transform.position, -pm.handDirection * handDistance,
                 handCheck ? Color.red : Color.green);
 
-            // 是否抓住了墙
-            pm.graspWall = handCheck;
-            pm.isOnWallTap = !blockedCheck;
+            // 原本是： pm.graspWall = handCheck;
+            if (graspWall != handCheck)
+            {
+                graspWall = handCheck;
+                graspWallEvent.UpdateState(handCheck);
+            }
+
+            // 原本是：pm.isOnWallTap = !blockedCheck;
+            if (isOnWallTap == blockedCheck)
+            {
+                isOnWallTap = !blockedCheck;
+                onWallTapEvent.UpdateState(!blockedCheck);
+            }
         }
     }
 }

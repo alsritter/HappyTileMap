@@ -136,6 +136,14 @@ namespace CustomTileFrame.Tool
                     sa = Resources.Load<Sprite>(saPathInfo.path);
                     break;
                 case TileResourcePath.SpriteMode.Multiple:
+                    var sprites = Resources.LoadAll<Sprite>(saPathInfo.path);
+                    foreach (var s in sprites)
+                    {
+                        if (s.name == saPathInfo.spriteId)
+                        {
+                            sa = s;
+                        }
+                    }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

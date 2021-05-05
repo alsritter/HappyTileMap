@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using EventFrame;
+using EventFrame.CustomEvent;
 using UnityEngine;
 
 
@@ -11,7 +14,7 @@ namespace PlayerController.FSM
     /// </summary>
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
-    public class PlayerFSMSystem : MonoBehaviour
+    public class PlayerFSMSystem : MonoBehaviour, IEventObserver
     {
         [HideInInspector] public PlayerBaseState curState { get; private set; } // 指向当前的状态
 
@@ -66,13 +69,14 @@ namespace PlayerController.FSM
         [HideInInspector]
         public GameObject head;
 
-        [Header("Debug 相关 检查状态用")]
-        public bool isCrouching; // 在下蹲
-        public bool isRun;
-        public bool isOnGround; // 是否在地面
-        public bool graspWall; // 是否抓住了墙
-        public bool isOnWallTap; // 用于判断当前是否位于墙顶端
-        public bool inTheAir;
+        //[Header("Debug 相关 检查状态用")]
+/*        private bool isCrouching; // 在下蹲
+        private bool isRun;
+        private bool isOnGround; // 是否在地面*/
+
+        private bool isOnGround;
+        private bool graspWall; // 是否抓住了墙
+        //private bool isOnWallTap; // 用于判断当前是否位于墙顶端
 
         //[Header("按键相关")]
 
@@ -85,6 +89,8 @@ namespace PlayerController.FSM
             onGroundState = new OnGroundState();
             inTheAirState = new InTheAirState();
             inClimbState = new InClimbState();
+            // 把自己注册进事件中心
+            EventManager.Register(this, EventID.GraspWall, EventID.OnGround);
         }
 
 
@@ -190,6 +196,19 @@ namespace PlayerController.FSM
             if (executeExit) curState?.Exit(this);
             curState = state;
             if (executeEnter) curState?.Enter(this); // 如果为空则不执行
+        }
+
+        public void HandleEvent(EventData resp)
+        {
+            switch (resp.eid)
+            {
+                case EventID.GraspWall:
+                    graspWall = ((PlayerStateEventData) resp).trigger;
+                    break;
+                case EventID.OnGround:
+                    isOnGround = ((PlayerStateEventData) resp).trigger;
+                    break;
+            }
         }
     }
 }
