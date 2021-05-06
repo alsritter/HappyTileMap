@@ -18,6 +18,8 @@ namespace EventFrame
         /// </summary>
         Scores = 10001,
 
+        #region 角色状态
+
         // 下面这部分用于角色状态，即 PlayerStateEventData 类
         /// <summary>
         /// 跑步事件
@@ -42,6 +44,13 @@ namespace EventFrame
         /// <summary>
         /// 在下蹲的事件
         /// </summary>
-        IsCrouching = 10007
+        IsCrouching = 10007,
+
+        #endregion
+
+        /// <summary>
+        /// 受伤
+        /// </summary>
+        Harm = 10008
     }
 }

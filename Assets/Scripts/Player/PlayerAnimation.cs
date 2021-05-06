@@ -24,6 +24,8 @@ namespace PlayerController
         private int inTheAirId;
         private int inTheClimbId;
         private int isClimbingId;
+        private int isInjuredId;
+
         // 用于告诉 antState 当前是否更新了状态
         private int isStateUpdateId;
         // 因为状态改变可能需要两帧才反应过来，所以应该加个缓存
@@ -57,6 +59,7 @@ namespace PlayerController
             inTheClimbId = Animator.StringToHash("inTheClimb");
             verticalVelocityId = Animator.StringToHash("verticalVelocity");
             isStateUpdateId = Animator.StringToHash("isStateUpdateId");
+            isInjuredId = Animator.StringToHash("isInjured");
         }
 
         // Update is called once per frame
