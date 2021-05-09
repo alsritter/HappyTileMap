@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using PlayerController.FSM;
+using AlsRitter.PlayerController.FSM;
 using UnityEngine;
 
-namespace TileEffect
+namespace AlsRitter.TileEffect
 {
     public abstract class BaseObjectEffect
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using EventFrame;
+using AlsRitter.EventFrame;
 using TMPro;
-using UIFrame;
+using AlsRitter.UIFrame;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,20 +30,6 @@ public class GamePanelController : BasePanel, IEventObserver
         EventManager.Register(this, EventID.Scores,EventID.Harm);
     }
 
-
-    private void OnGUI ()
-    {
-        // 创建第一个按钮。如果按下此按钮，则会执行 Application.Loadlevel (1)
-        if(GUILayout.Button("满血"))
-        {
-            hp = 3;
-            for (var i = 0; i < 4; i++)
-            {
-                ColorUtility.TryParseHtmlString("#AC3232", out var temp);
-                bloods[i].color = temp;
-            }
-        }
-    }
 
     public override void DidOnClick(GameObject sender)
     {

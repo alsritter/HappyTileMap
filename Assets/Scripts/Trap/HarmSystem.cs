@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using EventFrame;
+using AlsRitter.EventFrame;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]

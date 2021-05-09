@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace EventFrame.CustomEvent
+namespace AlsRitter.EventFrame.CustomEvent
 {
     public class PlayerStateEventData : EventData
     {

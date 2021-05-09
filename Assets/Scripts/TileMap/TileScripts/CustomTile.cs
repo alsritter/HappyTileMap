@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using CustomTileFrame.CommonTileEnum;
-using CustomTileFrame.Tile;
+using AlsRitter.CustomTileFrame.CommonTileEnum;
+using AlsRitter.CustomTileFrame.Tile;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace CustomTileFrame
+namespace AlsRitter.CustomTileFrame
 {
     /// <summary>
     /// 用于读取 JSON 实例化的 Tile

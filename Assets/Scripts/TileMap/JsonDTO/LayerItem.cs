@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace CustomTileFrame.MapDataEntity.Dto
+namespace AlsRitter.CustomTileFrame.MapDataEntity.Dto
 {
     public class LayerItem
     {

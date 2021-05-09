@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 
 
-namespace UIFrame
+namespace AlsRitter.UIFrame
 {
     /// <summary>
     /// 面板管理器

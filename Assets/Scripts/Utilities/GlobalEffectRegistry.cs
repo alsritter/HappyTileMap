@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TileEffect;
-using TileEffect.PhysicsEffects;
-using TileEffect.SpecialEffects;
+using AlsRitter.TileEffect;
+using AlsRitter.TileEffect.PhysicsEffects;
+using AlsRitter.TileEffect.SpecialEffects;
 using UnityEngine;
 
 public class GlobalEffectRegistry

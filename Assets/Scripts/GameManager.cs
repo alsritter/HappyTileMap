@@ -15,4 +15,12 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    private void OnGUI ()
+    {
+        if(GUILayout.Button("淡入"))
+        {
+            
+        }
+    }
 }

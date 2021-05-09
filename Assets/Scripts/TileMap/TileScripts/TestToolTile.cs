@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace CustomTileFrame.Tile
+namespace AlsRitter.CustomTileFrame.Tile
 {
     /// <summary>
     /// 这个 Tile 专门用于测试效果用的，用于实例化的 Tile 是另一个

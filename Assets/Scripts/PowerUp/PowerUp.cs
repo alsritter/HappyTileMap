@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using PlayerController.FSM;
+using AlsRitter.PlayerController.FSM;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace PowerUpSystem
+namespace AlsRitter.PowerUpSystem
 {
     /// <summary>
     /// Game independent Power Up logic supporting 2D and 3D modes.

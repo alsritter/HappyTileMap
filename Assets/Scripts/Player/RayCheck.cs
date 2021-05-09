@@ -2,15 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using CustomTileFrame.CommonTileEnum;
-using CustomTileFrame.Tile;
-using EventFrame;
-using EventFrame.CustomEvent;
-using PlayerController.FSM;
+using AlsRitter.CustomTileFrame.CommonTileEnum;
+using AlsRitter.CustomTileFrame.Tile;
+using AlsRitter.EventFrame;
+using AlsRitter.EventFrame.CustomEvent;
+using AlsRitter.PlayerController.FSM;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace PlayerController
+namespace AlsRitter.PlayerController
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(PlayerFSMSystem))]

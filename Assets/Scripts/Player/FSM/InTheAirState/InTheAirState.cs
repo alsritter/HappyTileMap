@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using EventFrame;
-using EventFrame.CustomEvent;
+using AlsRitter.EventFrame;
+using AlsRitter.EventFrame.CustomEvent;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace PlayerController.FSM
+namespace AlsRitter.PlayerController.FSM
 {
     /// <summary>
     /// 在空中的状态

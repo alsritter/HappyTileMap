@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EventFrame;
-using PowerUpSystem;
+using AlsRitter.EventFrame;
+using AlsRitter.PowerUpSystem;
 using UnityEngine;
 
 public class CoinPowerUp : PowerUp

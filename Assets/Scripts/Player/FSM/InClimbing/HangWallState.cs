@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PlayerController.FSM
+namespace AlsRitter.PlayerController.FSM
 {
     public class HangWallState : PlayerBaseState
     {

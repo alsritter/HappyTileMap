@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CustomTileFrame.CommonTileEnum
+namespace AlsRitter.CustomTileFrame.CommonTileEnum
 {
     /// <summary>
     /// 这个主要标识当前处于哪个图层中

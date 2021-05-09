@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PlayerController
+namespace AlsRitter.PlayerController
 {
     public class HeadCollision : MonoBehaviour
     {

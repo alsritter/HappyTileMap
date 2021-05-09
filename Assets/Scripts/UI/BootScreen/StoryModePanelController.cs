@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UIFrame;
+using AlsRitter.UIFrame;
 using UnityEngine;
 
 public class StoryModePanelController : BasePanel

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using EventFrame;
-using EventFrame.CustomEvent;
+using AlsRitter.EventFrame;
+using AlsRitter.EventFrame.CustomEvent;
 using UnityEngine;
 
 
-namespace PlayerController.FSM
+namespace AlsRitter.PlayerController.FSM
 {
     /// <summary>
     /// 注意，状态机不能直接读取下面的这些 Public 修饰的状态，

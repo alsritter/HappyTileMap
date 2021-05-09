@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UIFrame
+namespace AlsRitter.UIFrame
 {
     public enum UIPanelType
     {

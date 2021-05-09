@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EventFrame
+namespace AlsRitter.EventFrame
 {
     /// <summary>
     /// 事件的管理器

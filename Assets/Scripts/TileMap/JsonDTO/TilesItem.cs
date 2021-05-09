@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CustomTileFrame.CommonTileEnum;
+using AlsRitter.CustomTileFrame.CommonTileEnum;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace CustomTileFrame.MapDataEntity.Dto
+namespace AlsRitter.CustomTileFrame.MapDataEntity.Dto
 {
     public class TilesItem
     {

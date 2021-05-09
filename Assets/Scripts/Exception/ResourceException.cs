@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExceptionHandler
+namespace AlsRitter.ExceptionHandler
 {
     public class ResourceException : ApplicationException
     {

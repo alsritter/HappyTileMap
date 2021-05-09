@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using CustomTileFrame;
-using PlayerController.FSM;
+using AlsRitter.CustomTileFrame;
+using AlsRitter.PlayerController.FSM;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace PlayerController
+namespace AlsRitter.PlayerController
 {
     /// <summary>
     /// 用于触发脚下的 Tile

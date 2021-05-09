@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using CustomTileFrame.CommonTileEnum;
-using CustomTileFrame.Tool;
-using PlayerController.FSM;
-using TileEffect;
+using AlsRitter.CustomTileFrame.CommonTileEnum;
+using AlsRitter.CustomTileFrame.Tool;
+using AlsRitter.PlayerController.FSM;
+using AlsRitter.TileEffect;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace CustomTileFrame.Tile
+namespace AlsRitter.CustomTileFrame.Tile
 {
     public abstract class CustomBaseTile : UnityEngine.Tilemaps.Tile
     {

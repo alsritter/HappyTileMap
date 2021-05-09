@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PlayerController.FSM
+namespace AlsRitter.PlayerController.FSM
 {
     /// <summary>
     /// 在地面的状态

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-namespace UIFrame
+namespace AlsRitter.UIFrame
 {
     /// <summary>
     /// 所有UI的父类

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventFrame
+namespace AlsRitter.EventFrame
 {
     /// <summary>
     /// 定义事件 id

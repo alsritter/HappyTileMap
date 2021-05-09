@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using EventFrame;
-using EventFrame.CustomEvent;
+using AlsRitter.EventFrame;
+using AlsRitter.EventFrame.CustomEvent;
 using UnityEngine;
 
-namespace PlayerController.FSM
+namespace AlsRitter.PlayerController.FSM
 {
     /// <summary>
     /// 下蹲状态
