@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AlsRitter.GenerateMap.CustomTileFrame.MapDataEntity.V1.Dto;
 using AlsRitter.PlayerController.FSM;
+using AlsRitter.Utilities;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour

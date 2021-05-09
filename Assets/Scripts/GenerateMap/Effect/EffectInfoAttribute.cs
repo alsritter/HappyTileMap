@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AlsRitter.EffectDocumentTools.EffectDocumentAttribute
+namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect
 {
     // 只能用在类上面，用于读取该类的用途和版本号之类的信息
     [AttributeUsage(AttributeTargets.Class)]

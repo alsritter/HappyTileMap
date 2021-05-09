@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using AlsRitter.UIFrame;
 using UnityEngine;
 
-public class GameMenuPanelController : BasePanel
+namespace AlsRitter.UIFrame.Controller
 {
-    public override UIPanelType uiType => UIPanelType.GameMenuPanel;
-
-    public override void DidOnClick(GameObject sender)
+    public class GameMenuPanelController : BasePanel
     {
-        if (IsPause) return;
+        public override UIPanelType uiType => UIPanelType.GameMenuPanel;
 
-        switch (sender.name)
+        public override void DidOnClick(GameObject sender)
         {
-            case "CloseButton":
-                UIManager.instance.PopPanel();
-                break;
-            default:
-                break;
+            if (IsPause) return;
+
+            switch (sender.name)
+            {
+                case "CloseButton":
+                    UIManager.instance.PopPanel();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

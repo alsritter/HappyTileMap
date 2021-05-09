@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using AlsRitter.EffectDocumentTools.EffectDocumentAttribute;
 using AlsRitter.PlayerController.FSM;
 using UnityEngine;
 
-namespace AlsRitter.TileEffect.PhysicsEffects
+namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect.PhysicsEffects
 {
     [EffectInfo("蹦床效果", 1, "alsritter")]
     public class TrampolineEffect : BaseObjectEffect

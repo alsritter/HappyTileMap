@@ -3,13 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AlsRitter.ExceptionHandler;
+using AlsRitter.GenerateMap.CustomTileFrame;
 using AlsRitter.GenerateMap.CustomTileFrame.MapDataEntity.V1.Dto;
 using AlsRitter.GenerateMap.CustomTileFrame.TileScripts;
+using AlsRitter.Utilities;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
-namespace AlsRitter.GenerateMap.CustomTileFrame.Tool
+namespace AlsRitter.GenerateMap
 {
     public class BuildTileMap : MonoBehaviour
     {

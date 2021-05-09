@@ -3,25 +3,28 @@ using System.Collections.Generic;
 using AlsRitter.UIFrame;
 using UnityEngine;
 
-public class SelectModePanelController : BasePanel
+namespace AlsRitter.UIFrame.Controller
 {
-    public override UIPanelType uiType => UIPanelType.SelectModePanel;
-
-    public override void DidOnClick(GameObject sender)
+    public class SelectModePanelController : BasePanel
     {
-        // 如果暂停了则不再执行按钮操作
-        if (IsPause) return;
+        public override UIPanelType uiType => UIPanelType.SelectModePanel;
 
-        switch (sender.name)
+        public override void DidOnClick(GameObject sender)
         {
-            case "Story Mode Button":
-                UIManager.instance.PushPanel(UIPanelType.StoryModePanel);
-                break;
-            case "Return Button":
-                UIManager.instance.PopPanel();
-                break;
-            default:
-                break;
+            // 如果暂停了则不再执行按钮操作
+            if (IsPause) return;
+
+            switch (sender.name)
+            {
+                case "Story Mode Button":
+                    UIManager.instance.PushPanel(UIPanelType.StoryModePanel);
+                    break;
+                case "Return Button":
+                    UIManager.instance.PopPanel();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

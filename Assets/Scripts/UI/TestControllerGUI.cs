@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using AlsRitter.UIFrame;
 using UnityEngine;
 
-public class TestControllerGUI : MonoBehaviour
+namespace AlsRitter.UIFrame.Controller
 {
-    private void OnGUI()
+    public class TestControllerGUI : MonoBehaviour
     {
-        if (GUILayout.Button("打开开始界面"))
+        private void OnGUI()
         {
-            UIManager.instance.PushPanel(UIPanelType.StartPanel);
+            if (GUILayout.Button("打开开始界面"))
+            {
+                UIManager.instance.PushPanel(UIPanelType.StartPanel);
+            }
         }
     }
 }

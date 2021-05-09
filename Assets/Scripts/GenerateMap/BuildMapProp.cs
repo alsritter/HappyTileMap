@@ -1,6 +1,9 @@
-﻿namespace AlsRitter.GenerateMap.CustomTileFrame
+﻿namespace AlsRitter.GenerateMap
 {
-    class BuildMapProp
+    /// <summary>
+    /// 用于生成预制件
+    /// </summary>
+    public class BuildMapProp
     {
     }
 }

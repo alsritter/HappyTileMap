@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AlsRitter.Utilities;
 using UnityEngine;
 
 namespace AlsRitter.EventFrame

@@ -6,25 +6,28 @@ using System.Threading.Tasks;
 using AlsRitter.UIFrame;
 using UnityEngine;
 
-public class LoginPanelController : BasePanel
+namespace AlsRitter.UIFrame.Controller
 {
-    public override UIPanelType uiType => UIPanelType.LoginPanel;
-
-    public override void DidOnClick(GameObject sender)
+    public class LoginPanelController : BasePanel
     {
-        // 如果暂停了则不再执行按钮操作
-        if (IsPause) return;
+        public override UIPanelType uiType => UIPanelType.LoginPanel;
 
-        switch (sender.name)
+        public override void DidOnClick(GameObject sender)
         {
-            case "Login Button":
-                // do something
-                break;
-            case "Close Button":
-                UIManager.instance.PopPanel();
-                break;
-            default:
-                break;
+            // 如果暂停了则不再执行按钮操作
+            if (IsPause) return;
+
+            switch (sender.name)
+            {
+                case "Login Button":
+                    // do something
+                    break;
+                case "Close Button":
+                    UIManager.instance.PopPanel();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

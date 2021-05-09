@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using AlsRitter.Utilities;
 using UnityEngine;
 
 
@@ -49,7 +50,6 @@ namespace AlsRitter.UIFrame
 
         private void Start()
         {
-
             // 解析JSON，获取所有面板的路径信息
             LoadJsonTool.ParseUIPanelTypeJsonData(ref panelPathDict);
             // 把场景里面的已经存在的 UI 实例塞进字典
@@ -62,7 +62,6 @@ namespace AlsRitter.UIFrame
                 panelStack.Push(x);
                 //Debug.Log($"当前入栈的是：{x.uiType} 它的索引为：{x.transform.GetSiblingIndex()}");
             });
-
         }
 
         /// <summary>

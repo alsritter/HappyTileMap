@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using AlsRitter.PlayerController.FSM;
 using UnityEngine;
 
-namespace AlsRitter.TileEffect
+namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect
 {
     public abstract class BaseObjectEffect
     {

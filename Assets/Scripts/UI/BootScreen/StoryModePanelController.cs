@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using AlsRitter.UIFrame;
 using UnityEngine;
 
-public class StoryModePanelController : BasePanel
+namespace AlsRitter.UIFrame.Controller
 {
-    public override UIPanelType uiType => UIPanelType.StoryModePanel;
-
-    public override void DidOnClick(GameObject sender)
+    public class StoryModePanelController : BasePanel
     {
-        if (IsPause) return;
+        public override UIPanelType uiType => UIPanelType.StoryModePanel;
 
-        switch (sender.name) {
-            case "Return Button":
-                UIManager.instance.PopPanel();
-                break;
-            default:
-                break;
+        public override void DidOnClick(GameObject sender)
+        {
+            if (IsPause) return;
+
+            switch (sender.name)
+            {
+                case "Return Button":
+                    UIManager.instance.PopPanel();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

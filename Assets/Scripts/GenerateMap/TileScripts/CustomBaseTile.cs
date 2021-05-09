@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using AlsRitter.GenerateMap.CustomTileFrame.Tool;
+using AlsRitter.GenerateMap;
 using AlsRitter.PlayerController.FSM;
-using AlsRitter.TileEffect;
+using AlsRitter.GenerateMap.CustomTileFrame.TileEffect;
 
 namespace AlsRitter.GenerateMap.CustomTileFrame.TileScripts
 {
