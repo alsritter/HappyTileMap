@@ -110,62 +110,6 @@ namespace AlsRitter.GenerateMap
             }
         }
 
-        // 用于表示它是否初始化
-        private static bool _isSpriteInfoDictInit = false;
-        // 这里用于装载地图
-        private static Dictionary<string, TileResourcePath> _spriteInfoDict = new Dictionary<string, TileResourcePath>();
-
-        /// <summary>
-        /// 这里加个 _isSpriteInfoDictInit 用于懒加载
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        public static Sprite GetSprite(string name)
-        {
-            // 如果没有初始化
-            if (!_isSpriteInfoDictInit)
-            {
-                LoadJsonTool.ParseTileSpritePathJsonData(ref _spriteInfoDict);
-                _isSpriteInfoDictInit = true;
-            }
-
-            _spriteInfoDict.TryGetValue(name, out var saPathInfo);
-            Sprite sa = null;
-
-            if (saPathInfo == null)
-            {
-                sa = Resources.Load<Sprite>(_spriteInfoDict["000"].path);
-                var message = $"sprite: \"{name}\" Can't find! Please check whether the key exists";
-                Debug.LogWarning(message);
-                throw new ResourceException(message);
-            }
-
-            // 先判断贴图类型
-            switch (saPathInfo.mode)
-            {
-                case TileResourcePath.SpriteMode.Single:
-                    sa = Resources.Load<Sprite>(saPathInfo.path);
-                    break;
-                case TileResourcePath.SpriteMode.Multiple:
-                    var sprites = Resources.LoadAll<Sprite>(saPathInfo.path);
-                    foreach (var s in sprites)
-                    {
-                        if (s.name == saPathInfo.spriteId)
-                        {
-                            sa = s;
-                        }
-                    }
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-
-            // 找不到也返回错误贴图
-            if (sa == null) sa = Resources.Load<Sprite>(_spriteInfoDict["000"].path);
-
-            return sa;
-        }
-
         private void Update()
         {
             if (!Application.isEditor) return;

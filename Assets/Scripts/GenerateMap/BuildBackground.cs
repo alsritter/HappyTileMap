@@ -22,44 +22,9 @@ namespace AlsRitter.GenerateMap
 
         public void StartSetBackground(MapRootDto mapData)
         {
-            bg.sprite = GetSprite(mapData.Background.BgId);
+            bg.sprite = LoadResourceByIdTool.GetBackgroundSprite(mapData.Background.BgId);
             ColorUtility.TryParseHtmlString(mapData.Background.Color, out var color);
             bg.color = color;
-        }
-
-        // 用于表示它是否初始化
-        private bool isSpriteInfoDictInit = false;
-        // 这里用于装载背景图片
-        private Dictionary<string, string> spriteInfoDict = new Dictionary<string, string>();
-
-        public Sprite GetSprite(string bgId)
-        {
-            // 如果没有初始化
-            if (!isSpriteInfoDictInit)
-            {
-                LoadJsonTool.ParseBackgroundPathJsonData(ref spriteInfoDict);
-                isSpriteInfoDictInit = true;
-            }
-
-            // 先判断当前传入的 key 是否为空
-            spriteInfoDict.TryGetValue(bgId, out var saPathInfo);
-
-            Sprite sa = null;
-            if (saPathInfo == null)
-            {
-                // 加载错误贴图
-                sa = Resources.Load<Sprite>(spriteInfoDict["000"]);
-                var message = $"sprite: \"{bgId}\" Can't find! Please check whether the key exists";
-                Debug.LogWarning(message);
-                throw new ResourceException(message);
-            }
-
-            sa = Resources.Load<Sprite>(spriteInfoDict[bgId]);
-
-            // 找不到也返回错误贴图
-            if (sa == null) sa = Resources.Load<Sprite>(spriteInfoDict["000"]);
-
-            return sa;
         }
     }
 }

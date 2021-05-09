@@ -75,6 +75,37 @@ namespace AlsRitter.Utilities
             }
         }
 
+
+        public static void ParsePropPathJsonData(ref Dictionary<string, PropResourcePath> propInfo)
+        {
+            try
+            {
+                var json = Resources.Load<TextAsset>("Prefabs/Environment/props");
+
+                if (json == null)
+                {
+                    throw new ResourceException("props.json unfounded");
+                }
+
+                var tempArr = JArray.Parse(json.text);
+                foreach (var item in tempArr)
+                {
+                    var id = item["prefab_id"].ToString();
+                    var sizeW = item["size_w"].ToObject<int>();
+                    var sizeH = item["size_h"].ToObject<int>();
+                    var typeS = item["type"].ToObject<PropResourcePath.PropType>();
+                    var path = item["path"].ToString();
+
+                    propInfo.Add(id, new PropResourcePath(id, sizeW, sizeH, typeS, path));
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ResourceException(
+                    $"Error Cause: {e} ;Please check the resource props.json path");
+            }
+        }
+
         /// <summary>
         /// 加载资源信息
         /// mode：0  单独的贴图

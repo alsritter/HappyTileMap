@@ -2,6 +2,7 @@
 using AlsRitter.GenerateMap;
 using AlsRitter.PlayerController.FSM;
 using AlsRitter.GenerateMap.CustomTileFrame.TileEffect;
+using AlsRitter.Utilities;
 
 namespace AlsRitter.GenerateMap.CustomTileFrame.TileScripts
 {
@@ -30,7 +31,7 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileScripts
                 }
             }
 
-            sprite = BuildTileMap.GetSprite(tileSpriteId);
+            sprite = LoadResourceByIdTool.GetTileSprite(tileSpriteId);
         }
 
         public void SetPlayer(PlayerFSMSystem player)

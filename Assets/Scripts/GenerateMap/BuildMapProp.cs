@@ -14,9 +14,5 @@ namespace AlsRitter.GenerateMap
         }
 
 
-        private GameObject GetProp(string propId)
-        {
-            return null;
-        }
     }
 }

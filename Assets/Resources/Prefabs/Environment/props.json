@@ -1,6 +1,6 @@
 [
     {
-        "PrefabId": "0001",
+        "prefab_id": "0001",
         "name": "灯柱",
         "size_w": 1,
         "size_h": 2,
@@ -9,7 +9,7 @@
         "path": "Prefabs/Environment/Baubles/tiki_torch_props_strip"
     },
     {
-        "PrefabId": "0002",
+        "prefab_id": "0002",
         "name": "瀑布",
         "size_w": 1,
         "size_h": 2,
@@ -18,7 +18,7 @@
         "path": "Prefabs/Environment/Baubles/waterfall"
     },
     {
-        "PrefabId": "0003",
+        "prefab_id": "0003",
         "name": "秋天的树",
         "size_w": 3,
         "size_h": 3,
@@ -27,7 +27,7 @@
         "path": "Prefabs/Environment/Baubles/Autumn_tree"
     },
     {
-        "PrefabId": "0004",
+        "prefab_id": "0004",
         "name": "秋天的树02",
         "size_w": 3,
         "size_h": 3,
@@ -36,7 +36,7 @@
         "path": "Prefabs/Environment/Baubles/Autumn_tree02"
     },
     {
-        "PrefabId": "0005",
+        "prefab_id": "0005",
         "name": "栅格",
         "size_w": 3,
         "size_h": 1,
@@ -45,7 +45,7 @@
         "path": "Prefabs/Environment/Baubles/Autumn_fence"
     },
     {
-        "PrefabId": "0006",
+        "prefab_id": "0006",
         "name": "栅格02",
         "size_w": 3,
         "size_h": 1,
@@ -54,7 +54,7 @@
         "path": "Prefabs/Environment/Baubles/Autumn_fence02"
     },
     {
-        "PrefabId": "0007",
+        "prefab_id": "0007",
         "name": "柱子",
         "size_w": 5,
         "size_h": 1,
@@ -63,7 +63,7 @@
         "path": "Prefabs/Environment/Baubles/Autumn_pillar"
     },
     {
-        "PrefabId": "0008",
+        "prefab_id": "0008",
         "name": "硬币",
         "size_w": 1,
         "size_h": 1,
