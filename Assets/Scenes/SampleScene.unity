@@ -1239,14 +1239,14 @@ MonoBehaviour:
   coll: {fileID: 0}
   speed: 8
   runDivisor: 3
-  jumpSpeedDivisor: 1.2
+  jumpSleepDivisor: 3
   climbSpeed: 0.1
   crouchSpeedDivisor: 3
-  hasFriction: {fileID: 6200000, guid: 7fbc98ddaf929e44d919cacb00a95517, type: 2}
-  noFriction: {fileID: 6200000, guid: de43f981c56210d4f9a5948d3d8e88fa, type: 2}
   jumpForce: 10
   jump2ForceDivisor: 2
   climbLateralForce: 5
+  hasFriction: {fileID: 6200000, guid: 7fbc98ddaf929e44d919cacb00a95517, type: 2}
+  noFriction: {fileID: 6200000, guid: de43f981c56210d4f9a5948d3d8e88fa, type: 2}
   xVelocity: 0
   yVelocity: 0
   handDirection: {x: 0, y: 0}
@@ -1408,7 +1408,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7784616, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1443,6 +1443,8 @@ GameObject:
   - component: {fileID: 1256933057}
   - component: {fileID: 1256933056}
   - component: {fileID: 1256933058}
+  - component: {fileID: 1256933060}
+  - component: {fileID: 1256933059}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1462,6 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257ddc4d79cb5bf4eaa0f108bb019e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tilemap: {fileID: 2015353290}
   transition: {fileID: 464218446}
 --- !u!4 &1256933057
 Transform:
@@ -1492,6 +1495,31 @@ MonoBehaviour:
   backgroundMap: {fileID: 1989652201}
   crashMap: {fileID: 2015353290}
   foregroundMap: {fileID: 1636965312}
+--- !u!114 &1256933059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256933055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c55768f265f1946a34b768c15ea37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bg: {fileID: 1480832283}
+--- !u!114 &1256933060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256933055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328abb908ebf7db4fa6a21bcc017c3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1377801865
 GameObject:
   m_ObjectHideFlags: 0

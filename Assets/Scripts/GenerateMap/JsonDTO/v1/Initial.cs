@@ -34,13 +34,13 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.MapDataEntity.V1.Dto
         /// 计算公式：player.xVelocity * (player.speed / player.jumpSpeedDivisor)
         /// </summary>
         [JsonProperty("jumpSpeedDivisor")]
-        public double JumpSpeedDivisor { get; set; }
+        public float JumpSpeedDivisor { get; set; }
 
         /// <summary>
         /// 角色攀爬的速度
         /// </summary>
         [JsonProperty("climbSpeed")]
-        public double ClimbSpeed { get; set; }
+        public float ClimbSpeed { get; set; }
 
         /// <summary>
         /// 角色下蹲移动的速度

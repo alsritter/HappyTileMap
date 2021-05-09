@@ -51,7 +51,7 @@ namespace AlsRitter.UIFrame
         private void Start()
         {
             // 解析JSON，获取所有面板的路径信息
-            LoadJsonTool.ParseUIPanelTypeJsonData(ref panelPathDict);
+            LoadJsonTool.ParseUiPanelTypeJsonData(ref panelPathDict);
             // 把场景里面的已经存在的 UI 实例塞进字典
             var panels = FindObjectsOfType<BasePanel>().ToList();
             panels.Sort((x, y) => x.transform.GetSiblingIndex() - y.transform.GetSiblingIndex()); // 升序

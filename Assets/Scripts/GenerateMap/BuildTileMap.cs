@@ -9,7 +9,6 @@ using AlsRitter.GenerateMap.CustomTileFrame.TileScripts;
 using AlsRitter.Utilities;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using Random = UnityEngine.Random;
 
 namespace AlsRitter.GenerateMap
 {
@@ -21,7 +20,7 @@ namespace AlsRitter.GenerateMap
 
         private CustomTile[] orderTiles; // 全部 Tile，Map 用于读取
         
-        private void StartCreateMap(MapRootDto mapData)
+        public void StartCreateMap(MapRootDto mapData)
         {
             ClearMap();
             LoadingTile(mapData);
@@ -116,6 +115,11 @@ namespace AlsRitter.GenerateMap
         // 这里用于装载地图
         private static Dictionary<string, TileResourcePath> _spriteInfoDict = new Dictionary<string, TileResourcePath>();
 
+        /// <summary>
+        /// 这里加个 _isSpriteInfoDictInit 用于懒加载
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static Sprite GetSprite(string name)
         {
             // 如果没有初始化
@@ -131,7 +135,7 @@ namespace AlsRitter.GenerateMap
             if (saPathInfo == null)
             {
                 sa = Resources.Load<Sprite>(_spriteInfoDict["000"].path);
-                var message = $"sprite: \"{name}\" Can't find! Please check the path";
+                var message = $"sprite: \"{name}\" Can't find! Please check whether the key exists";
                 Debug.LogWarning(message);
                 throw new ResourceException(message);
             }

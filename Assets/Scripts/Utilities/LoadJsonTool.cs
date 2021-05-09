@@ -32,7 +32,7 @@ namespace AlsRitter.Utilities
         /// <summary>
         /// 解析JSON，获取所有面板的路径信息
         /// </summary>
-        public static void ParseUIPanelTypeJsonData(ref Dictionary<UIPanelType, string> panelPathDict)
+        public static void ParseUiPanelTypeJsonData(ref Dictionary<UIPanelType, string> panelPathDict)
         {
             var ta = Resources.Load<TextAsset>("Prefabs/UI/UIPanelType");
             var array = JArray.Parse(ta.text);
@@ -45,6 +45,35 @@ namespace AlsRitter.Utilities
             }
         }
 
+        /// <summary>
+        /// 加载背景图片路径
+        /// </summary>
+        /// <param name="bgInfo"></param>
+        public static void ParseBackgroundPathJsonData(ref Dictionary<string, string> bgInfo)
+        {
+            try
+            {
+                var json = Resources.Load<TextAsset>("Background/background");
+
+                if (json == null)
+                {
+                    throw new ResourceException("background.json unfounded");
+                }
+
+                var tempArr = JArray.Parse(json.text);
+                foreach (var item in tempArr)
+                {
+                    var path = item["path"].ToString();
+                    var id = item["bg_id"].ToString();
+                    bgInfo.Add(id, path);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ResourceException(
+                    $"Error Cause: {e} ;Please check the resource background.json path");
+            }
+        }
 
         /// <summary>
         /// 加载资源信息

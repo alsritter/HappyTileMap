@@ -31,11 +31,6 @@ namespace AlsRitter.PlayerController.FSM
         public float climbSpeed = 2f;
         public float crouchSpeedDivisor = 3f; // 下蹲走路时的除数
 
-        // 用于解决卡墙的问题
-        // 参考资料：Unity 横版2D移动跳跃问题——关于一段跳与二段跳 https://www.cnblogs.com/AMzz/p/11802502.html
-        [Header("物理")]
-        public PhysicsMaterial2D hasFriction; //有摩擦力的
-        public PhysicsMaterial2D noFriction; //无摩擦力的
 
         [Header("跳跃参数")]
         [Tooltip("跳跃的基础力")]
@@ -45,6 +40,11 @@ namespace AlsRitter.PlayerController.FSM
         [Tooltip("蹬墙跳给的推力")]
         public float climbLateralForce = 10f;
 
+        // 用于解决卡墙的问题
+        // 参考资料：Unity 横版2D移动跳跃问题——关于一段跳与二段跳 https://www.cnblogs.com/AMzz/p/11802502.html
+        [Header("物理")]
+        public PhysicsMaterial2D hasFriction; //有摩擦力的
+        public PhysicsMaterial2D noFriction; //无摩擦力的
 
         // 这里只存根状态
         public PlayerBaseState onGroundState; // 地面的状态
@@ -70,17 +70,8 @@ namespace AlsRitter.PlayerController.FSM
         [HideInInspector]
         public GameObject head;
 
-        //[Header("Debug 相关 检查状态用")]
-/*        private bool isCrouching; // 在下蹲
-        private bool isRun;
-        private bool isOnGround; // 是否在地面*/
-
         private bool isOnGround;
         private bool graspWall; // 是否抓住了墙
-        //private bool isOnWallTap; // 用于判断当前是否位于墙顶端
-
-        //[Header("按键相关")]
-
 
         [Header("Debug 相关 查看状态")]
         public bool showState = false;
