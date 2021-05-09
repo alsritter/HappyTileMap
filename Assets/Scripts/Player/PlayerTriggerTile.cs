@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using AlsRitter.CustomTileFrame;
+using AlsRitter.GenerateMap.CustomTileFrame.TileScripts;
 using AlsRitter.PlayerController.FSM;
 using UnityEngine;
 using UnityEngine.Tilemaps;

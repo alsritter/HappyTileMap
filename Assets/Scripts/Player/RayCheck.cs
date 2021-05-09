@@ -2,10 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using AlsRitter.CustomTileFrame.CommonTileEnum;
-using AlsRitter.CustomTileFrame.Tile;
 using AlsRitter.EventFrame;
 using AlsRitter.EventFrame.CustomEvent;
+using AlsRitter.GenerateMap.CustomTileFrame;
+using AlsRitter.GenerateMap.CustomTileFrame.TileScripts;
 using AlsRitter.PlayerController.FSM;
 using UnityEngine;
 using UnityEngine.Tilemaps;

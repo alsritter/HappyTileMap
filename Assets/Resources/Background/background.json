@@ -1,0 +1,42 @@
+[
+    {
+        "bg_id": "000",
+        "name": "error bg",
+        "path": "Background/error_bg.png"
+    },
+    {
+        "bg_id": "001",
+        "name": "forest bg",
+        "path": "Background/01/01.png"
+    },
+    {
+        "bg_id": "002",
+        "name": "fungus bg",
+        "path": "Background/01/02.png"
+    },
+    {
+        "bg_id": "003",
+        "name": "ocean bg",
+        "path": "Background/01/03.png"
+    },
+    {
+        "bg_id": "004",
+        "name": "snow bg",
+        "path": "Background/01/04.png"
+    },
+    {
+        "bg_id": "005",
+        "name": "ocean bg 02",
+        "path": "Background/05/05_2.png"
+    },
+    {
+        "bg_id": "006",
+        "name": "mountain bg",
+        "path": "Background/05/05_3.png"
+    },
+    {
+        "bg_id": "007",
+        "name": "green bg",
+        "path": "Background/05/05_4.png"
+    }
+]

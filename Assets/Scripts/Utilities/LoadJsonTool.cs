@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using AlsRitter.CustomTileFrame.MapDataEntity.Dto;
-using AlsRitter.DTO;
 using AlsRitter.ExceptionHandler;
+using AlsRitter.GenerateMap.CustomTileFrame.MapDataEntity.V1.Dto;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using AlsRitter.UIFrame;
