@@ -49,7 +49,7 @@ namespace AlsRitter.EventFrame
         #endregion
 
         /// <summary>
-        /// 受伤
+        /// 这个受伤时
         /// </summary>
         Harm = 10008
     }

@@ -11,7 +11,7 @@ namespace AlsRitter.UIFrame
     /// <summary>
     /// 面板管理器
     /// </summary>
-    public class UIManager : Singleton<UIManager>
+    public class PanelManager : Singleton<PanelManager>
     {
         //字典存储所有面板的 Prefabs 路径
         private Dictionary<UIPanelType, string> panelPathDict;
@@ -27,7 +27,7 @@ namespace AlsRitter.UIFrame
 
         private Transform CanvasTransform
         {
-            // 因为场景里的画布可能会随着场景销毁而销毁，但是 UIManager 并不会销毁，
+            // 因为场景里的画布可能会随着场景销毁而销毁，但是 PanelManager 并不会销毁，
             // 所以需要通过这个机制保证每次都能取得场景的画布
             get
             {
@@ -40,7 +40,7 @@ namespace AlsRitter.UIFrame
             }
         }
 
-        public UIManager()
+        public PanelManager()
         {
             panelPathDict = new Dictionary<UIPanelType, string>();
             panelDict = new Dictionary<UIPanelType, BasePanel>();

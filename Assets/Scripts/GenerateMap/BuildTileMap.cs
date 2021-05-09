@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using AlsRitter.ExceptionHandler;
 using AlsRitter.GenerateMap.CustomTileFrame;
 using AlsRitter.GenerateMap.CustomTileFrame.MapDataEntity.V1.Dto;
 using AlsRitter.GenerateMap.CustomTileFrame.TileScripts;
@@ -112,7 +111,7 @@ namespace AlsRitter.GenerateMap
 
         private void Update()
         {
-            if (!Application.isEditor) return;
+/*            if (!Application.isEditor) return;
 
             if (!Input.GetMouseButtonDown(0)) return;
             var mousePosition = Input.mousePosition;
@@ -128,7 +127,7 @@ namespace AlsRitter.GenerateMap
             //tb.hideFlags = HideFlags.None;
             Debug.Log($"鼠标坐标：{mousePosition}  世界坐标：{wordPosition}  cell：{cellPosition}");
             tb.effectKeys.ToList().ForEach(Debug.Log);
-            tb.tags.ToList().ForEach(x=>Debug.Log(x.ToString()));
+            tb.tags.ToList().ForEach(x=>Debug.Log(x.ToString()));*/
         }
     }
 }

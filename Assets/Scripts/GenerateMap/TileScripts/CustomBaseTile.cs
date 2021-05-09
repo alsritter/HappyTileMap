@@ -3,6 +3,7 @@ using AlsRitter.GenerateMap;
 using AlsRitter.PlayerController.FSM;
 using AlsRitter.GenerateMap.CustomTileFrame.TileEffect;
 using AlsRitter.Utilities;
+using UnityEngine;
 
 namespace AlsRitter.GenerateMap.CustomTileFrame.TileScripts
 {

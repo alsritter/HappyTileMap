@@ -17,10 +17,10 @@ namespace AlsRitter.UIFrame.Controller
             switch (sender.name)
             {
                 case "Story Mode Button":
-                    UIManager.instance.PushPanel(UIPanelType.StoryModePanel);
+                    PanelManager.instance.PushPanel(UIPanelType.StoryModePanel);
                     break;
                 case "Return Button":
-                    UIManager.instance.PopPanel();
+                    PanelManager.instance.PopPanel();
                     break;
                 default:
                     break;

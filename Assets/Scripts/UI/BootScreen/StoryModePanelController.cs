@@ -16,7 +16,7 @@ namespace AlsRitter.UIFrame.Controller
             switch (sender.name)
             {
                 case "Return Button":
-                    UIManager.instance.PopPanel();
+                    PanelManager.instance.PopPanel();
                     break;
                 default:
                     break;

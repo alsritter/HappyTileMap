@@ -70,5 +70,86 @@
         "type": "1",
         "describe": "硬币",
         "path": "Prefabs/Environment/Props/coin"
+    },
+    {
+        "prefab_id": "0009",
+        "name": "钉刺",
+        "size_w": 1,
+        "size_h": 1,
+        "type": "1",
+        "describe": "向下的静态钉刺",
+        "path": "Prefabs/Environment/Traps/static_spikes_down"
+    },
+    {
+        "prefab_id": "0010",
+        "name": "钉刺",
+        "size_w": 1,
+        "size_h": 1,
+        "type": "1",
+        "describe": "向左的静态钉刺",
+        "path": "Prefabs/Environment/Traps/static_spikes_left"
+    },
+    {
+        "prefab_id": "0011",
+        "name": "钉刺",
+        "size_w": 1,
+        "size_h": 1,
+        "type": "1",
+        "describe": "向右的静态钉刺",
+        "path": "Prefabs/Environment/Traps/static_spikes_right"
+    },
+    {
+        "prefab_id": "0012",
+        "name": "钉刺",
+        "size_w": 1,
+        "size_h": 1,
+        "type": "1",
+        "describe": "向上的静态钉刺",
+        "path": "Prefabs/Environment/Traps/static_spikes_up"
+    },
+    {
+        "prefab_id": "0013",
+        "name": "钉刺",
+        "size_w": 1,
+        "size_h": 1,
+        "type": "1",
+        "describe": "向下的动态钉刺",
+        "path": "Prefabs/Environment/Traps/dynamic_trap_spikes_down"
+    },
+    {
+        "prefab_id": "0014",
+        "name": "钉刺",
+        "size_w": 1,
+        "size_h": 1,
+        "type": "1",
+        "describe": "向左的动态钉刺",
+        "path": "Prefabs/Environment/Traps/dynamic_trap_spikes_left"
+    },
+    {
+        "prefab_id": "0015",
+        "name": "钉刺",
+        "size_w": 1,
+        "size_h": 1,
+        "type": "1",
+        "describe": "向右的动态钉刺",
+        "path": "Prefabs/Environment/Traps/dynamic_trap_spikes_right"
+    },
+    {
+        "prefab_id": "0016",
+        "name": "钉刺",
+        "size_w": 1,
+        "size_h": 1,
+        "type": "1",
+        "describe": "向上的动态钉刺",
+        "path": "Prefabs/Environment/Traps/dynamic_trap_spikes_up"
+    },
+    {
+        "prefab_id": "0017",
+        "name": "吊锤",
+        "size_w": 3,
+        "size_h": 2,
+        "type": "1",
+        "describe": "左右摆动的吊锤",
+        "path": "Prefabs/Environment/Traps/trap_suspended"
     }
 ]

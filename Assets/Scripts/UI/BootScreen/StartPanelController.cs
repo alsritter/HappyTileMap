@@ -17,10 +17,10 @@ namespace AlsRitter.UIFrame.Controller
             {
                 case "Start Game Button":
                     // Debug.Log("游戏开始了~");
-                    UIManager.instance.PushPanel(UIPanelType.SelectModePanel);
+                    PanelManager.instance.PushPanel(UIPanelType.SelectModePanel);
                     break;
                 case "Setting Button":
-                    UIManager.instance.PushPanel(UIPanelType.SettingPanel);
+                    PanelManager.instance.PushPanel(UIPanelType.SettingPanel);
                     break;
                 default:
                     break;

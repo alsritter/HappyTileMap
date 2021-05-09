@@ -16,7 +16,7 @@ namespace AlsRitter.UIFrame.Controller
             switch (sender.name)
             {
                 case "Close Button":
-                    UIManager.instance.PopPanel();
+                    PanelManager.instance.PopPanel();
                     break;
                 default:
                     break;

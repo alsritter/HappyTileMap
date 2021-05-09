@@ -29,7 +29,7 @@ namespace AlsRitter.UIFrame.Controller
             bloods = temp.GetComponentsInChildren<Image>();
             text = scores.transform.GetComponentInChildren<TextMeshProUGUI>();
             // 别忘了注册自己
-            EventManager.Register(this, EventID.Scores,EventID.Harm);
+            EventManager.Register(this, EventID.Scores, EventID.Harm);
         }
 
 
@@ -40,7 +40,7 @@ namespace AlsRitter.UIFrame.Controller
             switch (sender.name)
             {
                 case "GameMenuButton":
-                    UIManager.instance.PushPanel(UIPanelType.GameMenuPanel);
+                    PanelManager.instance.PushPanel(UIPanelType.GameMenuPanel);
                     break;
                 default:
                     break;

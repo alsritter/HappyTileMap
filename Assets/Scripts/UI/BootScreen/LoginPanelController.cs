@@ -23,7 +23,7 @@ namespace AlsRitter.UIFrame.Controller
                     // do something
                     break;
                 case "Close Button":
-                    UIManager.instance.PopPanel();
+                    PanelManager.instance.PopPanel();
                     break;
                 default:
                     break;

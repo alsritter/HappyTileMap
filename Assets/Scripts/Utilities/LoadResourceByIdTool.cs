@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AlsRitter.ExceptionHandler;
 using AlsRitter.GenerateMap.CustomTileFrame.MapDataEntity.V1.Dto;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace AlsRitter.Utilities
 {
@@ -16,8 +17,8 @@ namespace AlsRitter.Utilities
     {
         // 用于表示它是否初始化
         private static bool _isTileInit = false;
-        // 用于表示它是否初始化
         private static bool _isBgInit = false;
+        private static bool _isPropInit = false;
 
         // 这里存储本地的全部 TileSprite 资源路径
         private static Dictionary<string, TileResourcePath> _tileDict = new Dictionary<string, TileResourcePath>();
@@ -31,10 +32,31 @@ namespace AlsRitter.Utilities
         /// 取得预制件
         /// </summary>
         /// <param name="propId"></param>
-        /// <returns></returns>
+        /// <returns>返回的对象还需要实例化</returns>
         public static GameObject GetProp(string propId)
         {
-            return null;
+            // 如果没有初始化
+            if (!_isPropInit)
+            {
+                LoadJsonTool.ParsePropPathJsonData(ref _propDict);
+                _isPropInit = true;
+            }
+
+            _propDict.TryGetValue(propId, out var propInfo);
+            
+
+            if (propInfo == null)
+            {
+                Debug.LogError($"Prefab: \"{propId}\" Can't find! Please check whether the key exists");
+                return new GameObject("error object");
+            }
+
+            GameObject go = null;
+            go = Resources.Load<GameObject>(propInfo.path);
+            if (go != null) return go;
+            go = new GameObject("error object");
+            Debug.LogError($"Prefab: \"{propId}\" prefab cannot be loaded, please check the path in props. Json is correct");
+            return go;
         }
 
 
@@ -58,9 +80,8 @@ namespace AlsRitter.Utilities
             if (saPathInfo == null)
             {
                 sa = Resources.Load<Sprite>(_tileDict["000"].path);
-                var message = $"sprite: \"{name}\" Can't find! Please check whether the key exists";
-                Debug.LogWarning(message);
-                throw new ResourceException(message);
+                Debug.LogError($"sprite: \"{name}\" Can't find! Please check whether the key exists");
+                return sa;
             }
 
             // 先判断贴图类型
@@ -84,8 +105,11 @@ namespace AlsRitter.Utilities
                     throw new ArgumentOutOfRangeException();
             }
 
+            if (sa != null) return sa;
             // 找不到也返回错误贴图
-            if (sa == null) sa = Resources.Load<Sprite>(_tileDict["000"].path);
+            sa = Resources.Load<Sprite>(_tileDict["000"].path);
+            Debug.LogError(
+                $"sprite: \"{saPathInfo}\" Can't find! The address of this Sprite may be incorrectly written, please contact the administrator");
 
             return sa;
         }
@@ -105,23 +129,24 @@ namespace AlsRitter.Utilities
             }
 
             // 先判断当前传入的 key 是否为空
-            _bgDict.TryGetValue(bgId, out var saPathInfo);
+            _bgDict.TryGetValue(bgId, out var path);
 
             Sprite sa = null;
-            if (saPathInfo == null)
+
+            if (path == null)
             {
                 // 加载错误贴图
                 sa = Resources.Load<Sprite>(_bgDict["000"]);
-                var message = $"sprite: \"{bgId}\" Can't find! Please check whether the key exists";
-                Debug.LogWarning(message);
-                throw new ResourceException(message);
+                Debug.LogError($"sprite: \"{bgId}\" Can't find! Please check whether the key exists");
+                return sa;
             }
 
-            sa = Resources.Load<Sprite>(_bgDict[bgId]);
-
+            sa = Resources.Load<Sprite>(path);
             // 找不到也返回错误贴图
-            if (sa == null) sa = Resources.Load<Sprite>(_bgDict["000"]);
-
+            if (sa != null) return sa;
+            Debug.LogError(
+                $"sprite: \"{bgId}\" Can't find! The address of this Sprite may be incorrectly written, please contact the administrator");
+            sa = Resources.Load<Sprite>(_bgDict["000"]);
             return sa;
         }
     }

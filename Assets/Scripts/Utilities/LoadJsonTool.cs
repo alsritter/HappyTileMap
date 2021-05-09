@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using AlsRitter.ExceptionHandler;
 using AlsRitter.GenerateMap.CustomTileFrame.MapDataEntity.V1.Dto;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -51,58 +50,43 @@ namespace AlsRitter.Utilities
         /// <param name="bgInfo"></param>
         public static void ParseBackgroundPathJsonData(ref Dictionary<string, string> bgInfo)
         {
-            try
+            var json = Resources.Load<TextAsset>("Background/background");
+
+            if (json == null)
             {
-                var json = Resources.Load<TextAsset>("Background/background");
-
-                if (json == null)
-                {
-                    throw new ResourceException("background.json unfounded");
-                }
-
-                var tempArr = JArray.Parse(json.text);
-                foreach (var item in tempArr)
-                {
-                    var path = item["path"].ToString();
-                    var id = item["bg_id"].ToString();
-                    bgInfo.Add(id, path);
-                }
+                Debug.LogError("background.json unfounded");
+                return;
             }
-            catch (Exception e)
+
+            var tempArr = JArray.Parse(json.text);
+            foreach (var item in tempArr)
             {
-                throw new ResourceException(
-                    $"Error Cause: {e} ;Please check the resource background.json path");
+                var path = item["path"].ToString();
+                var id = item["bg_id"].ToString();
+                bgInfo.Add(id, path);
             }
         }
 
-
         public static void ParsePropPathJsonData(ref Dictionary<string, PropResourcePath> propInfo)
         {
-            try
+            var json = Resources.Load<TextAsset>("Prefabs/Environment/props");
+
+            if (json == null)
             {
-                var json = Resources.Load<TextAsset>("Prefabs/Environment/props");
-
-                if (json == null)
-                {
-                    throw new ResourceException("props.json unfounded");
-                }
-
-                var tempArr = JArray.Parse(json.text);
-                foreach (var item in tempArr)
-                {
-                    var id = item["prefab_id"].ToString();
-                    var sizeW = item["size_w"].ToObject<int>();
-                    var sizeH = item["size_h"].ToObject<int>();
-                    var typeS = item["type"].ToObject<PropResourcePath.PropType>();
-                    var path = item["path"].ToString();
-
-                    propInfo.Add(id, new PropResourcePath(id, sizeW, sizeH, typeS, path));
-                }
+                Debug.LogError("props.json unfounded");
+                return;
             }
-            catch (Exception e)
+
+            var tempArr = JArray.Parse(json.text);
+            foreach (var item in tempArr)
             {
-                throw new ResourceException(
-                    $"Error Cause: {e} ;Please check the resource props.json path");
+                var id = item["prefab_id"].ToString();
+                var sizeW = item["size_w"].ToObject<int>();
+                var sizeH = item["size_h"].ToObject<int>();
+                var typeS = item["type"].ToObject<PropResourcePath.PropType>();
+                var path = item["path"].ToString();
+
+                propInfo.Add(id, new PropResourcePath(id, sizeW, sizeH, typeS, path));
             }
         }
 
@@ -116,45 +100,29 @@ namespace AlsRitter.Utilities
         /// <param name="spriteInfoDict"></param>
         public static void ParseTileSpritePathJsonData(ref Dictionary<string, TileResourcePath> spriteInfoDict)
         {
-            try
+            // 先加载要加载的资源路径
+            var spriteCatalog = Resources.Load<TextAsset>("TileSprite/TileSpriteCatalog");
+            var tempArr = JArray.Parse(spriteCatalog.text);
+            foreach (var filePath in tempArr)
             {
-                // 先加载要加载的资源路径
-                var spriteCatalog = Resources.Load<TextAsset>("TileSprite/TileSpriteCatalog");
-                var tempArr = JArray.Parse(spriteCatalog.text);
-                foreach (var filePath in tempArr)
+                // path
+                var resource = Resources.Load<TextAsset>(filePath["path"].ToString());
+                var resourceArr = JArray.Parse(resource.text);
+                foreach (var item in resourceArr)
                 {
-                    // path
-                    var resource = Resources.Load<TextAsset>(filePath["path"].ToString());
-                    var resourceArr = JArray.Parse(resource.text);
-                    foreach (var item in resourceArr)
+                    var spriteId = item["spriteId"].ToString();
+                    var path = item["path"].ToString();
+                    var mode = item["mode"].ToString();
+
+                    // 先检查一下是否已经存在这个了，如果有则抛出警告
+                    if (spriteInfoDict.ContainsKey(spriteId))
                     {
-                        try
-                        {
-                            var spriteId = item["spriteId"].ToString();
-                            var path = item["path"].ToString();
-                            var mode = item["mode"].ToString();
-
-                            // 先检查一下是否已经存在这个了，如果有则抛出警告
-                            if (spriteInfoDict.ContainsKey(spriteId))
-                            {
-                                throw new ResourceException($"already existed {spriteId}!!");
-                            }
-
-                            spriteInfoDict.Add(spriteId, new TileResourcePath(spriteId, path,
-                                (TileResourcePath.SpriteMode) Enum.Parse(typeof(TileResourcePath.SpriteMode), mode)));
-                        }
-                        catch (Exception e)
-                        {
-                            throw new ResourceException(
-                                $"Error Cause: {e} ;Please check the resource file path {filePath["path"].ToString()}");
-                        }
+                        Debug.LogWarning($"already existed {spriteId}!!");
                     }
+
+                    spriteInfoDict.Add(spriteId, new TileResourcePath(spriteId, path,
+                        (TileResourcePath.SpriteMode) Enum.Parse(typeof(TileResourcePath.SpriteMode), mode)));
                 }
-            }
-            catch (Exception e)
-            {
-                Debug.LogWarning("Please check the resource path");
-                throw new ResourceException(e.Message);
             }
         }
     }
