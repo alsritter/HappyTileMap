@@ -33,7 +33,7 @@ namespace AlsRitter.Utilities
         /// </summary>
         public static void ParseUiPanelTypeJsonData(ref Dictionary<UIPanelType, string> panelPathDict)
         {
-            var ta = Resources.Load<TextAsset>("Prefabs/UI/UIPanelType");
+            var ta = Resources.Load<TextAsset>("ResourceReadPath/UIPanelType");
             var array = JArray.Parse(ta.text);
 
             foreach (var item in array)
@@ -50,7 +50,7 @@ namespace AlsRitter.Utilities
         /// <param name="bgInfo"></param>
         public static void ParseBackgroundPathJsonData(ref Dictionary<string, string> bgInfo)
         {
-            var json = Resources.Load<TextAsset>("Background/background");
+            var json = Resources.Load<TextAsset>("ResourceReadPath/Background");
 
             if (json == null)
             {
@@ -69,7 +69,7 @@ namespace AlsRitter.Utilities
 
         public static void ParsePropPathJsonData(ref Dictionary<string, PropResourcePath> propInfo)
         {
-            var json = Resources.Load<TextAsset>("Prefabs/Environment/props");
+            var json = Resources.Load<TextAsset>("ResourceReadPath/Props");
 
             if (json == null)
             {
@@ -101,7 +101,7 @@ namespace AlsRitter.Utilities
         public static void ParseTileSpritePathJsonData(ref Dictionary<string, TileResourcePath> spriteInfoDict)
         {
             // 先加载要加载的资源路径
-            var spriteCatalog = Resources.Load<TextAsset>("TileSprite/TileSpriteCatalog");
+            var spriteCatalog = Resources.Load<TextAsset>("ResourceReadPath/TileSpriteCatalog");
             var tempArr = JArray.Parse(spriteCatalog.text);
             foreach (var filePath in tempArr)
             {

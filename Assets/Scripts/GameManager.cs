@@ -7,6 +7,7 @@ using AlsRitter.PlayerController.FSM;
 using AlsRitter.Utilities;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using DG.Tweening; //引入命名空间
 
 public class GameManager : MonoBehaviour, IEventObserver
 {
@@ -77,9 +78,14 @@ public class GameManager : MonoBehaviour, IEventObserver
         }
     }
 
-    IEnumerator PlayerInjured()
+    private IEnumerator PlayerInjured()
     {
         pm.rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        var sprite = pm.GetComponent<SpriteRenderer>();
+        // 变红
+        sprite.color = new Color(0.6509434f, 0.138172f, 0.138172f);
+        // 渐变到透明
+        sprite.DOColor(new Color(0, 0, 0, 0), 1);
         fade.SetTrigger("Start");
         yield return new WaitForSeconds(1);
         pm.transform.position = playerBirth;
@@ -90,6 +96,7 @@ public class GameManager : MonoBehaviour, IEventObserver
             yield break;
         }
         fade.SetTrigger("End");
+        sprite.color = Color.white;
         yield return new WaitForSeconds(1);
         pm.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         // 给个向下的力，否则动不了
