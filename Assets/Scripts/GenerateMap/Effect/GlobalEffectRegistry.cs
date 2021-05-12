@@ -19,6 +19,7 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect
         static GlobalEffectRegistry()
         {
             allEffect = new Dictionary<string, BaseObjectEffect>();
+            RegistrySpecial();
             RegistryPhysics();
         }
 
@@ -29,6 +30,8 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect
         {
             // 返回一个空效果
             allEffect.Add("00000", new EmptyEffect());
+            // 胜利
+            allEffect.Add("99999", new GameVictoryEffect());
         }
 
 
@@ -48,7 +51,15 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect
         public static BaseObjectEffect GetEffect(string key)
         {
             // 判断是否存在，不存在则返回空效果
-            return allEffect.ContainsKey(key) ? allEffect[key] : allEffect["00000"];
+            if (allEffect.ContainsKey(key))
+            {
+                return allEffect[key];
+            }
+            else
+            {
+                Debug.LogWarning($"The effect was not found, Please check the id {key}");
+                return allEffect["00000"];
+            }
         }
     }
 }

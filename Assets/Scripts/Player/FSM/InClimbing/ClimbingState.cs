@@ -55,7 +55,7 @@ namespace AlsRitter.PlayerController.FSM
         {
             switch (resp.eid)
             {
-                case EventID.OnWallTap:
+                case EventID.OnHeadWall:
                     isOnWallTap = ((PlayerStateEventData) resp).trigger;
                     break;
                 case EventID.OnGround:

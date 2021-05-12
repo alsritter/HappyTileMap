@@ -23,6 +23,8 @@ namespace AlsRitter.PlayerController.FSM
         public Rigidbody2D rb;
         [HideInInspector]
         public BoxCollider2D coll;
+        [HideInInspector]
+        public CapsuleCollider2D ccoll;
 
         [Header("移动参数")]
         public float speed = 8f;
@@ -61,14 +63,12 @@ namespace AlsRitter.PlayerController.FSM
         [HideInInspector]
         public Vector2 handDirection;
 
-        [HideInInspector]
+        [Header("角色身体部件")]
         public GameObject rightFoot;
-        [HideInInspector]
         public GameObject leftFoot;
-        [HideInInspector]
         public GameObject hand;
-        [HideInInspector]
         public GameObject head;
+        public GameObject headTop;
 
         private bool isOnGround;
         private bool graspWall; // 是否抓住了墙
@@ -81,23 +81,31 @@ namespace AlsRitter.PlayerController.FSM
             onGroundState = new OnGroundState();
             inTheAirState = new InTheAirState();
             inClimbState = new InClimbState();
+
             // 把自己注册进事件中心
             EventManager.Register(this, EventID.GraspWall, EventID.OnGround);
+
+            
+            /*rightFoot = GameObject.FindGameObjectWithTag("rightFoot");
+            leftFoot = GameObject.FindGameObjectWithTag("leftFoot");
+            hand = GameObject.FindGameObjectWithTag("hand");
+            head = GameObject.FindGameObjectWithTag("head");
+            top = GameObject.FindWithTag("");*/
+
+            
+            rb = GetComponent<Rigidbody2D>();
+            coll = GetComponent<BoxCollider2D>();
+            ccoll = GetComponent<CapsuleCollider2D>();
+            
+            // 最开始的状态
+            curState = onGroundState;
         }
 
 
         private void Start()
         {
-            rightFoot = GameObject.FindGameObjectWithTag("rightFoot");
-            leftFoot = GameObject.FindGameObjectWithTag("leftFoot");
-            hand = GameObject.FindGameObjectWithTag("hand");
-            head = GameObject.FindGameObjectWithTag("head");
 
-            rb = GetComponent<Rigidbody2D>();
-            coll = GetComponent<BoxCollider2D>();
 
-            // 最开始的状态
-            curState = onGroundState;
         }
 
         private void Update()

@@ -26,38 +26,48 @@ namespace AlsRitter.PlayerController
 
         private float footDistance; // 脚距离中心点的距离
         private float handDistance;
+        private float topDistance;
 
         private HandCollision handCollision;
         private HeadCollision headCollision;
 
         private readonly PlayerStateEventData onGroundEvent;
         private readonly PlayerStateEventData graspWallEvent;
-        private readonly PlayerStateEventData onWallTapEvent;
+        private readonly PlayerStateEventData onHeadWallEvent;
+        private readonly PlayerStateEventData onTopWallEvent;
 
         // 保存本地状态，只有在状态不一样时才需要更新状态
         private bool isOnGround;
-        private bool isOnWallTap;
+        private bool isOnHeadWall;
         private bool graspWall;
+        private bool isOnHeadTop;
 
 
         public RayCheck()
         {
             onGroundEvent = new PlayerStateEventData(EventID.OnGround);
             graspWallEvent = new PlayerStateEventData(EventID.GraspWall);
-            onWallTapEvent = new PlayerStateEventData(EventID.OnWallTap);
+            onHeadWallEvent = new PlayerStateEventData(EventID.OnHeadWall);
+            onTopWallEvent = new PlayerStateEventData(EventID.OnTopWall);
+        }
+
+        private void Awake()
+        {
+            pm = GetComponent<PlayerFSMSystem>();
+
+            handCollision = pm.hand.GetComponent<HandCollision>();
+            headCollision = pm.head.GetComponent<HeadCollision>();
+            pm.handDirection = gameObject.transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         }
 
         // Start is called before the first frame update
         private void Start()
         {
-            pm = GetComponent<PlayerFSMSystem>();
             footDistance =
                 Mathf.Abs(pm.leftFoot.transform.position.y - pm.coll.transform.TransformPoint(pm.coll.offset).y);
             handDistance = Mathf.Abs(pm.hand.transform.position.x - pm.coll.transform.TransformPoint(pm.coll.offset).x);
-            pm.handDirection = gameObject.transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-
-            handCollision = pm.hand.GetComponent<HandCollision>();
-            headCollision = pm.head.GetComponent<HeadCollision>();
+            topDistance =
+                Mathf.Abs(pm.headTop.transform.position.y - pm.coll.transform.TransformPoint(pm.coll.offset).y);
         }
 
         private void FixedUpdate()
@@ -72,9 +82,11 @@ namespace AlsRitter.PlayerController
         /// </summary>
         private void PhysicsCheck()
         {
+            Vector2 topPos = pm.headTop.transform.position;
             Vector2 leftPos = pm.leftFoot.transform.position;
             Vector2 rightPos = pm.rightFoot.transform.position;
 
+            var topCheck = Physics2D.Raycast(topPos, Vector2.down, topDistance, groundLayer);
 
             var leftCheck =
                 Physics2D.Raycast(leftPos, Vector2.up, footDistance, groundLayer);
@@ -89,6 +101,7 @@ namespace AlsRitter.PlayerController
             Debug.DrawRay(leftPos, pm.handDirection * Mathf.Abs(leftPos.x - rightPos.x),
                 footBottom ? Color.red : Color.green);
 
+            Debug.DrawRay(topPos, Vector2.down * topDistance, topCheck ? Color.red : Color.green);
             Debug.DrawRay(leftPos, Vector2.up * footDistance, leftCheck ? Color.red : Color.green);
             Debug.DrawRay(rightPos, Vector2.up * footDistance,
                 rightCheck ? Color.red : Color.green);
@@ -96,9 +109,19 @@ namespace AlsRitter.PlayerController
             // 判断当前是否在地面（这里使用了隐式转换，RaycastHit2D 转成 bool类型 标识它是否被击中）
             var temp = leftCheck || rightCheck || footBottom;
 
-            if (isOnGround == temp) return;
-            isOnGround = temp;
-            onGroundEvent.UpdateState(isOnGround);
+            if (isOnGround != temp)
+            {
+                isOnGround = temp;
+                onGroundEvent.UpdateState(isOnGround);
+            }
+
+            var temp2 = topCheck;
+
+            if (isOnHeadTop != temp2)
+            {
+                isOnHeadTop = temp2;
+                onTopWallEvent.UpdateState(isOnHeadTop);
+            }
         }
 
         /// <summary>
@@ -163,11 +186,11 @@ namespace AlsRitter.PlayerController
                 graspWallEvent.UpdateState(handCheck);
             }
 
-            // 原本是：pm.isOnWallTap = !blockedCheck;
-            if (isOnWallTap == blockedCheck)
+            // 原本是：pm.isOnHeadWall = !blockedCheck;
+            if (isOnHeadWall == blockedCheck)
             {
-                isOnWallTap = !blockedCheck;
-                onWallTapEvent.UpdateState(!blockedCheck);
+                isOnHeadWall = !blockedCheck;
+                onHeadWallEvent.UpdateState(!blockedCheck);
             }
         }
     }

@@ -24,33 +24,41 @@ namespace AlsRitter.EventFrame
         /// <summary>
         /// 跑步事件
         /// </summary>
-        Run = 10002,
+        Run,
         /// <summary>
         /// 在地面的事件
         /// </summary>
-        OnGround = 10003,
+        OnGround,
         /// <summary>
         /// 抓住墙的事件
         /// </summary>
-        GraspWall = 10004,
+        GraspWall,
         /// <summary>
-        /// 头顶撞墙事件
+        /// 头撞墙事件
         /// </summary>
-        OnWallTap = 10005,
+        OnHeadWall,
+        /// <summary>
+        /// 头顶撞到墙了
+        /// </summary>
+        OnTopWall,
         /// <summary>
         /// 在空中的事件
         /// </summary>
-        InTheAir = 10006,
+        InTheAir,
         /// <summary>
         /// 在下蹲的事件
         /// </summary>
-        IsCrouching = 10007,
+        IsCrouching,
 
         #endregion
 
         /// <summary>
         /// 这个受伤时
         /// </summary>
-        Harm = 10008
+        Harm,
+        /// <summary>
+        /// 游戏胜利
+        /// </summary>
+        Win
     }
 }

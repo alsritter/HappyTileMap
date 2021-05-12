@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour, IEventObserver
 
 
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerFSMSystem>();
-        EventManager.Register(this, EventID.Harm);
+        EventManager.Register(this, EventID.Harm, EventID.Win);
     }
 
     /// <summary>
@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour, IEventObserver
             gameOver.SetActive(true);
             yield break;
         }
+
         fade.SetTrigger("End");
         sprite.color = Color.white;
         yield return new WaitForSeconds(1);
@@ -113,6 +114,9 @@ public class GameManager : MonoBehaviour, IEventObserver
                 hp--;
 
                 // 受伤
+                break;
+            case EventID.Win:
+                Debug.Log("You Win!!");
                 break;
         }
     }
