@@ -30,8 +30,7 @@ namespace AlsRitter.PlayerController.FSM
 
         private bool isInit = false;
         private bool isTopEmpty = true;
-
-        
+ 
         public override string name => "OnCrouchState";
 
         public OnCrouchState(OnGroundState parentSate)
@@ -41,7 +40,7 @@ namespace AlsRitter.PlayerController.FSM
             crouchIdleState = new CrouchIdleState(this);
 
             isCrouchingEvent = new PlayerStateEventData(EventID.IsCrouching);
-            EventManager.Register(this,EventID.OnTopWall);
+            EventManager.Register(this, EventID.OnTopWall);
 
             TransitionState(crouchIdleState, null);
         }
@@ -96,8 +95,8 @@ namespace AlsRitter.PlayerController.FSM
         public override void Exit(PlayerFSMSystem player)
         {
             // 改回当前角色的碰撞盒大小
-           /* player.coll.size = colliderStandSize;
-            player.coll.offset = colliderStandOffset;*/
+            /* player.coll.size = colliderStandSize;
+             player.coll.offset = colliderStandOffset;*/
 
             // player.isCrouching = false;
             isCrouchingEvent.UpdateState(false);

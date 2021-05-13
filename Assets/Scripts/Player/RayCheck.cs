@@ -35,12 +35,14 @@ namespace AlsRitter.PlayerController
         private readonly PlayerStateEventData graspWallEvent;
         private readonly PlayerStateEventData onHeadWallEvent;
         private readonly PlayerStateEventData onTopWallEvent;
+        private readonly PlayerStateEventData onHalfFootEvent;
 
         // 保存本地状态，只有在状态不一样时才需要更新状态
         private bool isOnGround;
         private bool isOnHeadWall;
         private bool graspWall;
         private bool isOnHeadTop;
+        private bool isHalfFoot;
 
 
         public RayCheck()
@@ -49,6 +51,7 @@ namespace AlsRitter.PlayerController
             graspWallEvent = new PlayerStateEventData(EventID.GraspWall);
             onHeadWallEvent = new PlayerStateEventData(EventID.OnHeadWall);
             onTopWallEvent = new PlayerStateEventData(EventID.OnTopWall);
+            onHalfFootEvent = new PlayerStateEventData(EventID.HalfFoot);
         }
 
         private void Awake()
@@ -63,17 +66,23 @@ namespace AlsRitter.PlayerController
         // Start is called before the first frame update
         private void Start()
         {
-            footDistance =
-                Mathf.Abs(pm.leftFoot.transform.position.y - pm.coll.transform.TransformPoint(pm.coll.offset).y);
-            handDistance = Mathf.Abs(pm.hand.transform.position.x - pm.coll.transform.TransformPoint(pm.coll.offset).x);
-            topDistance =
-                Mathf.Abs(pm.headTop.transform.position.y - pm.coll.transform.TransformPoint(pm.coll.offset).y);
+            // footDistance = Mathf.Abs(pm.leftFoot.transform.position.y - pm.coll.transform.TransformPoint(pm.coll.offset).y);
+            footDistance = Mathf.Abs(pm.leftFoot.transform.position.y - pm.bodyCentre.transform.position.y);
+            //handDistance = Mathf.Abs(pm.hand.transform.position.x - pm.coll.transform.TransformPoint(pm.coll.offset).x);
+            handDistance = Mathf.Abs(pm.hand.transform.position.x - pm.bodyCentre.transform.position.x);
+            // topDistance = Mathf.Abs(pm.headTop.transform.position.y - pm.coll.transform.TransformPoint(pm.coll.offset).y);
+            topDistance = Mathf.Abs(pm.headTop.transform.position.y - pm.bodyCentre.transform.position.y);
         }
 
         private void FixedUpdate()
         {
             PhysicsCheck(); // 射线检查
             HandGetTag();
+
+            // 每帧更新长度
+            footDistance = Mathf.Abs(pm.leftFoot.transform.position.y - pm.bodyCentre.transform.position.y);
+            handDistance = Mathf.Abs(pm.hand.transform.position.x - pm.bodyCentre.transform.position.x);
+            topDistance = Mathf.Abs(pm.headTop.transform.position.y - pm.bodyCentre.transform.position.y);
         }
 
 
@@ -106,6 +115,8 @@ namespace AlsRitter.PlayerController
             Debug.DrawRay(rightPos, Vector2.up * footDistance,
                 rightCheck ? Color.red : Color.green);
 
+   
+
             // 判断当前是否在地面（这里使用了隐式转换，RaycastHit2D 转成 bool类型 标识它是否被击中）
             var temp = leftCheck || rightCheck || footBottom;
 
@@ -115,12 +126,23 @@ namespace AlsRitter.PlayerController
                 onGroundEvent.UpdateState(isOnGround);
             }
 
+
+
             var temp2 = topCheck;
 
             if (isOnHeadTop != temp2)
             {
                 isOnHeadTop = temp2;
                 onTopWallEvent.UpdateState(isOnHeadTop);
+            }
+
+            // 单脚着地
+            var temp3 = (leftCheck && !rightCheck) || (!leftCheck && rightCheck);
+
+            if (isHalfFoot != temp3)
+            {
+                isHalfFoot = temp3;
+                onHalfFootEvent.UpdateState(isHalfFoot);
             }
         }
 

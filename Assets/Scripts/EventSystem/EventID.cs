@@ -49,6 +49,10 @@ namespace AlsRitter.EventFrame
         /// 在下蹲的事件
         /// </summary>
         IsCrouching,
+        /// <summary>
+        /// 单脚着地
+        /// </summary>
+        HalfFoot,
 
         #endregion
 

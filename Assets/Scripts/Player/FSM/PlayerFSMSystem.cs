@@ -69,6 +69,7 @@ namespace AlsRitter.PlayerController.FSM
         public GameObject hand;
         public GameObject head;
         public GameObject headTop;
+        public GameObject bodyCentre;
 
         private bool isOnGround;
         private bool graspWall; // 是否抓住了墙
@@ -85,14 +86,6 @@ namespace AlsRitter.PlayerController.FSM
             // 把自己注册进事件中心
             EventManager.Register(this, EventID.GraspWall, EventID.OnGround);
 
-            
-            /*rightFoot = GameObject.FindGameObjectWithTag("rightFoot");
-            leftFoot = GameObject.FindGameObjectWithTag("leftFoot");
-            hand = GameObject.FindGameObjectWithTag("hand");
-            head = GameObject.FindGameObjectWithTag("head");
-            top = GameObject.FindWithTag("");*/
-
-            
             rb = GetComponent<Rigidbody2D>();
             coll = GetComponent<BoxCollider2D>();
             ccoll = GetComponent<CapsuleCollider2D>();

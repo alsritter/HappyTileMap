@@ -41,9 +41,9 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect
         private static void RegistryPhysics()
         {
             // 向左移动的传送带
-            allEffect.Add("00001", new ConveyorEffect(true, 15));
+            allEffect.Add("00001", new ConveyorEffect(true, 200));
             // 向右移动的传送带
-            allEffect.Add("00002", new ConveyorEffect(false, 15));
+            allEffect.Add("00002", new ConveyorEffect(false, 200));
             // 蹦床效果
             allEffect.Add("00003", new TrampolineEffect(3));
         }
