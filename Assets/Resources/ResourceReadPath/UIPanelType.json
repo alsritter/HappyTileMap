@@ -4,20 +4,12 @@
         "path": "Prefabs/UI/Panel/LoginPanel"
     },
     {
-        "panelType": "SelectModePanel",
-        "path": "Prefabs/UI/Panel/SelectModePanel"
-    },
-    {
-        "panelType": "SettingPanel",
-        "path": "Prefabs/UI/Panel/SettingPanel"
+        "panelType": "SelectMapPanel",
+        "path": "Prefabs/UI/Panel/SelectMapPanel"
     },
     {
         "panelType": "StartPanel",
         "path": "Prefabs/UI/Panel/StartPanel"
-    },
-    {
-        "panelType": "StoryModePanel",
-        "path": "Prefabs/UI/Panel/StoryModePanel"
     },
     {
         "panelType": "GamePanel",
@@ -26,5 +18,13 @@
     {
         "panelType": "GameMenuPanel",
         "path": "Prefabs/UI/Panel/GameMenuPanel"
+    },
+    {
+        "panelType": "GameOverPanel",
+        "path": "Prefabs/UI/Panel/GameOverPanel"
+    },
+    {
+        "panelType": "GameWinPanel",
+        "path": "Prefabs/UI/Panel/GameWinPanel"
     }
 ]

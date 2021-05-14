@@ -6,20 +6,20 @@ using UnityEngine;
 
 namespace AlsRitter.PlayerController.FSM
 {
-    public class ClimbingState : PlayerBaseState,IEventObserver
+    public class ClimbingState : PlayerBaseState, IEventObserver
     {
         public readonly InClimbState parentState;
 
         public override string name => "Climbing";
 
         private bool isOnGround = false;
-        private bool isOnWallTap = false;
+        private bool isHeadWall = false;
 
         public ClimbingState(InClimbState parentState)
         {
             this.parentState = parentState;
             // 注册自己
-            EventManager.Register(this,EventID.OnGround, EventID.GraspWall);
+            EventManager.Register(this, EventID.OnGround, EventID.OnHeadWall);
         }
 
 
@@ -33,17 +33,14 @@ namespace AlsRitter.PlayerController.FSM
 
         public override void FixedUpdate(PlayerFSMSystem player)
         {
-            switch (isOnGround)
+            if (isOnGround && player.yVelocity < 0)
             {
-                // 如果已经在地面了就无法再下降了
-                case true when player.yVelocity < 0:
-                    return;
-                // 如果到顶端了无法向上移动
-                case false when isOnWallTap && player.yVelocity > 0:
-                    //player.rb.bodyType = RigidbodyType2D.Dynamic;
-                    //player.rb.AddForce(new Vector2(0, player.jumpForce / player.jump2ForceDivisor / 2),ForceMode2D.Impulse);
-                    player.yVelocity = 0;
-                    break;
+                return;
+            }
+
+            if (isHeadWall && player.yVelocity > 0)
+            {
+                return;
             }
 
             player.transform.position =
@@ -56,7 +53,7 @@ namespace AlsRitter.PlayerController.FSM
             switch (resp.eid)
             {
                 case EventID.OnHeadWall:
-                    isOnWallTap = ((PlayerStateEventData) resp).trigger;
+                    isHeadWall = ((PlayerStateEventData) resp).trigger;
                     break;
                 case EventID.OnGround:
                     isOnGround = ((PlayerStateEventData) resp).trigger;

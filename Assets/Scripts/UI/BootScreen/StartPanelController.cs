@@ -8,7 +8,7 @@ namespace AlsRitter.UIFrame.Controller
     public class StartPanelController : BasePanel
     {
         public override UIPanelType uiType => UIPanelType.StartPanel;
-
+        
         public override void DidOnClick(GameObject sender)
         {
             if (IsPause) return;
@@ -17,10 +17,10 @@ namespace AlsRitter.UIFrame.Controller
             {
                 case "Start Game Button":
                     // Debug.Log("游戏开始了~");
-                    PanelManager.instance.PushPanel(UIPanelType.SelectModePanel);
+                    PanelManager.instance.PushPanel(UIPanelType.SelectMapPanel);
                     break;
-                case "Setting Button":
-                    PanelManager.instance.PushPanel(UIPanelType.SettingPanel);
+                case "UserArea":
+                    PanelManager.instance.PushPanel(UIPanelType.LoginPanel);
                     break;
                 default:
                     break;

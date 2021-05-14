@@ -4,6 +4,7 @@ using AlsRitter.EventFrame;
 using AlsRitter.GenerateMap;
 using AlsRitter.GenerateMap.CustomTileFrame.MapDataEntity.V1.Dto;
 using AlsRitter.PlayerController.FSM;
+using AlsRitter.UIFrame;
 using AlsRitter.Utilities;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -17,14 +18,14 @@ public class GameManager : MonoBehaviour, IEventObserver
 
     // 淡入淡出场景
     public Animator fade;
-    // 游戏结束
-    public GameObject gameOver;
 
 
     private Vector2 playerBirth; // 角色出生位置
     private PlayerFSMSystem pm; // 角色
     private MapRootDto mapDto; // 地图数据
     private int hp = 3; // 剩余血量(0 开始)
+    private int scores = 0; // 得分
+    private Timer timer;
 
     private void Awake()
     {
@@ -32,10 +33,13 @@ public class GameManager : MonoBehaviour, IEventObserver
         buildBackground = GetComponent<BuildBackground>();
         buildMapProp = GetComponent<BuildMapProp>();
 
+        // 创建一个Timer
+        timer = gameObject.AddComponent<Timer>();
 
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerFSMSystem>();
-        EventManager.Register(this, EventID.Harm, EventID.Win);
+        EventManager.Register(this, EventID.Scores, EventID.Harm, EventID.Win);
     }
+
 
     /// <summary>
     /// 用于初始化
@@ -69,17 +73,60 @@ public class GameManager : MonoBehaviour, IEventObserver
         buildMapProp.StartCreateProps(mapDto);
     }
 
+    /// <summary>
+    /// 游戏开始
+    /// </summary>
+    private void GameStart()
+    {
+        Init();
+        // 开始计数 无限计数( repeatCount 为 <=0 时 无限重复)
+        timer.start(1, -1, null, null);
+    }
 
     private void OnGUI()
     {
-        if (GUILayout.Button("加载地图"))
+        if (GUILayout.Button("游戏开始"))
         {
-            Init();
+            GameStart();
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="isDie">是否是输</param>
+    private void GameEnd(bool isDie)
+    {
+        StartCoroutine(GameEndEffect(isDie));
+        timer.stop();
+        var thp = hp < 0 ? 0 : hp + 1;
+        Debug.Log($"当前剩余 HP：{thp}, 游戏花费时间：{timer.currentTime} 秒，当前得分：{scores}");
+    }
+
+    /// <summary>
+    /// 游戏结束的特效
+    /// </summary>
+    /// <param name="isDie"></param>
+    /// <returns></returns>
+    private IEnumerator GameEndEffect(bool isDie)
+    {
+        pm.rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        fade.SetTrigger("Start");
+        var sprite = pm.GetComponent<SpriteRenderer>();
+        sprite.DOColor(new Color(0, 0, 0, 0), 1);
+
+        yield return new WaitForSeconds(1);
+        // 弹出面板
+        PanelManager.instance.PushPanel(isDie ? UIPanelType.GameOverPanel : UIPanelType.GameWinPanel);
+    }
+
+    /// <summary>
+    /// 受伤时的效果
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator PlayerInjured()
     {
+        timer.stop();
         pm.rb.constraints = RigidbodyConstraints2D.FreezePosition;
         var sprite = pm.GetComponent<SpriteRenderer>();
         // 变红
@@ -92,8 +139,8 @@ public class GameManager : MonoBehaviour, IEventObserver
 
         if (hp < 0)
         {
-            gameOver.SetActive(true);
-            yield break;
+            GameEnd(true);
+            yield break; // 结束协程
         }
 
         fade.SetTrigger("End");
@@ -101,7 +148,8 @@ public class GameManager : MonoBehaviour, IEventObserver
         yield return new WaitForSeconds(1);
         pm.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         // 给个向下的力，否则动不了
-        pm.rb.AddForce(new Vector2(0,-1),ForceMode2D.Impulse);
+        pm.rb.AddForce(new Vector2(0, -1), ForceMode2D.Impulse);
+        timer.start();
     }
 
 
@@ -109,6 +157,10 @@ public class GameManager : MonoBehaviour, IEventObserver
     {
         switch (resp.eid)
         {
+            case EventID.Scores:
+                // 收到得分事件
+                scores++;
+                break;
             case EventID.Harm:
                 StartCoroutine(PlayerInjured());
                 hp--;
@@ -117,6 +169,7 @@ public class GameManager : MonoBehaviour, IEventObserver
                 break;
             case EventID.Win:
                 Debug.Log("You Win!!");
+                GameEnd(false);
                 break;
         }
     }

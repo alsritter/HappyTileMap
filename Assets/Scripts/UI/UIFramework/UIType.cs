@@ -13,7 +13,7 @@ namespace AlsRitter.UIFrame
         /// <summary>
         /// 选择模式的窗口
         /// </summary>
-        SelectModePanel,
+        SelectMapPanel,
         /// <summary>
         /// 设置窗口
         /// </summary>
@@ -23,16 +23,20 @@ namespace AlsRitter.UIFrame
         /// </summary>
         StartPanel,
         /// <summary>
-        /// 故事模式窗口
-        /// </summary>
-        StoryModePanel,
-        /// <summary>
         /// 游戏 UI 窗口
         /// </summary>
         GamePanel,
         /// <summary>
         /// 游戏菜单窗口
         /// </summary>
-        GameMenuPanel
+        GameMenuPanel,
+        /// <summary>
+        /// 游戏结束面板
+        /// </summary>
+        GameOverPanel,
+        /// <summary>
+        /// 游戏胜利面板
+        /// </summary>
+        GameWinPanel
     }
 }
