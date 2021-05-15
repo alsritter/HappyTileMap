@@ -3,26 +3,30 @@ using System.Collections.Generic;
 using AlsRitter.EventFrame;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
-public class HarmTrigger : MonoBehaviour
+
+namespace AlsRitter.Sundry
 {
-    public float waitTile = 1; // 首次碰到触发伤害，下次再被触发的间隔
-
-    private readonly EventData harmEvent;
-    private float tempTime = 0;
-
-    public HarmTrigger()
+    [RequireComponent(typeof(Collider2D))]
+    public class HarmTrigger : MonoBehaviour
     {
-        harmEvent = EventData.CreateEvent(EventID.Harm);
-    }
+        public float waitTile = 1; // 首次碰到触发伤害，下次再被触发的间隔
 
+        private readonly EventData harmEvent;
+        private float tempTime = 0;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (Time.time > tempTime)
+        public HarmTrigger()
         {
-            tempTime = Time.time + waitTile;
-            harmEvent.Send();
+            harmEvent = EventData.CreateEvent(EventID.Harm);
+        }
+
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (Time.time > tempTime)
+            {
+                tempTime = Time.time + waitTile;
+                harmEvent.Send();
+            }
         }
     }
 }

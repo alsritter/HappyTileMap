@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VfxAutoDestruction : MonoBehaviour
+namespace AlsRitter.Sundry
 {
-    public float timeToDestroy = 1;
-
-    private void Start()
+    public class VfxAutoDestruction : MonoBehaviour
     {
-        Destroy(gameObject, timeToDestroy);
+        public float timeToDestroy = 1;
+
+        private void Start()
+        {
+            Destroy(gameObject, timeToDestroy);
+        }
     }
 }

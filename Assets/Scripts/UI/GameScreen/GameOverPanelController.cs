@@ -4,31 +4,34 @@ using AlsRitter.EventFrame;
 using AlsRitter.UIFrame;
 using UnityEngine;
 
-public class GameOverPanelController : BasePanel
+namespace AlsRitter.UIFrame.Controller
 {
-    public override UIPanelType uiType => UIPanelType.GameOverPanel;
-
-    /// <summary>
-    /// 不需要特效
-    /// </summary>
-    public override void OnEnter()
+    public class GameOverPanelController : BasePanel
     {
-        gameObject.SetActive(true);
-    }
+        public override UIPanelType uiType => UIPanelType.GameOverPanel;
 
-    public override void DidOnClick(GameObject sender)
-    {
-        if (IsPause) return;
-        switch (sender.name)
+        /// <summary>
+        /// 不需要特效
+        /// </summary>
+        public override void OnEnter()
         {
-            case "RetryButton":
+            gameObject.SetActive(true);
+        }
 
-                break;
-            case "BreakButton":
+        public override void DidOnClick(GameObject sender)
+        {
+            if (IsPause) return;
+            switch (sender.name)
+            {
+                case "RetryButton":
 
-                break;
-            default:
-                break;
+                    break;
+                case "BreakButton":
+
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

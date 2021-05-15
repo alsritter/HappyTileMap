@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using AlsRitter.EventFrame;
 using UnityEngine;
 
-public class PlayerVfXController : MonoBehaviour, IEventObserver
+namespace AlsRitter.Sundry
 {
-    public GameObject injured;
-
-    private void Awake()
+    public class PlayerVfXController : MonoBehaviour, IEventObserver
     {
-        EventManager.Register(this,EventID.Harm);
-    }
+        public GameObject injured;
 
-    public void HandleEvent(EventData resp)
-    {
-        switch (resp.eid)
+        private void Awake()
         {
-            case EventID.Harm:
-                //injured.Play();
-                Instantiate(injured, transform.position, Quaternion.identity);
-                break;
+            EventManager.Register(this, EventID.Harm);
+        }
+
+        public void HandleEvent(EventData resp)
+        {
+            switch (resp.eid)
+            {
+                case EventID.Harm:
+                    //injured.Play();
+                    Instantiate(injured, transform.position, Quaternion.identity);
+                    break;
+            }
         }
     }
 }
