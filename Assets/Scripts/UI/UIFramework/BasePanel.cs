@@ -109,7 +109,7 @@ namespace AlsRitter.UIFrame
         }
 
         /// <summary>
-        /// 在Start中初始化UI的操作
+        /// 在Start中初始化UI的操作，只会执行一次
         /// </summary>
         public virtual void OnInitUI()
         {

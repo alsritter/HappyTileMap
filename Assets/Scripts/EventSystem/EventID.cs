@@ -63,6 +63,10 @@ namespace AlsRitter.EventFrame
         /// <summary>
         /// 游戏胜利
         /// </summary>
-        Win
+        Win,
+        /// <summary>
+        /// 登陆成功
+        /// </summary>
+        LoginSucceed
     }
 }

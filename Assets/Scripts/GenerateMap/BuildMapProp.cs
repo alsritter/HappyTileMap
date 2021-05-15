@@ -33,7 +33,7 @@ namespace AlsRitter.GenerateMap
             mapData.Prefabs.ForEach(x =>
             {
                 var o = Instantiate(LoadResourceByIdTool.GetProp(x.PrefabId));
-                o.transform.parent = Props.transform;
+                o.transform.SetParent(Props.transform);
                 // 因为原物品可能有坐标
                 o.transform.position = new Vector3(o.transform.position.x + x.X, o.transform.position.y + x.Y, 0);
             });

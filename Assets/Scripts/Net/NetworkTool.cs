@@ -14,6 +14,7 @@ namespace AlsRitter.Net
 
         /// <summary>
         /// Get 请求
+        /// TODO: 这里未来需要添加一个 JWT 的
         /// </summary>
         /// <param name="path">请求路径</param>
         /// <param name="callback">回调函数</param>

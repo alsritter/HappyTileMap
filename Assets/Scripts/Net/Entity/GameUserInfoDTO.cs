@@ -11,15 +11,23 @@ namespace AlsRitter.Net.Entity
     public class GameUserInfoDTO
     {
         [JsonProperty("username")]
-        private string username;
+        public string username { get; set; }
+
+        [JsonProperty("token")]
+        public string token  { get; set; }
 
         [JsonProperty("win_count")]
-        private int winCount; // 用户胜利次数
+        public int winCount { get; set; } // 用户胜利次数
 
         [JsonProperty("sum_count")]
-        private int sumCount; // 用户总场次
+        public int sumCount { get; set; } // 用户总场次
 
         [JsonProperty("death_count")]
-        private int deathCount; // 死亡次数
+        public int deathCount { get; set; } // 死亡次数
+
+        public override string ToString()
+        {
+            return $"username: {username}, winCount: {winCount}, sumCount: {sumCount}, deathCount:{deathCount}";
+        }
     }
 }
