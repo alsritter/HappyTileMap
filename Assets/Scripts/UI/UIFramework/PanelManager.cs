@@ -124,9 +124,9 @@ namespace AlsRitter.UIFrame
         {
             //当前栈内为空，则直接返回
             if (panelStack.Count <= 0) return;
-            panelStack.Pop().OnExit(); //Pop删除栈顶元素，并关闭栈顶界面的显示，
-            if (panelStack.Count <= 0) return;
-            panelStack.Peek().IsPause = false; //获取现在栈顶界面，并调用界面恢复动作
+            panelStack.Pop().OnExit(); //Pop 删除栈顶元素，并关闭栈顶界面的显示，
+            if (panelStack.Count <= 0) return; // 避免删除栈顶原始后就没有了，所以需要再加一个，健壮性判断
+            panelStack.Peek().IsPause = false; //获取现在栈顶界面，并调用界面恢复动作(Peek 返回栈顶原始且不删除)
         }
     }
 }

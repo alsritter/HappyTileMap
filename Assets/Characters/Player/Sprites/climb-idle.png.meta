@@ -114,12 +114,12 @@ TextureImporter:
       name: climb-idle_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 0
         y: 0
-        width: 24
-        height: 50
-      alignment: 9
-      pivot: {x: 0.6, y: 0.5}
+        width: 32
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -135,12 +135,12 @@ TextureImporter:
       name: climb-idle_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 32
         y: 0
-        width: 24
-        height: 50
-      alignment: 9
-      pivot: {x: 0.6, y: 0.5}
+        width: 32
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: climb-idle_2
       rect:
         serializedVersion: 2
-        x: 72
+        x: 64
         y: 0
-        width: 24
-        height: 50
-      alignment: 9
-      pivot: {x: 0.6, y: 0.5}
+        width: 32
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,12 +177,12 @@ TextureImporter:
       name: climb-idle_3
       rect:
         serializedVersion: 2
-        x: 104
+        x: 96
         y: 0
-        width: 24
-        height: 50
-      alignment: 9
-      pivot: {x: 0.6, y: 0.5}
+        width: 32
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

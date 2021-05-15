@@ -9,6 +9,19 @@ namespace AlsRitter.UIFrame.Controller
     {
         public override UIPanelType uiType => UIPanelType.SelectMapPanel;
 
+        /// <summary>
+        /// 不需要特效
+        /// </summary>
+        public override void OnEnter()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public override void OnExit()
+        {
+            gameObject.SetActive(false);
+        }
+
         public override void DidOnClick(GameObject sender)
         {
             // 如果暂停了则不再执行按钮操作
@@ -16,9 +29,6 @@ namespace AlsRitter.UIFrame.Controller
 
             switch (sender.name)
             {
-                case "Story Mode Button":
-                    PanelManager.instance.PushPanel(UIPanelType.SelectMapPanel);
-                    break;
                 case "Return Button":
                     PanelManager.instance.PopPanel();
                     break;

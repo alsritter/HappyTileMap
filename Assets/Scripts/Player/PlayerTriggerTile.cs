@@ -11,12 +11,13 @@ namespace AlsRitter.PlayerController
     /// 用于触发脚下的 Tile
     /// </summary>
     [DisallowMultipleComponent]
-    [RequireComponent(typeof(PlayerFSMSystem))]
+    [RequireComponent(typeof(PlayerFSMSystem), typeof(RayCheck))]
     public class PlayerTriggerTile : MonoBehaviour
     {
         public Tilemap tileMap; // 绘制的 TileMap
 
         private PlayerFSMSystem pm;
+        private RayCheck rc;
 
         private class WingTiles
         {
@@ -24,9 +25,10 @@ namespace AlsRitter.PlayerController
             public CustomTile rightTile { get; set; }
         }
 
-        private void Start()
+        private void Awake()
         {
             pm = GetComponent<PlayerFSMSystem>();
+            rc = GetComponent<RayCheck>();
         }
 
         // Update is called once per frame
@@ -49,8 +51,8 @@ namespace AlsRitter.PlayerController
             // 左右两边的 CustomTile
             var wingTiles = new WingTiles();
 
-            var leftCell = tileMap.WorldToCell(pm.leftFoot.transform.position);
-            var rightCell = tileMap.WorldToCell(pm.rightFoot.transform.position);
+            var leftCell = tileMap.WorldToCell(rc.leftFoot.transform.position);
+            var rightCell = tileMap.WorldToCell(rc.rightFoot.transform.position);
 
             wingTiles.leftTile = tileMap.GetTile<CustomTile>(leftCell);
             wingTiles.rightTile = tileMap.GetTile<CustomTile>(rightCell);

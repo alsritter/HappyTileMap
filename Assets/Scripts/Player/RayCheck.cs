@@ -19,6 +19,14 @@ namespace AlsRitter.PlayerController
         private PlayerFSMSystem pm;
         public Tilemap tileMap; // 只需取得可碰撞的那个 TileMap
 
+        [Header("角色身体部件")]
+        public GameObject rightFoot;
+        public GameObject leftFoot;
+        public GameObject hand;
+        public GameObject head;
+        public GameObject frontHeadTop;
+        public GameObject backHeadTop;
+        public GameObject bodyCentre;
 
         [Header("当前需要检查的Layer")]
         public LayerMask groundLayer; // 当前需要检查的“地面”的 Layer
@@ -58,8 +66,8 @@ namespace AlsRitter.PlayerController
         {
             pm = GetComponent<PlayerFSMSystem>();
 
-            handCollision = pm.hand.GetComponent<HandCollision>();
-            headCollision = pm.head.GetComponent<HeadCollision>();
+            handCollision = hand.GetComponent<HandCollision>();
+            headCollision = head.GetComponent<HeadCollision>();
             pm.handDirection = gameObject.transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         }
 
@@ -67,11 +75,11 @@ namespace AlsRitter.PlayerController
         private void Start()
         {
             // footDistance = Mathf.Abs(pm.leftFoot.transform.position.y - pm.coll.transform.TransformPoint(pm.coll.offset).y);
-            footDistance = Mathf.Abs(pm.leftFoot.transform.position.y - pm.bodyCentre.transform.position.y);
+            footDistance = Mathf.Abs(leftFoot.transform.position.y - bodyCentre.transform.position.y);
             //handDistance = Mathf.Abs(pm.hand.transform.position.x - pm.coll.transform.TransformPoint(pm.coll.offset).x);
-            handDistance = Mathf.Abs(pm.hand.transform.position.x - pm.bodyCentre.transform.position.x);
+            handDistance = Mathf.Abs(hand.transform.position.x - bodyCentre.transform.position.x);
             // topDistance = Mathf.Abs(pm.headTop.transform.position.y - pm.coll.transform.TransformPoint(pm.coll.offset).y);
-            topDistance = Mathf.Abs(pm.headTop.transform.position.y - pm.bodyCentre.transform.position.y);
+            topDistance = Mathf.Abs(frontHeadTop.transform.position.y - bodyCentre.transform.position.y);
         }
 
         private void FixedUpdate()
@@ -80,9 +88,9 @@ namespace AlsRitter.PlayerController
             HandGetTag();
 
             // 每帧更新长度
-            footDistance = Mathf.Abs(pm.leftFoot.transform.position.y - pm.bodyCentre.transform.position.y);
-            handDistance = Mathf.Abs(pm.hand.transform.position.x - pm.bodyCentre.transform.position.x);
-            topDistance = Mathf.Abs(pm.headTop.transform.position.y - pm.bodyCentre.transform.position.y);
+            footDistance = Mathf.Abs(leftFoot.transform.position.y - bodyCentre.transform.position.y);
+            handDistance = Mathf.Abs(hand.transform.position.x - bodyCentre.transform.position.x);
+            topDistance = Mathf.Abs(frontHeadTop.transform.position.y - bodyCentre.transform.position.y);
         }
 
 
@@ -91,11 +99,14 @@ namespace AlsRitter.PlayerController
         /// </summary>
         private void PhysicsCheck()
         {
-            Vector2 topPos = pm.headTop.transform.position;
-            Vector2 leftPos = pm.leftFoot.transform.position;
-            Vector2 rightPos = pm.rightFoot.transform.position;
+            Vector2 topFrontPos = frontHeadTop.transform.position;
+            Vector2 topBackPos = backHeadTop.transform.position;
 
-            var topCheck = Physics2D.Raycast(topPos, Vector2.down, topDistance, groundLayer);
+            Vector2 leftPos = leftFoot.transform.position;
+            Vector2 rightPos = rightFoot.transform.position;
+
+            var topFrontCheck = Physics2D.Raycast(topFrontPos, Vector2.down, topDistance, groundLayer);
+            var topBackCheck = Physics2D.Raycast(topBackPos, Vector2.down, topDistance, groundLayer);
 
             var leftCheck =
                 Physics2D.Raycast(leftPos, Vector2.up, footDistance, groundLayer);
@@ -110,12 +121,13 @@ namespace AlsRitter.PlayerController
             Debug.DrawRay(leftPos, pm.handDirection * Mathf.Abs(leftPos.x - rightPos.x),
                 footBottom ? Color.red : Color.green);
 
-            Debug.DrawRay(topPos, Vector2.down * topDistance, topCheck ? Color.red : Color.green);
+            Debug.DrawRay(topFrontPos, Vector2.down * topDistance, topFrontCheck ? Color.red : Color.green);
+            Debug.DrawRay(topBackPos, Vector2.down * topDistance, topBackCheck ? Color.red : Color.green);
+
             Debug.DrawRay(leftPos, Vector2.up * footDistance, leftCheck ? Color.red : Color.green);
             Debug.DrawRay(rightPos, Vector2.up * footDistance,
                 rightCheck ? Color.red : Color.green);
 
-   
 
             // 判断当前是否在地面（这里使用了隐式转换，RaycastHit2D 转成 bool类型 标识它是否被击中）
             var temp = leftCheck || rightCheck || footBottom;
@@ -127,8 +139,7 @@ namespace AlsRitter.PlayerController
             }
 
 
-
-            var temp2 = topCheck;
+            var temp2 = topFrontCheck || topBackCheck;
 
             if (isOnHeadTop != temp2)
             {
@@ -155,7 +166,7 @@ namespace AlsRitter.PlayerController
 
             if (handCollision.handIsTrigger)
             {
-                var tileCell = tileMap.WorldToCell(pm.hand.transform.position);
+                var tileCell = tileMap.WorldToCell(hand.transform.position);
                 var tile = tileMap.GetTile<CustomBaseTile>(tileCell);
 
                 if (tile != null)
@@ -183,7 +194,7 @@ namespace AlsRitter.PlayerController
             if (handCheck && headCollision.headIsTrigger)
             {
                 // 还需要检查头部的位置
-                var tileCell = tileMap.WorldToCell(pm.head.transform.position);
+                var tileCell = tileMap.WorldToCell(head.transform.position);
                 var tile = tileMap.GetTile<CustomBaseTile>(tileCell);
                 if (tile != null)
                 {
@@ -196,9 +207,9 @@ namespace AlsRitter.PlayerController
                 }
             }
 
-            Debug.DrawRay(pm.head.transform.position, -pm.handDirection * handDistance,
+            Debug.DrawRay(head.transform.position, -pm.handDirection * handDistance,
                 blockedCheck ? Color.red : Color.green);
-            Debug.DrawRay(pm.hand.transform.position, -pm.handDirection * handDistance,
+            Debug.DrawRay(hand.transform.position, -pm.handDirection * handDistance,
                 handCheck ? Color.red : Color.green);
 
             // 原本是： pm.graspWall = handCheck;

@@ -63,14 +63,6 @@ namespace AlsRitter.PlayerController.FSM
         [HideInInspector]
         public Vector2 handDirection;
 
-        [Header("角色身体部件")]
-        public GameObject rightFoot;
-        public GameObject leftFoot;
-        public GameObject hand;
-        public GameObject head;
-        public GameObject headTop;
-        public GameObject bodyCentre;
-
         private bool isOnGround;
         private bool graspWall; // 是否抓住了墙
 

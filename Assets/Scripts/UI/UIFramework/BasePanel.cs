@@ -92,7 +92,8 @@ namespace AlsRitter.UIFrame
             var temp = transform.localPosition;
             temp.x = -800;
             transform.localPosition = temp;
-            transform.DOLocalMoveX(0, 0.5f);
+            // 这个时间不能设太慢，否则会出现还没执行完就被关闭的 Bug
+            transform.DOLocalMoveX(0, 0.3f);
         }
 
         /// <summary>
@@ -100,7 +101,8 @@ namespace AlsRitter.UIFrame
         /// </summary>
         public void CloseActivity()
         {
-            transform.DOLocalMoveX(-800, .5f).OnComplete(() => gameObject.SetActive(false));
+            
+            transform.DOLocalMoveX(-800, .3f).OnComplete(() => gameObject.SetActive(false));
 
             /*var outPos = mTransform.position.x - Screen.width;
             mTransform.DOMoveX(outPos, 0.2f).OnComplete(delegate {  });*/
