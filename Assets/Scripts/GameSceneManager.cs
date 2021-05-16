@@ -49,7 +49,9 @@ namespace AlsRitter.GlobalControl
         private void Init()
         {
             // 先加载地图数据
-            mapDto = LoadJsonTool.ParseMapJsonData();
+            var map = GameManager.instance.currentMapData;
+            // 地图数据为空则加载本地资源
+            mapDto = map ?? LoadJsonTool.ParseLocalMapJsonData();
 
             // 初始化角色信息
             pm.speed = mapDto.Initial.Speed;
@@ -85,12 +87,17 @@ namespace AlsRitter.GlobalControl
             timer.start(1, -1, null, null);
         }
 
-        private void OnGUI()
+/*        private void OnGUI()
         {
             if (GUILayout.Button("游戏开始"))
             {
                 GameStart();
             }
+        }*/
+
+        private void Start()
+        {
+            GameStart();
         }
 
         /// <summary>

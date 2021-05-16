@@ -1706,6 +1706,13 @@ MonoBehaviour:
   container: {fileID: 8457530486409285383}
   mapItemPrefab: {fileID: 986180274949594525, guid: 5a1fa10b35895db4382e8db2222f3dbc,
     type: 3}
+  cover: {fileID: 2519028290489884287}
+  author: {fileID: 4054523612359307909}
+  down: {fileID: 8529164526881518169}
+  pass: {fileID: 4333240672666888639}
+  playNum: {fileID: 6587297930063206603}
+  version: {fileID: 580666554190149572}
+  grade: {fileID: 1666808926192755523}
 --- !u!1 &5173894326691531132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,7 +2199,7 @@ GameObject:
   - component: {fileID: 5930609800177843750}
   - component: {fileID: 7070591380083128159}
   m_Layer: 5
-  m_Name: Image
+  m_Name: CoverBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

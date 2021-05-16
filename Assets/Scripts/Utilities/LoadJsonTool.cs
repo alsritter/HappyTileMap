@@ -16,12 +16,13 @@ namespace AlsRitter.Utilities
     public class LoadJsonTool
     {
         /// <summary>
-        /// 加载地图数据
+        /// 加载本地的地图数据
         /// </summary>
         /// <returns></returns>
-        public static MapRootDto ParseMapJsonData()
+        public static MapRootDto ParseLocalMapJsonData()
         {
             // Assets/Resources/Json/testData.json
+            Debug.LogError("The local map is loaded");
             var text = Resources.Load<TextAsset>("Json/testData");
             var json = text.text;
             return string.IsNullOrEmpty(json) ? null : JsonConvert.DeserializeObject<MapRootDto>(json);

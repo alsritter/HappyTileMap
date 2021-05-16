@@ -10,35 +10,24 @@ namespace AlsRitter.Net.Entity
     [Serializable]
     public class GameMapInfoDTO
     {
-        [JsonProperty("id")]
-        private string id; // 地图编号
+        [JsonProperty("id")] public string id { get; set; } // 地图编号
 
-        [JsonProperty("author")]
-        private string author; // 作者名称
+        [JsonProperty("author")] public string author { get; set; } // 作者名称
 
-        [JsonProperty("introduction")]
-        private string introduction; // 地图介绍
+        [JsonProperty("introduction")] public string introduction { get; set; } // 地图介绍
 
-        [JsonProperty("cover_path")]
-        private string coverPath; // 地图封面
+        [JsonProperty("cover_path")] public string coverPath { get; set; } // 地图封面
 
-        [JsonProperty("down_count")]
-        private int downCount; // 下载次数
+        [JsonProperty("down_count")] public int downCount { get; set; } // 下载次数
 
-        [JsonProperty("win_count")]
-        private int winCount; // 通过次数
+        [JsonProperty("pass_count")] public int passCount { get; set; } // 通过次数
 
-        [JsonProperty("sum_count")]
-        private int sumCount; // 游玩总次数
+        [JsonProperty("sum_count")] public int sumCount { get; set; } // 游玩总次数
 
-        [JsonProperty("down_path")]
-        private string downPath; // 地图下载地址
+        [JsonProperty("down_path")] public string downPath { get; set; } // 地图下载地址
 
-        [JsonProperty("version")]
-        private string version; // 地图版本
+        [JsonProperty("version")] public string version { get; set; } // 地图版本
 
-        [JsonProperty("grade")]
-        private int grade; // 地图评分
+        [JsonProperty("grade")] public int grade { get; set; } // 地图评分
     }
-
 }

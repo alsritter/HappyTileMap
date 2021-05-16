@@ -26,9 +26,8 @@ namespace AlsRitter.UIFrame.Controller
             switch (sender.name)
             {
                 case "Start Game Button":
-                    GameManager.instance.GetMapInfoList(result =>
+                    GameManager.instance.InitMapInfoList(result =>
                     {
-                        // Debug.Log("游戏开始了~");
                         PanelManager.instance.PushPanel(UIPanelType.SelectMapPanel);
                     });
 

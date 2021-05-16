@@ -25,11 +25,11 @@ namespace AlsRitter.Utilities
         {
             get
             {
-                if (_applicationIsQuitting)
+                /*if (_applicationIsQuitting)
                 {
                     return null;
                 }
-
+*/
                 lock (_lock)
                 {
                     if (_instance != null) return _instance;
@@ -64,13 +64,12 @@ namespace AlsRitter.Utilities
             }
         }
 
-        private static bool _applicationIsQuitting = false;
+        //private static bool _applicationIsQuitting = false;
 
         public void Awake()
         {
             if (isDontDestroyOnLoad)
             {
-                // 让该实例切换场景时不被销毁
                 DontDestroyOnLoad(instance);
             }
         }
@@ -80,7 +79,7 @@ namespace AlsRitter.Utilities
         /// </summary>
         public void OnDestroy()
         {
-            _applicationIsQuitting = true;
+            //_applicationIsQuitting = true;
         }
     }
 }
