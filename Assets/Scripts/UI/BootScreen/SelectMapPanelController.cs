@@ -101,7 +101,7 @@ namespace AlsRitter.UIFrame.Controller
                     break;
                 case "StartGameButton":
                     if (currentIndex < 0) return;
-                    GameManager.instance.StartGame(GameManager.instance.mapInfos[currentIndex].downPath);
+                    GameManager.instance.StartGame(GameManager.instance.mapInfos[currentIndex].id);
                     break;
                 default:
                     break;

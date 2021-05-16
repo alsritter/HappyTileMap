@@ -8,7 +8,7 @@ namespace AlsRitter.Utilities
     /// 单例模板
     /// </summary>
     /// <typeparam name="T">泛型类型得继承自 MonoBehaviour</typeparam>
-    public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
+    public class Singleton<T> : MonoBehaviour where T : Singleton<T>
     {
         private static T _instance;
         private static readonly object _lock = new object();
@@ -68,10 +68,39 @@ namespace AlsRitter.Utilities
 
         public void Awake()
         {
+            AwakeInitInfo();
+            // 因为可能重复加载这个场景，所以需要每次运行前检查一下是否存在
+            if (_instance != null)
+            {
+                _instance.StartInitInfo();
+                //instance.StartInitInfo();
+                // 存在则销毁自己
+                Destroy(gameObject);
+                return;
+            }
+
             if (isDontDestroyOnLoad)
             {
                 DontDestroyOnLoad(instance);
             }
+
+            _instance?.StartInitInfo();
+            //instance.StartInitInfo();
+        }
+
+        /// <summary>
+        /// 复写这个方法来在 Awake 初始化，这个 InitInfo 只会执行一次
+        /// 
+        /// </summary>
+        public virtual void AwakeInitInfo()
+        {
+        }
+
+        /// <summary>
+        /// 这个 StartInit 方法要在这个场景里面存在另一个同样的单例才会执行
+        /// </summary>
+        public virtual void StartInitInfo()
+        {
         }
 
         /// <summary>

@@ -24,7 +24,15 @@ namespace AlsRitter.GlobalControl
         public List<GameMapInfoDTO> mapInfos { get; private set; }
         private bool isInitMapInfos = false;
 
+        /// <summary>
+        /// 当前玩的地图数据
+        /// </summary>
         public MapRootDto currentMapData { get; private set; }
+
+        /// <summary>
+        /// 当前玩的地图编号
+        /// </summary>
+        public string currentMapId { get; private set; }
 
         /// <summary>
         /// 用于缓存地图下载的结果
@@ -90,23 +98,23 @@ namespace AlsRitter.GlobalControl
         }
 
         /// <summary>
-        /// 取得地图信息
+        /// 通过地图 Id 取得地图数据
         /// </summary>
-        /// <param name="path"></param>
+        /// <param name="mapId"></param>
         /// <param name="callback"></param>
-        private void GetMap(string path, NetworkTool.RequestCallback callback)
+        private void GetMap(string mapId, NetworkTool.RequestCallback callback)
         {
             // 先检查缓存里面有没有
-            if (mapCache.TryGetValue(path, out var value))
+            if (mapCache.TryGetValue(mapId, out var value))
             {
                 callback(value);
                 return;
             }
 
-            StartCoroutine(NetworkTool.GetRequestByFullPath(path, result =>
+            StartCoroutine(NetworkTool.GetRequest($"/get_map/{mapId}", result =>
             {
                 // 先添加到缓存里面
-                mapCache.Add(path, result);
+                mapCache.Add(mapId, result);
                 callback(result);
             }));
         }
@@ -114,15 +122,31 @@ namespace AlsRitter.GlobalControl
         /// <summary>
         /// 根据传入的地址下载地图并开始游戏
         /// </summary>
-        /// <param name="fullPath"></param>
-        public void StartGame(string fullPath)
+        /// <param name="mapId">使用的地图编号</param>
+        public void StartGame(string mapId)
         {
-            GetMap(fullPath, result =>
+            currentMapId = mapId;
+            GetMap(mapId, result =>
             {
-                Debug.Log(result);
-                currentMapData = string.IsNullOrEmpty(result) ? null : JsonConvert.DeserializeObject<MapRootDto>(result);
+                if (string.IsNullOrEmpty(result))
+                {
+                    Debug.LogError($"This {mapId} does not exist!!!");
+                }
+
+                currentMapData = string.IsNullOrEmpty(result)
+                    ? null
+                    : JsonConvert.DeserializeObject<MapRootDto>(result);
+
                 SceneManager.LoadScene("Scenes/GameScene");
             });
+        }
+
+        /// <summary>
+        /// 返回菜单界面
+        /// </summary>
+        public void ReturnMenu()
+        {
+            SceneManager.LoadScene("Scenes/MenuScene");
         }
 
         /// <summary>
@@ -145,6 +169,41 @@ namespace AlsRitter.GlobalControl
                 imgCache.Add(path, result);
                 callback(result);
             }));
+        }
+
+        /// <summary>
+        /// 发送受伤信息
+        /// </summary>
+        /// <param name="pos">角色位置</param>
+        public void SendHarmInfo(Vector2 pos)
+        {
+            var deathInfo = new GameDeathInfoDTO(pos.x, pos.y);
+            StartCoroutine(NetworkTool.PostJsonRequest(
+                "/push_death_info"
+                , JsonConvert.SerializeObject(deathInfo),
+                result =>  {}));
+        }
+
+
+        /// <summary>
+        /// 发送开始游戏的信息
+        /// </summary>
+        public void SendStartGame()
+        {
+            StartCoroutine(NetworkTool.GetRequest($"/play_map/{currentMapId}", result => { }));
+        }
+
+        /// <summary>
+        /// 发送游戏结束的信息
+        /// </summary>
+        /// <param name="score"></param>
+        /// <param name="time"></param>
+        /// <param name="hp"></param>
+        /// <param name="isWin"></param>
+        public void SendGameEnd(int score, float time, int hp, bool isWin)
+        {
+            StartCoroutine(NetworkTool.PostJsonRequest("/push_end_info",
+                JsonConvert.SerializeObject(new GameEndInfoDTO(score, time, hp, isWin)), result => { }));
         }
     }
 }

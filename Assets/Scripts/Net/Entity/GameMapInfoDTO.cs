@@ -24,8 +24,6 @@ namespace AlsRitter.Net.Entity
 
         [JsonProperty("sum_count")] public int sumCount { get; set; } // 游玩总次数
 
-        [JsonProperty("down_path")] public string downPath { get; set; } // 地图下载地址
-
         [JsonProperty("version")] public string version { get; set; } // 地图版本
 
         [JsonProperty("grade")] public int grade { get; set; } // 地图评分

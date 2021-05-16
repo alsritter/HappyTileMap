@@ -25,6 +25,9 @@ namespace AlsRitter.UIFrame
         // 页面的画布
         private Transform canvasTransform;
 
+        /// <summary>
+        /// 注意，这里的 get 不能直接写在上面的 canvasTransform
+        /// </summary>
         private Transform CanvasTransform
         {
             // 因为场景里的画布可能会随着场景销毁而销毁，但是 PanelManager 并不会销毁，
@@ -47,11 +50,19 @@ namespace AlsRitter.UIFrame
             panelStack = new Stack<BasePanel>();
         }
 
-
-        private void Start()
+        public override void AwakeInitInfo()
         {
             // 解析JSON，获取所有面板的路径信息
             LoadJsonTool.ParseUiPanelTypeJsonData(ref panelPathDict);
+        }
+
+        public override void StartInitInfo()
+        {
+            Debug.Log($"初始化当前对象 {GetHashCode()}");
+            // 先清空数据
+            panelDict.Clear();
+            panelStack.Clear();
+
             // 把场景里面的已经存在的 UI 实例塞进字典
             var panels = FindObjectsOfType<BasePanel>().ToList();
             panels.Sort((x, y) => x.transform.GetSiblingIndex() - y.transform.GetSiblingIndex()); // 升序
@@ -71,12 +82,11 @@ namespace AlsRitter.UIFrame
         /// <returns>返回该面板组件</returns>
         private BasePanel GetPanel(UIPanelType panelType)
         {
-            panelDict.TryGetValue(panelType, out var basePanel);
             //如果panel为空，根据该面板 prefab 的路径，实例化该面板
-            if (basePanel == null)
+            if (!panelDict.TryGetValue(panelType, out var basePanel))
             {
                 var path = panelPathDict[panelType];
-                var newPanel = GameObject.Instantiate(Resources.Load<GameObject>(path)) as GameObject;
+                var newPanel = Instantiate(Resources.Load<GameObject>(path)) as GameObject;
                 newPanel.transform.SetParent(CanvasTransform, false);
 
                 //第一次实例化的面板需要保存在字典中

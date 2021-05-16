@@ -67,6 +67,16 @@ namespace AlsRitter.EventFrame
         /// <summary>
         /// 登陆成功
         /// </summary>
-        LoginSucceed
+        LoginSucceed,
+
+        /// <summary>
+        /// 重新开始游戏
+        /// </summary>
+        ResetGame,
+
+        /// <summary>
+        /// 游戏界面返回菜单
+        /// </summary>
+        ReturnMenu
     }
 }

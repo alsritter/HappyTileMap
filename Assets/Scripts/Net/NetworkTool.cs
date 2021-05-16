@@ -32,7 +32,8 @@ namespace AlsRitter.Net
                 yield return webRequest.SendWebRequest();
                 if (!string.IsNullOrEmpty(webRequest.error))
                 {
-                    Debug.LogError(webRequest.error);
+
+                    Debug.LogError(webRequest.error + path);
                 }
                 else
                 {
@@ -54,7 +55,7 @@ namespace AlsRitter.Net
                 yield return webRequest.SendWebRequest();
                 if (!string.IsNullOrEmpty(webRequest.error))
                 {
-                    Debug.LogError(webRequest.error);
+                    Debug.LogError(webRequest.error + fullPath);
                 }
                 else
                 {
@@ -78,7 +79,7 @@ namespace AlsRitter.Net
                 yield return webRequest.SendWebRequest();
                 if (!string.IsNullOrEmpty(webRequest.error))
                 {
-                    Debug.LogError(webRequest.error);
+                    Debug.LogError(webRequest.error + fullPath);
                 }
                 else
                 {
@@ -109,7 +110,7 @@ namespace AlsRitter.Net
                 yield return webRequest.SendWebRequest();
                 if (!string.IsNullOrEmpty(webRequest.error))
                 {
-                    Debug.LogError(webRequest.error);
+                    Debug.LogError(webRequest.error + path);
                 }
                 else
                 {
@@ -140,7 +141,7 @@ namespace AlsRitter.Net
                 yield return webRequest.SendWebRequest();
                 if (!string.IsNullOrEmpty(webRequest.error))
                 {
-                    Debug.LogError(webRequest.error);
+                    Debug.LogError(webRequest.error + path);
                 }
                 else
                 {

@@ -28,10 +28,24 @@ namespace AlsRitter.UIFrame.Controller
             var temp = GameObject.Find("bloods");
             bloods = temp.GetComponentsInChildren<Image>();
             text = scores.transform.GetComponentInChildren<TextMeshProUGUI>();
+            text.text = "000";
             // 别忘了注册自己
-            EventManager.Register(this, EventID.Scores, EventID.Harm);
+            EventManager.Register(this, EventID.Scores, EventID.Harm, EventID.ResetGame);
         }
 
+        /// <summary>
+        /// 用来重置 UI 面板上的信息
+        /// </summary>
+        private void ResetInfo()
+        {
+            hp = 3;
+            text.text = "000";
+            foreach (var blood in bloods)
+            {
+                ColorUtility.TryParseHtmlString("#ac3232", out var temp);
+                blood.color = temp;
+            }
+        }
 
         public override void DidOnClick(GameObject sender)
         {
@@ -50,7 +64,6 @@ namespace AlsRitter.UIFrame.Controller
         private void RefreshHp()
         {
             if (hp < 0) return;
-            Debug.Log($"当前 hp为 {hp}");
             ColorUtility.TryParseHtmlString("#464646", out var temp);
             bloods[hp].color = temp;
         }
@@ -67,6 +80,10 @@ namespace AlsRitter.UIFrame.Controller
                     RefreshHp();
                     hp--;
                     // 受伤
+                    break;
+                case EventID.ResetGame:
+                    // 重新开始游戏，刷新面板信息
+                    ResetInfo();
                     break;
             }
         }

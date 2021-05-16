@@ -9,7 +9,7 @@ namespace AlsRitter.Sundry
     [RequireComponent(typeof(Collider2D))]
     public class HarmTrigger : MonoBehaviour
     {
-        public float waitTile = 1; // 首次碰到触发伤害，下次再被触发的间隔
+        public float waitTile = 3; // 首次碰到触发伤害，下次再被触发的间隔
 
         private readonly EventData harmEvent;
         private float tempTime = 0;

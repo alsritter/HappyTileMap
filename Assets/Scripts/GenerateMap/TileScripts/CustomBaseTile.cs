@@ -28,7 +28,7 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileScripts
                 // 动态加载
                 foreach (var effectKey in effectKeys)
                 {
-                    effects.Add(GlobalEffectRegistry.GetEffect(effectKey));
+                    effects.Add(GlobalEffectRegistry.instance.GetEffect(effectKey));
                 }
             }
 

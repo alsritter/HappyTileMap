@@ -10,6 +10,15 @@ namespace AlsRitter.UIFrame.Controller
     {
         public override UIPanelType uiType => UIPanelType.GameOverPanel;
 
+        private readonly EventData resetEvent;
+        private readonly EventData returnMenuEvent;
+
+        public GameOverPanelController()
+        {
+            resetEvent = EventData.CreateEvent(EventID.ResetGame);
+            returnMenuEvent = EventData.CreateEvent(EventID.ReturnMenu);
+        }
+
         /// <summary>
         /// 不需要特效
         /// </summary>
@@ -18,16 +27,22 @@ namespace AlsRitter.UIFrame.Controller
             gameObject.SetActive(true);
         }
 
+        public override void OnExit()
+        {
+            gameObject.SetActive(false);
+        }
+
         public override void DidOnClick(GameObject sender)
         {
             if (IsPause) return;
             switch (sender.name)
             {
                 case "RetryButton":
-
+                    PanelManager.instance.PopPanel();
+                    resetEvent.Send();
                     break;
                 case "BreakButton":
-
+                    returnMenuEvent.Send();
                     break;
                 default:
                     break;

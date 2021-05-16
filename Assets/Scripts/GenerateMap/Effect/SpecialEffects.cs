@@ -18,7 +18,7 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect.SpecialEffects
     }
 
     [EffectInfo("游戏胜利", 1, "alsritter")]
-    public class GameVictoryEffect : BaseObjectEffect
+    public class GameVictoryEffect : BaseObjectEffect, IEventObserver
     {
         private readonly EventData harmEvent;
         private bool flag = true;
@@ -26,18 +26,34 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect.SpecialEffects
         public GameVictoryEffect()
         {
             harmEvent = EventData.CreateEvent(EventID.Win);
+            EventManager.Register(this, EventID.ResetGame, EventID.ReturnMenu);
         }
 
         public override void ApplyTo(PlayerFSMSystem player)
         {
             // 只执行一次
             if (!flag) return;
-
+            Debug.Log("发送了");
             flag = false;
             harmEvent.Send();
         }
 
         public override int versionUID => 1;
         public override string name => "GameVictoryEffect";
+
+        public void HandleEvent(EventData resp)
+        {
+            Debug.Log("重置了");
+            // 收到重新开始信号需要重置 flag
+            switch (resp.eid)
+            {
+                case EventID.ResetGame:
+                    flag = true;
+                    break;
+                case EventID.ReturnMenu:
+                    flag = true;
+                    break;
+            }
+        }
     }
 }

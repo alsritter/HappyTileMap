@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AlsRitter.Utilities;
 using UnityEngine;
 
@@ -13,10 +14,19 @@ namespace AlsRitter.EventFrame
         /// <summary>
         /// 维护一个观察者队列
         /// </summary>
-        private readonly Dictionary<EventID, List<IEventObserver>> observerList =
+        private Dictionary<EventID, List<IEventObserver>> observerList =
             new Dictionary<EventID, List<IEventObserver>>();
 
         private readonly Queue<EventData> eventQueue = new Queue<EventData>(); //消息队列
+
+        /// <summary>
+        /// 这里清空空的观察者
+        /// </summary>
+        public override void StartInitInfo()
+        {
+            observerList.Clear();
+            eventQueue.Clear();
+        }
 
 
         private void Update()

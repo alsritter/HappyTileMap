@@ -14,6 +14,7 @@ namespace AlsRitter.Net.Entity
 
         [JsonProperty("y")] public float y { get; set; }
 
+
         public GameDeathInfoDTO()
         {
         }
