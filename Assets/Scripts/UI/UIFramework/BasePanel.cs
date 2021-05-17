@@ -76,6 +76,8 @@ namespace AlsRitter.UIFrame
                 btn.onClick.AddListener(delegate { this.DidOnClick(btn.gameObject); });
             }
 
+            PanelManager.instance.Register(this);
+
             OnInitUI();
         }
 
@@ -150,5 +152,22 @@ namespace AlsRitter.UIFrame
         /// </summary>
         /// <param name="sender">发送事件的按钮</param>
         public abstract void DidOnClick(GameObject sender);
+
+        /// <summary>
+        /// 面板被销毁时调用
+        /// </summary>
+        public virtual void UIOnDestroy()
+        {
+
+        }
+
+        /// <summary>
+        /// 面板控制器不能直接覆写这个 OnDestroy 得复写上面的 UIOnDestroy
+        /// </summary>
+        public void OnDestroy()
+        {
+            UIOnDestroy();
+            PanelManager.instance.Remove(this);
+        }
     }
 }

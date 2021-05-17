@@ -72,5 +72,9 @@ namespace AlsRitter.PlayerController.FSM
                     break;
             }
         }
+
+        ~OnStandState() {
+            EventManager.Remove(this);
+        }
     }
 }

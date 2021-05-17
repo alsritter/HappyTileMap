@@ -102,5 +102,10 @@ namespace AlsRitter.PlayerController
                     break;
             }
         }
+
+        
+        public void OnDestroy() {
+            EventManager.Remove(this);
+        }
     }
 }

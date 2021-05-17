@@ -113,5 +113,10 @@ namespace AlsRitter.PlayerController.FSM
                     break;
             }
         }
+
+        ~OnCrouchState() 
+        {  
+            EventManager.Remove(this);
+        }
     }
 }

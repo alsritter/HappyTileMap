@@ -19,14 +19,14 @@ namespace AlsRitter.EventFrame
 
         private readonly Queue<EventData> eventQueue = new Queue<EventData>(); //消息队列
 
-        /// <summary>
+/*        /// <summary>
         /// 这里清空空的观察者
         /// </summary>
-        public override void StartInitInfo()
+        public override void StartInitInfo() 
         {
             observerList.Clear();
             eventQueue.Clear();
-        }
+        }*/
 
 
         private void Update()

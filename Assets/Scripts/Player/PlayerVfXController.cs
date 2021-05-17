@@ -24,5 +24,9 @@ namespace AlsRitter.Sundry
                     break;
             }
         }
+
+        public void OnDestroy() {
+            EventManager.Remove(this);
+        }
     }
 }

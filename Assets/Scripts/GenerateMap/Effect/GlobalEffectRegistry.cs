@@ -63,5 +63,6 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect
                 return allEffect["00000"];
             }
         }
+
     }
 }

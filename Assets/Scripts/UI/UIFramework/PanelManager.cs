@@ -54,9 +54,20 @@ namespace AlsRitter.UIFrame
         {
             // 解析JSON，获取所有面板的路径信息
             LoadJsonTool.ParseUiPanelTypeJsonData(ref panelPathDict);
+
+/*            // 把场景里面的已经存在的 UI 实例塞进字典
+            var panels = FindObjectsOfType<BasePanel>().ToList();
+            panels.Sort((x, y) => x.transform.GetSiblingIndex() - y.transform.GetSiblingIndex()); // 升序
+            panels.ForEach(x =>
+            {
+                panelDict.Add(x.uiType, x);
+                // 入栈
+                panelStack.Push(x);
+                //Debug.Log($"当前入栈的是：{x.uiType} 它的索引为：{x.transform.GetSiblingIndex()}");
+            });*/
         }
 
-        public override void StartInitInfo()
+/*        public override void StartInitInfo()
         {
             Debug.Log($"初始化当前对象 {GetHashCode()}");
             // 先清空数据
@@ -73,6 +84,19 @@ namespace AlsRitter.UIFrame
                 panelStack.Push(x);
                 //Debug.Log($"当前入栈的是：{x.uiType} 它的索引为：{x.transform.GetSiblingIndex()}");
             });
+        }*/
+
+
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <param name="panel"></param>
+        public void Register(BasePanel panel)
+        {
+            if (!panelDict.ContainsKey(panel.uiType))
+            {
+                panelDict.Add(panel.uiType, panel);
+            }
         }
 
         /// <summary>
@@ -137,6 +161,32 @@ namespace AlsRitter.UIFrame
             panelStack.Pop().OnExit(); //Pop 删除栈顶元素，并关闭栈顶界面的显示，
             if (panelStack.Count <= 0) return; // 避免删除栈顶原始后就没有了，所以需要再加一个，健壮性判断
             panelStack.Peek().IsPause = false; //获取现在栈顶界面，并调用界面恢复动作(Peek 返回栈顶原始且不删除)
+        }
+
+        /// <summary>
+        /// 移除 UIPanelType 里面的
+        /// </summary>
+        /// <param name="panel"></param>
+        public void Remove(BasePanel panel)
+        {
+            // 创建一个临时的栈
+            var tempStack = new Stack<BasePanel>();
+            //Debug.Log($"销毁了 {panel}");
+            while (panelStack.Count != 0)
+            {
+                var pop = panelStack.Pop();
+                if (pop != panel)
+                {
+                    tempStack.Push(pop);
+                }
+            }
+            // 填回去
+            while (tempStack.Count != 0)
+            {
+                panelStack.Push(tempStack.Pop());
+            }
+
+            panelDict.Remove(panel.uiType);
         }
     }
 }

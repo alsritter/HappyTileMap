@@ -33,7 +33,7 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect.SpecialEffects
         {
             // 只执行一次
             if (!flag) return;
-            Debug.Log("发送了");
+            //Debug.Log("发送了");
             flag = false;
             harmEvent.Send();
         }
@@ -43,7 +43,7 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect.SpecialEffects
 
         public void HandleEvent(EventData resp)
         {
-            Debug.Log("重置了");
+            //Debug.Log("重置了");
             // 收到重新开始信号需要重置 flag
             switch (resp.eid)
             {
@@ -54,6 +54,10 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect.SpecialEffects
                     flag = true;
                     break;
             }
+        }
+
+        ~GameVictoryEffect() {
+            EventManager.Remove(this);
         }
     }
 }

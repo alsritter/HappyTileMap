@@ -60,5 +60,10 @@ namespace AlsRitter.PlayerController.FSM
                     break;
             }
         }
+
+        ~ClimbingState() 
+        {  
+            EventManager.Remove(this);
+        }
     }
 }

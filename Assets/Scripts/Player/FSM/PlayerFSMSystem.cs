@@ -195,5 +195,9 @@ namespace AlsRitter.PlayerController.FSM
                     break;
             }
         }
+
+        public void OnDestroy() {
+            EventManager.Remove(this);
+        }
     }
 }

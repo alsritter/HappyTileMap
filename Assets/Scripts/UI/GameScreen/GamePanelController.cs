@@ -87,5 +87,9 @@ namespace AlsRitter.UIFrame.Controller
                     break;
             }
         }
+
+        public override void UIOnDestroy() {
+            EventManager.Remove(this);
+        }
     }
 }

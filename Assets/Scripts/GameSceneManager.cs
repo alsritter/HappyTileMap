@@ -130,7 +130,7 @@ namespace AlsRitter.GlobalControl
             StartCoroutine(GameEndEffect(isDie));
             timer.stop();
             var thp = hp < 0 ? 0 : hp + 1;
-            Debug.Log($"当前剩余 HP：{thp}, 游戏花费时间：{timer.currentTime} 秒，当前得分：{scores}");
+            //Debug.Log($"当前剩余 HP：{thp}, 游戏花费时间：{timer.currentTime} 秒，当前得分：{scores}");
             GameManager.instance.SendGameEnd(scores, timer.currentTime, thp, !isDie);
         }
 
@@ -169,11 +169,11 @@ namespace AlsRitter.GlobalControl
                     // 受伤
                     break;
                 case EventID.Win:
-                    Debug.Log("You Win!!");
+                    //Debug.Log("You Win!!");
                     GameEnd(false);
                     break;
                 case EventID.ResetGame:
-                    Debug.Log("ResetGame");
+                    //Debug.Log("ResetGame");
                     GameStart();
                     break;
                 case EventID.ReturnMenu:
@@ -217,6 +217,10 @@ namespace AlsRitter.GlobalControl
             pm.rb.AddForce(new Vector2(0, -1), ForceMode2D.Impulse); // 给个向下的力，否则动不了
 
             timer.start();
+        }
+
+        public void OnDestroy() {
+            EventManager.Remove(this);
         }
     }
 }

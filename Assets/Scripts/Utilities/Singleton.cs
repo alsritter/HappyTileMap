@@ -72,7 +72,7 @@ namespace AlsRitter.Utilities
             // 因为可能重复加载这个场景，所以需要每次运行前检查一下是否存在
             if (_instance != null)
             {
-                _instance.StartInitInfo();
+                //_instance.StartInitInfo();
                 //instance.StartInitInfo();
                 // 存在则销毁自己
                 Destroy(gameObject);
@@ -84,7 +84,7 @@ namespace AlsRitter.Utilities
                 DontDestroyOnLoad(instance);
             }
 
-            _instance?.StartInitInfo();
+            // _instance?.StartInitInfo();
             //instance.StartInitInfo();
         }
 
@@ -96,12 +96,12 @@ namespace AlsRitter.Utilities
         {
         }
 
-        /// <summary>
+/*        /// <summary>
         /// 这个 StartInit 方法要在这个场景里面存在另一个同样的单例才会执行
         /// </summary>
         public virtual void StartInitInfo()
         {
-        }
+        }*/
 
         /// <summary>
         /// Unity 会在销毁对象时调用这个方法，所以需要将这个对象存到 DontDestroyOnLoad
