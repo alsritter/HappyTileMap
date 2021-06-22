@@ -10,3 +10,5 @@
 </div>
 
 ⚠ According to the map data produced by the front-end, the corresponding map is generated. It is part of the online game community. It is currently being produced...
+
+Online play http://happygame.alsritter.icu/
