@@ -8,7 +8,7 @@ namespace AlsRitter.Net
 {
     public class NetworkTool
     {
-        private const string Url = "http://localhost:8683";
+        private const string Url = "https://happyserver.alsritter.icu/";
 
         public delegate void RequestCallback(string result);
 
@@ -77,6 +77,7 @@ namespace AlsRitter.Net
                 var texDl = new DownloadHandlerTexture(true);
                 webRequest.downloadHandler = texDl;
                 yield return webRequest.SendWebRequest();
+
                 if (!string.IsNullOrEmpty(webRequest.error))
                 {
                     Debug.LogError(webRequest.error + fullPath);
