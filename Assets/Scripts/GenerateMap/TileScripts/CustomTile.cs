@@ -11,12 +11,12 @@
         /// <param name="effectKeys0"></param>
         /// <param name="tileImageId0"></param>
         /// <param name="model0"></param>
-        public void InitializeMyTileInfo(string[] effectKeys0, string tileSpriteId0, DisplayModel model0,
+        public void InitializeCustomTile(string[] effectKeys0, string tileSpriteId0, DisplayLayer layer0,
             TileTag[] tags0)
         {
             this.effectKeys = effectKeys0;
             this.tileSpriteId = tileSpriteId0;
-            this.model = model0;
+            this.layer = layer0;
             this.tags = tags0;
             RefreshTileInfo();
         }

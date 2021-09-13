@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect
 {
+    /**
+     * 效果基类
+     */
     public abstract class BaseObjectEffect
     {
         public abstract void ApplyTo(PlayerFSMSystem player);

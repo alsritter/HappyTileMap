@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AlsRitter.Utilities
-{
+namespace AlsRitter.Utilities {
     /// <summary>
     /// 单例模板
     /// </summary>
     /// <typeparam name="T">泛型类型得继承自 MonoBehaviour</typeparam>
-    public class Singleton<T> : MonoBehaviour where T : Singleton<T>
-    {
-        private static T _instance;
+    public class Singleton<T> : MonoBehaviour where T : Singleton<T> {
+        private static          T      _instance;
         private static readonly object _lock = new object();
 
         /// <summary>
@@ -21,17 +19,9 @@ namespace AlsRitter.Utilities
         /// <summary>
         /// 实例的属性
         /// </summary>
-        public static T instance
-        {
-            get
-            {
-                /*if (_applicationIsQuitting)
-                {
-                    return null;
-                }
-*/
-                lock (_lock)
-                {
+        public static T instance {
+            get {
+                lock (_lock) {
                     if (_instance != null) return _instance;
 
                     // FindObjectOfType 返回找到的第一个对象
@@ -40,11 +30,10 @@ namespace AlsRitter.Utilities
 
                     // FindObjectsOfType(typeof(Type)) 返回 Type 类型的所有激活的加载的物体列表（就是返回一个已经实例的对象）
                     // 如果找到多个单例对象则抛出警告
-                    if (FindObjectsOfType(typeof(T)).Length > 1)
-                    {
+                    if (FindObjectsOfType(typeof(T)).Length > 1) {
                         if (Application.isEditor)
                             Debug.LogWarning(
-                                "MonoSingleton<T>.Instance: Only 1 singleton instance can exist in the scene. Null will be returned.");
+                                             "MonoSingleton<T>.Instance: Only 1 singleton instance can exist in the scene. Null will be returned.");
 
                         return _instance;
                     }
@@ -66,49 +55,24 @@ namespace AlsRitter.Utilities
 
         //private static bool _applicationIsQuitting = false;
 
-        public void Awake()
-        {
+        public void Awake() {
             AwakeInitInfo();
             // 因为可能重复加载这个场景，所以需要每次运行前检查一下是否存在
-            if (_instance != null)
-            {
-                //_instance.StartInitInfo();
-                //instance.StartInitInfo();
+            if (_instance != null) {
                 // 存在则销毁自己
                 Destroy(gameObject);
                 return;
             }
 
-            if (isDontDestroyOnLoad)
-            {
+            if (isDontDestroyOnLoad) {
                 DontDestroyOnLoad(instance);
             }
-
-            // _instance?.StartInitInfo();
-            //instance.StartInitInfo();
         }
 
         /// <summary>
         /// 复写这个方法来在 Awake 初始化，这个 InitInfo 只会执行一次
-        /// 
         /// </summary>
-        public virtual void AwakeInitInfo()
-        {
-        }
-
-/*        /// <summary>
-        /// 这个 StartInit 方法要在这个场景里面存在另一个同样的单例才会执行
-        /// </summary>
-        public virtual void StartInitInfo()
-        {
-        }*/
-
-        /// <summary>
-        /// Unity 会在销毁对象时调用这个方法，所以需要将这个对象存到 DontDestroyOnLoad
-        /// </summary>
-        public void OnDestroy()
-        {
-            //_applicationIsQuitting = true;
+        public virtual void AwakeInitInfo() {
         }
     }
 }

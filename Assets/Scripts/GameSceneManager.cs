@@ -1,8 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using AlsRitter.EventFrame;
 using AlsRitter.GenerateMap;
-using AlsRitter.GenerateMap.CustomTileFrame.MapDataEntity.V1.Dto;
+using AlsRitter.GenerateMap.Interface.Do;
+using AlsRitter.GenerateMap.V1;
 using AlsRitter.PlayerController.FSM;
 using AlsRitter.UIFrame;
 using AlsRitter.Utilities;
@@ -10,39 +10,40 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using DG.Tweening; //引入命名空间
 
-namespace AlsRitter.GlobalControl
-{
-    public class GameSceneManager : MonoBehaviour, IEventObserver
-    {
-        private BuildTileMap buildTileMap;
+namespace AlsRitter.GlobalControl {
+    public class GameSceneManager : MonoBehaviour, IEventObserver {
+        private BuildTileMap    buildTileMap;
         private BuildBackground buildBackground;
-        private BuildMapProp buildMapProp;
+        private BuildMapProp    buildMapProp;
+
+        private GameMap gameMap { get; set; }
 
         // 淡入淡出场景
         public Animator fade;
 
-        private Vector2 playerBirth; // 角色出生位置
+        private Vector2         playerBirth; // 角色出生位置
         private PlayerFSMSystem pm; // 角色
-        private MapRootDto mapDto; // 地图数据
-        private int hp = 3; // 剩余血量(0 开始)
-        private int scores = 0; // 得分
-        private Timer timer;
+        private GameMap         mapDto; // 地图数据
+        private int             hp     = 3; // 剩余血量(0 开始)
+        private int             scores = 0; // 得分
+        private Timer           timer;
 
-        private void Awake()
-        {
+        private void Awake() {
             buildTileMap = GetComponent<BuildTileMap>();
             buildBackground = GetComponent<BuildBackground>();
             buildMapProp = GetComponent<BuildMapProp>();
+
+            var loader = new LoadingMapData();
+            this.gameMap = loader.GetGameMapData("");
 
             // 创建一个Timer
             timer = gameObject.AddComponent<Timer>();
             pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerFSMSystem>();
             EventManager.Register(this, EventID.Scores, EventID.Harm, EventID.Win, EventID.ResetGame,
-                EventID.ReturnMenu);
+                                  EventID.ReturnMenu);
         }
 
-        private void Start()
-        {
+        private void Start() {
             GameStart();
         }
 
@@ -50,23 +51,21 @@ namespace AlsRitter.GlobalControl
         /// <summary>
         /// 用于初始化
         /// </summary>
-        private void Init()
-        {
+        private void Init() {
             // 先加载地图数据
-            var map = GameManager.instance.currentMapData;
+            // var map = GameManager.instance.currentMapData;
             // 地图数据为空则加载本地资源
-            mapDto = map ?? LoadJsonTool.ParseLocalMapJsonData();
-            
+            mapDto = this.gameMap;
             // 初始化角色信息
-            pm.speed = mapDto.Initial.Speed;
-            pm.runDivisor = mapDto.Initial.RunDivisor;
-            pm.jumpSleepDivisor = mapDto.Initial.JumpSpeedDivisor;
-            pm.climbSpeed = mapDto.Initial.ClimbSpeed;
-            pm.crouchSpeedDivisor = mapDto.Initial.CrouchSpeedDivisor;
-            pm.jumpForce = mapDto.Initial.JumpForce;
-            pm.jump2ForceDivisor = mapDto.Initial.Jump2ForceDivisor;
-            pm.climbLateralForce = mapDto.Initial.ClimbLateralForce;
-            pm.transform.position = new Vector3Int(mapDto.Initial.X, mapDto.Initial.Y, 1);
+            pm.speed = mapDto.initial.Speed;
+            pm.runDivisor = mapDto.initial.RunDivisor;
+            pm.jumpSleepDivisor = mapDto.initial.JumpSpeedDivisor;
+            pm.climbSpeed = mapDto.initial.ClimbSpeed;
+            pm.crouchSpeedDivisor = mapDto.initial.CrouchSpeedDivisor;
+            pm.jumpForce = mapDto.initial.JumpForce;
+            pm.jump2ForceDivisor = mapDto.initial.Jump2ForceDivisor;
+            pm.climbLateralForce = mapDto.initial.ClimbLateralForce;
+            pm.transform.position = new Vector3Int(mapDto.initial.X, mapDto.initial.Y, 1);
             playerBirth = pm.transform.position;
 
             // 设置角色
@@ -90,10 +89,7 @@ namespace AlsRitter.GlobalControl
         /// <summary>
         /// 游戏开始
         /// </summary>
-        private void GameStart()
-        {
-            // 发送当前游玩数据
-            GameManager.instance.SendStartGame();
+        private void GameStart() {
             // 先播特效
             StartCoroutine(GameStartEffect());
             // 同时初始化数据
@@ -110,8 +106,7 @@ namespace AlsRitter.GlobalControl
         /// 游戏开始的特效
         /// </summary>
         /// <returns></returns>
-        private IEnumerator GameStartEffect()
-        {
+        private IEnumerator GameStartEffect() {
             fade.SetBool("Black", true);
             yield return new WaitForSeconds(1);
             fade.SetBool("Black", false);
@@ -124,14 +119,13 @@ namespace AlsRitter.GlobalControl
         /// 游戏结束
         /// </summary>
         /// <param name="isDie">是否是输</param>
-        private void GameEnd(bool isDie)
-        {
+        private void GameEnd(bool isDie) {
             pm.rb.constraints = RigidbodyConstraints2D.FreezePosition;
             StartCoroutine(GameEndEffect(isDie));
             timer.stop();
             var thp = hp < 0 ? 0 : hp + 1;
             //Debug.Log($"当前剩余 HP：{thp}, 游戏花费时间：{timer.currentTime} 秒，当前得分：{scores}");
-            GameManager.instance.SendGameEnd(scores, timer.currentTime, thp, !isDie);
+            /*GameManager.instance.SendGameEnd(scores, timer.currentTime, thp, !isDie);*/
         }
 
 
@@ -140,8 +134,7 @@ namespace AlsRitter.GlobalControl
         /// </summary>
         /// <param name="isDie"></param>
         /// <returns></returns>
-        private IEnumerator GameEndEffect(bool isDie)
-        {
+        private IEnumerator GameEndEffect(bool isDie) {
             var sprite = pm.GetComponent<SpriteRenderer>();
             sprite.DOColor(new Color(0, 0, 0, 0), 1);
             //fade.SetTrigger("Start");
@@ -153,10 +146,8 @@ namespace AlsRitter.GlobalControl
         }
 
 
-        public void HandleEvent(EventData resp)
-        {
-            switch (resp.eid)
-            {
+        public void HandleEvent(EventData resp) {
+            switch (resp.eid) {
                 case EventID.Scores:
                     // 收到得分事件
                     scores++;
@@ -165,7 +156,6 @@ namespace AlsRitter.GlobalControl
                 case EventID.Harm:
                     hp--;
                     StartCoroutine(PlayerInjured());
-                    GameManager.instance.SendHarmInfo(pm.transform.position);
                     // 受伤
                     break;
                 case EventID.Win:
@@ -176,9 +166,6 @@ namespace AlsRitter.GlobalControl
                     //Debug.Log("ResetGame");
                     GameStart();
                     break;
-                case EventID.ReturnMenu:
-                    GameManager.instance.ReturnMenu();
-                    break;
             }
         }
 
@@ -186,13 +173,11 @@ namespace AlsRitter.GlobalControl
         /// 受伤时的效果
         /// </summary>
         /// <returns></returns>
-        private IEnumerator PlayerInjured()
-        {
+        private IEnumerator PlayerInjured() {
             timer.stop();
             pm.rb.constraints = RigidbodyConstraints2D.FreezePosition;
 
-            if (hp < 0)
-            {
+            if (hp < 0) {
                 GameEnd(true);
                 yield break; // 结束协程
             }

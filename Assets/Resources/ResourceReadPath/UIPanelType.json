@@ -1,17 +1,5 @@
 [
     {
-        "panelType": "LoginPanel",
-        "path": "Prefabs/UI/Panel/LoginPanel"
-    },
-    {
-        "panelType": "SelectMapPanel",
-        "path": "Prefabs/UI/Panel/SelectMapPanel"
-    },
-    {
-        "panelType": "StartPanel",
-        "path": "Prefabs/UI/Panel/StartPanel"
-    },
-    {
         "panelType": "GamePanel",
         "path": "Prefabs/UI/Panel/GamePanel"
     },

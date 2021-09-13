@@ -36,8 +36,6 @@ namespace AlsRitter.UIFrame.Controller
                 case "BreakButton":
                     returnMenuEvent.Send();
                     break;
-                default:
-                    break;
             }
         }
     }

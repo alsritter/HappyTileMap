@@ -7,22 +7,6 @@ namespace AlsRitter.UIFrame
     public enum UIPanelType
     {
         /// <summary>
-        /// 主界面的登陆窗口
-        /// </summary>
-        LoginPanel,
-        /// <summary>
-        /// 选择模式的窗口
-        /// </summary>
-        SelectMapPanel,
-        /// <summary>
-        /// 设置窗口
-        /// </summary>
-        SettingPanel,
-        /// <summary>
-        /// 开始界面创建
-        /// </summary>
-        StartPanel,
-        /// <summary>
         /// 游戏 UI 窗口
         /// </summary>
         GamePanel,

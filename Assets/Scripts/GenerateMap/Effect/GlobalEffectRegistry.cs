@@ -8,18 +8,15 @@ using AlsRitter.Utilities;
 using UnityEngine;
 
 
-namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect
-{
-    public class GlobalEffectRegistry : Singleton<GlobalEffectRegistry>
-    {
+namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect {
+    public class GlobalEffectRegistry : Singleton<GlobalEffectRegistry> {
         private readonly Dictionary<string, BaseObjectEffect> allEffect;
 
 
         /// <summary>
         /// 静态代码块，负责把全部效果注册进来
         /// </summary>
-        public GlobalEffectRegistry()
-        {
+        public GlobalEffectRegistry() {
             allEffect = new Dictionary<string, BaseObjectEffect>();
             RegistrySpecial();
             RegistryPhysics();
@@ -28,8 +25,7 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect
         /// <summary>
         /// 用于负责注册特殊效果
         /// </summary>
-        private void RegistrySpecial()
-        {
+        private void RegistrySpecial() {
             // 返回一个空效果
             allEffect.Add("00000", new EmptyEffect());
             // 胜利
@@ -40,8 +36,7 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect
         /// <summary>
         /// 用于负责注册物理相关的效果
         /// </summary>
-        private void RegistryPhysics()
-        {
+        private void RegistryPhysics() {
             // 向左移动的传送带
             allEffect.Add("00001", new ConveyorEffect(true, 200));
             // 向右移动的传送带
@@ -50,11 +45,10 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect
             allEffect.Add("00003", new TrampolineEffect(3));
         }
 
-        public BaseObjectEffect GetEffect(string key)
-        {
+        // ReSharper disable Unity.PerformanceAnalysis
+        public BaseObjectEffect GetEffect(string key) {
             // 判断是否存在，不存在则返回空效果
-            if (allEffect.ContainsKey(key))
-            {
+            if (allEffect.ContainsKey(key)) {
                 return allEffect[key];
             }
             else
@@ -63,6 +57,5 @@ namespace AlsRitter.GenerateMap.CustomTileFrame.TileEffect
                 return allEffect["00000"];
             }
         }
-
     }
 }
