@@ -42,6 +42,10 @@ namespace AlsRitter.GenerateMap {
             foreach (var tileData in customTiles) {
                 var tile = ScriptableObject.CreateInstance<CustomTile>();
                 tile.InitializeCustomTile(tileData.EffectKeys, tileData.TileSpriteId, tileData.layer, tileData.Tags);
+                if (tileData.Color != null) {
+                    ColorUtility.TryParseHtmlString(tileData.Color, out var nowColor);
+                    tile.color = nowColor;
+                }
                 tileDictionary.Add(tileData.key, tile);
             }
         }

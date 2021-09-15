@@ -16,7 +16,7 @@ namespace AlsRitter.GenerateMap.V1 {
         private GameMap ParseLocalMapJsonData() {
             // Assets/Resources/Json/testData.json
             // Debug.LogError("The local map is loaded");
-            var text = Resources.Load<TextAsset>("Json/testData");
+            var text = Resources.Load<TextAsset>("Json/exportData");
             var json = text.text;
 
             var data = JsonConvert.DeserializeObject<ConvertMapData>(json);
