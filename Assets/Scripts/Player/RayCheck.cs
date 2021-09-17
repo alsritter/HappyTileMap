@@ -31,7 +31,6 @@ namespace AlsRitter.PlayerController
         [Header("当前需要检查的Layer")]
         public LayerMask groundLayer; // 当前需要检查的“地面”的 Layer
 
-
         private float footDistance; // 脚距离中心点的距离
         private float handDistance;
         private float topDistance;

@@ -8,6 +8,7 @@ TagManager:
   - rightFoot
   - hand
   - head
+  - Trap
   layers:
   - Default
   - TransparentFX

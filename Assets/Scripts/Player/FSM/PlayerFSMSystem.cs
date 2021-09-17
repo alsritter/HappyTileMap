@@ -89,8 +89,6 @@ namespace AlsRitter.PlayerController.FSM
 
         private void Start()
         {
-
-
         }
 
         private void Update()

@@ -13,8 +13,7 @@ namespace AlsRitter.PlayerController
         {
             headIsTrigger = true;
         }
-
-
+        
         // 接触持续中
         private void OnTriggerStay2D(Collider2D collider)
         {

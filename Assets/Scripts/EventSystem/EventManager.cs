@@ -20,14 +20,14 @@ namespace AlsRitter.EventFrame {
         private void Update() {
             while (eventQueue.Count > 0) {
                 // 从队列弹出事件
-                EventData eve = eventQueue.Dequeue();
+                var eve = eventQueue.Dequeue();
 
                 // 如果没有观察者监听这个事件则继续下一个事件的分发
                 if (!observerList.ContainsKey(eve.eid)) continue;
 
                 // 通知监听了这个事件的全部观察者
-                List<IEventObserver> observers = observerList[eve.eid];
-                for (int i = 0; i < observers.Count; i++) {
+                var observers = observerList[eve.eid];
+                for (var i = 0; i < observers.Count; i++) {
                     if (observers[i] == null) continue;
                     observers[i].HandleEvent(eve);
                 }
