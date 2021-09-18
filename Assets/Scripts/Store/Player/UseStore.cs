@@ -1,8 +1,8 @@
-﻿using AlsRitter.Store.Model;
-using AlsRitter.Utilities;
+﻿
+using AlsRitter.Global.Store.Player.Model;
 using UnityEngine;
 
-namespace AlsRitter.GlobalControl.Store {
+namespace AlsRitter.Global.Store.Player {
     /**
      * 用于取得全局数据的工具
      */
