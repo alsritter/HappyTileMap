@@ -1,89 +1,110 @@
-﻿using AlsRitter.EventFrame;
-using AlsRitter.EventFrame.CustomEvent;
-using AlsRitter.Global.Store.Player;
+﻿using AlsRitter.Global.Store.Player;
 using AlsRitter.Global.Store.Player.Model;
-using AlsRitter.PlayerController.FSM;
 using UnityEngine;
 
 
-namespace AlsRitter.V3.PlayerController
-{
+namespace AlsRitter.V3.PlayerController {
     [DisallowMultipleComponent]
-    [RequireComponent(typeof(Animator), typeof(PlayerFSMSystem))]
-    public class PlayerAnimation : MonoBehaviour, IEventObserver
-    {
+    public class PlayerAnimation : MonoBehaviour {
         private PlayerInputModel input;
         private PlayerBasicModel basic;
         private PlayerViewModel  view;
         private PlayerStateModel state;
-        
-        private Animator anim;
-        private Rigidbody2D rb;
-        
-        private int isCrouchingId;
-        private int isRunId;
-        private int verticalVelocityId;
-        private int inTheAirId;
-        private int isRotateTriggerId;
 
-        private int IsDieTriggerId;
-        private int inTheAirTriggerId;
-        private int isCrouchingTriggerId;
+        private Animator anim;
+        
+        private int isRunId;
+        private int yVelocityId;
+        private int xVelocityId;
+        private int isJumpId;
+        private int inGroundId;
+        private int isMoveId;
+        private int isFullId;
+        private int isDieTriggerId;
 
         public PlayDir nowDir; //现在的玩家的方向
-        
-        private void Awake()
-        {
+
+        private void Awake() {
             input = UseStore.GetStore().inputModel;
             basic = UseStore.GetStore().basicModel;
             view = UseStore.GetStore().viewModel;
             state = UseStore.GetStore().stateModel;
-            EventManager.Register(this, EventID.IsCrouching, EventID.Run, EventID.InTheAir, EventID.GraspWall);
         }
 
         private void Start() {
             anim = view.playAnimator;
-            rb = basic.rb;
 
-            isCrouchingId = Animator.StringToHash("isCrouching");
+            inGroundId = Animator.StringToHash("inGround");
             isRunId = Animator.StringToHash("isRun");
-            inTheAirId = Animator.StringToHash("inTheAir");
-            verticalVelocityId = Animator.StringToHash("verticalVelocity");
-
-            
-            isRotateTriggerId = Animator.StringToHash("isRotate");
-            IsDieTriggerId = Animator.StringToHash("IsDieTrigger");
-            inTheAirTriggerId = Animator.StringToHash("InTheAirTrigger");
-            isCrouchingTriggerId = Animator.StringToHash("IsCrouchingTrigger");
+            isMoveId = Animator.StringToHash("isMove");
+            isJumpId = Animator.StringToHash("isJump");
+            isFullId = Animator.StringToHash("isFull");
+            yVelocityId = Animator.StringToHash("yVelocity");
+            xVelocityId = Animator.StringToHash("xVelocity");
+            isDieTriggerId = Animator.StringToHash("IsDieTrigger");
         }
 
+
+        
         // Update is called once per frame
         private void Update() {
+            anim.SetFloat(yVelocityId, basic.moveSpeed.y);
+            anim.SetFloat(xVelocityId, basic.moveSpeed.x);
+
+            anim.SetBool(inGroundId, state.isGround);
+
+            if (state.isDie) {
+                anim.SetTrigger(isDieTriggerId);
+                return;
+            }
+
             DirToRotate();
-            anim.SetFloat(verticalVelocityId, rb.velocity.y);
+
+            var move = input.MoveKey;
+            
+            if (move) {
+                moveFrame = 6;
+            }
+
+            if (state.isGround) {
+                anim.SetBool(isJumpId, false);
+                anim.SetBool(isFullId, false);
+            }
+            
+            
+            if (!state.isGround) {
+                if (state.playState == PlayState.Jump) {
+                    anim.SetBool(isJumpId, true);
+                }
+                else if (state.playState == PlayState.Fall) {
+                    anim.SetBool(isJumpId, false);
+                    anim.SetBool(isFullId, true);
+                }
+            }
+
+            if (state.isGround && (move || moveFrame != 0)) {
+                anim.SetBool(isMoveId, true);
+                if (state.playState == PlayState.Run) {
+                    anim.SetBool(isRunId, true);
+                }
+                else {
+                    anim.SetBool(isRunId, false);
+                }
+            }
+            else {
+                anim.SetBool(isRunId, false);
+                anim.SetBool(isMoveId, false);
+            }
+
+            // JumpCheck();
         }
 
-        public void HandleEvent(EventData resp)
-        {
-            switch (resp.eid)
-            {
-                case EventID.IsCrouching:
-                    anim.SetBool(isCrouchingId, ((PlayerStateEventData) resp).trigger);
-                    if (((PlayerStateEventData) resp).trigger)
-                    {
-                        anim.SetTrigger(isCrouchingTriggerId);
-                    }
-                    break;
-                case EventID.Run:
-                    anim.SetBool(isRunId, ((PlayerStateEventData) resp).trigger);
-                    break;
-                case EventID.InTheAir:
-                    anim.SetBool(inTheAirId, ((PlayerStateEventData) resp).trigger);
-                    if (((PlayerStateEventData) resp).trigger)
-                    {
-                        anim.SetTrigger(inTheAirTriggerId);
-                    }
-                    break;
+        private int moveFrame;
+        
+        // 缓存几帧移动状态
+        private void FixedUpdate() {
+            if (moveFrame != 0) {
+                moveFrame--;
             }
         }
 
@@ -94,28 +115,11 @@ namespace AlsRitter.V3.PlayerController
             if (nowDir == PlayDir.Left && basic.moveSpeed.x > 0) {
                 anim.transform.Rotate(0, 180, 0);
                 nowDir = PlayDir.Right;
-                if (state.isGround) {
-                    anim.SetTrigger(IsDieTriggerId);
-                }
             }
             else if (nowDir == PlayDir.Right && basic.moveSpeed.x < 0) {
                 anim.transform.Rotate(0, -180, 0);
                 nowDir = PlayDir.Left;
-                if (state.isGround) //在地面才播放转向动画
-                {
-                    anim.SetTrigger(IsDieTriggerId);
-                }
             }
-            else if (nowDir == PlayDir.Right && basic.moveSpeed.x > 0) {
-                anim.SetBool(isRunId, true);
-            }
-            else if (nowDir == PlayDir.Left && basic.moveSpeed.x < 0) {
-                anim.SetBool(isRunId, true);
-            }
-        }
-        
-        public void OnDestroy() {
-            EventManager.Remove(this);
         }
     }
 }

@@ -2,6 +2,7 @@
 using AlsRitter.GenerateMap.CustomTileFrame;
 using AlsRitter.Utilities;
 using AlsRitter.V3.CustomTileFrame.TileEffect;
+using AlsRitter.V3.Player;
 using UnityEngine.Serialization;
 
 namespace AlsRitter.V3.GenerateMap.CustomTileFrame.TileScripts {

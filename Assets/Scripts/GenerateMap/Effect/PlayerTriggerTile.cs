@@ -1,6 +1,7 @@
 ﻿using AlsRitter.Global.Store.Player;
 using AlsRitter.Global.Store.Player.Model;
 using AlsRitter.V3.GenerateMap.CustomTileFrame.TileScripts;
+using AlsRitter.V3.Player;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -13,6 +14,8 @@ namespace AlsRitter.V3.PlayerController {
 
         public  Tilemap         tileMap; // 绘制的 TileMap
         private PlayerViewModel view;
+        private IPlayer         player;
+        
         //
         // private PlayerFSMSystem pm;
 
@@ -22,17 +25,18 @@ namespace AlsRitter.V3.PlayerController {
         }
 
         private void Awake() {
+            player = GlobalPlayer.GetPlayer();
             view = UseStore.GetStore().viewModel;
         }
 
         private void Update() {
             var wingTiles = CastUnderFoot();
             if (wingTiles.leftTile != null) {
-                wingTiles.leftTile.SetPlayer(pm);
+                wingTiles.leftTile.SetPlayer(player);
             }
 
             if (wingTiles.rightTile != null) {
-                wingTiles.rightTile.SetPlayer(pm);
+                wingTiles.rightTile.SetPlayer(player);
             }
         }
 

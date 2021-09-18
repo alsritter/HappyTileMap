@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using AlsRitter.EventFrame;
-using AlsRitter.PlayerController.FSM;
-using UnityEngine;
+﻿using AlsRitter.EventFrame;
+using AlsRitter.V3.Player;
 
 namespace AlsRitter.V3.CustomTileFrame.TileEffect.SpecialEffects {
     [EffectInfo("空效果", 1, "alsritter")]

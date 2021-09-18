@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using AlsRitter.GenerateMap.CustomTileFrame;
-using AlsRitter.GenerateMap.CustomTileFrame.TileScripts;
 using AlsRitter.GenerateMap.Interface.Do;
+using AlsRitter.V3.GenerateMap.CustomTileFrame.TileScripts;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -42,10 +41,10 @@ namespace AlsRitter.GenerateMap {
             foreach (var tileData in customTiles) {
                 var tile = ScriptableObject.CreateInstance<CustomTile>();
                 tile.InitializeCustomTile(tileData.EffectKeys, tileData.TileSpriteId, tileData.layer, tileData.Tags);
-                if (tileData.Color != null) {
-                    ColorUtility.TryParseHtmlString(tileData.Color, out var nowColor);
-                    tile.color = nowColor;
-                }
+                // if (tileData.Color != null) {
+                //     ColorUtility.TryParseHtmlString(tileData.Color, out var nowColor);
+                //     tile.color = nowColor;
+                // }
                 tileDictionary.Add(tileData.key, tile);
             }
         }

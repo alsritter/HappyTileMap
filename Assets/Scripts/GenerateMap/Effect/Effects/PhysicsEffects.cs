@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using AlsRitter.PlayerController.FSM;
-using UnityEngine;
+﻿using AlsRitter.V3.Player;
 
 namespace AlsRitter.V3.CustomTileFrame.TileEffect.PhysicsEffects {
     [EffectInfo("蹦床效果", 1, "alsritter")]
@@ -31,7 +28,6 @@ namespace AlsRitter.V3.CustomTileFrame.TileEffect.PhysicsEffects {
         public           int    versionUID => 1;
         public           string name       => "ConveyorEffect";
         private readonly bool   isLeft;
-        private readonly float  speed;
 
         /// <summary>
         /// 传送带效果
@@ -39,7 +35,6 @@ namespace AlsRitter.V3.CustomTileFrame.TileEffect.PhysicsEffects {
         /// <param name="isLeft">是否向左（false 为右）</param>
         public ConveyorEffect(bool isLeft) {
             this.isLeft = isLeft;
-            this.speed = speed;
         }
 
         public void ApplyTo(IPlayer player) {

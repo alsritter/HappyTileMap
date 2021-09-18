@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using AlsRitter.Global.Store.Player;
 using AlsRitter.Global.Store.Player.Model;
 using UnityEngine;
@@ -35,7 +34,7 @@ namespace AlsRitter.V3.PlayerController.FSM {
         }
 
         private void Update() {
-            if (basic.moveSpeed.x >= basic.crouchSpeed) {
+            if (basic.moveSpeed.x >= basic.currentSpeed) {
                 RepairHorizontalMove();
             }
 
@@ -47,8 +46,7 @@ namespace AlsRitter.V3.PlayerController.FSM {
                 Fall();
             }
             else if (state.playState == PlayState.Normal
-                  || state.playState == PlayState.Run
-                  || state.playState == PlayState.Crouch) {
+                  || state.playState == PlayState.Run) {
                 Normal();
             }
 
@@ -183,6 +181,7 @@ namespace AlsRitter.V3.PlayerController.FSM {
          */
         private void RepairHorizontalMove() {
             if (basic.fixHorizon) return;
+            if (view.HorizontalBox == null) return;
 
             view.HorizontalBox = state.playDir == PlayDir.Right ? view.RightBox : view.LeftBox;
             if (view.HorizontalBox.Length != 1) return;

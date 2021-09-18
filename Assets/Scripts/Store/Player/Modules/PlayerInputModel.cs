@@ -18,9 +18,9 @@ namespace AlsRitter.Global.Store.Player.Model {
         public KeyCode rightMoveKeyCode;
         [Header("跳跃按键")]
         public KeyCode jumpKeyCode;
-
-        [Header("下蹲按键")]
-        public KeyCode crouchKeyCode;
+        //
+        // [Header("下蹲按键")]
+        // public KeyCode crouchKeyCode;
         [Header("加速按键")]
         public KeyCode runKeyCode;
 
@@ -29,13 +29,14 @@ namespace AlsRitter.Global.Store.Player.Model {
         [SerializeField]
         public float moveEndTime;
         
-
-
+        // 是否按下移动按钮
+        public bool MoveKey => Input.GetKey(leftMoveKeyCode) || Input.GetKey(rightMoveKeyCode);
+        
         // 当前移动的方向
         public int moveDir;
 
         private int jumpFrame;
-        private int crouchFrame;
+        // private int crouchFrame;
 
         public bool JumpKey   => Input.GetKey(jumpKeyCode);
         /**
@@ -57,12 +58,12 @@ namespace AlsRitter.Global.Store.Player.Model {
         }
         public bool JumpKeyUp => Input.GetKeyUp(jumpKeyCode);
 
-        /**
-         * 按下下蹲按钮，在下蹲的3帧内无法下蹲
-         */
-        public bool CrouchKeyDown => crouchFrame <= 0 && Input.GetKeyDown(jumpKeyCode);
-        public bool CrouchKeyUp => Input.GetKeyUp(crouchKeyCode);
-        public bool CrouchKey   => Input.GetKey(crouchKeyCode);
+        // /**
+        //  * 按下下蹲按钮，在下蹲的3帧内无法下蹲
+        //  */
+        // public bool CrouchKeyDown => crouchFrame <= 0 && Input.GetKeyDown(crouchKeyCode);
+        // public bool CrouchKeyUp => Input.GetKeyUp(crouchKeyCode);
+        // public bool CrouchKey   => Input.GetKey(crouchKeyCode);
 
         public bool RunKey     => Input.GetKey(runKeyCode);
         public bool RunKeyUp   => Input.GetKeyUp(runKeyCode);
@@ -76,10 +77,10 @@ namespace AlsRitter.Global.Store.Player.Model {
         private void KeyInit() {
             if (keyIsSet) return;
             jumpKeyCode = KeyCode.J;
-            runKeyCode = KeyCode.LeftShift;
+            runKeyCode = KeyCode.K;
             leftMoveKeyCode = KeyCode.A;
             rightMoveKeyCode = KeyCode.D;
-            crouchKeyCode = KeyCode.S;
+            // crouchKeyCode = KeyCode.S;
         }
 
         private void FixedUpdate() {
@@ -87,9 +88,9 @@ namespace AlsRitter.Global.Store.Player.Model {
                 jumpFrame--;
             }
 
-            if (crouchFrame >= 0) {
-                crouchFrame--;
-            }
+            // if (crouchFrame >= 0) {
+            //     crouchFrame--;
+            // }
         }
 
         private void Update() {
@@ -101,9 +102,9 @@ namespace AlsRitter.Global.Store.Player.Model {
                 jumpFrame = 3; //在落地前3帧按起跳仍然能跳
             }
 
-            if (Input.GetKeyDown(crouchKeyCode)) {
-                crouchFrame = 3; //在下蹲的3帧内无法下蹲
-            }
+            // if (Input.GetKeyDown(crouchKeyCode)) {
+            //     crouchFrame = 3; //在下蹲的3帧内无法下蹲
+            // }
         }
 
         private void CheckHorizontalMove() {

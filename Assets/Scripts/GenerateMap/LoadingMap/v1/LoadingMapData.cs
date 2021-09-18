@@ -5,7 +5,6 @@ using AlsRitter.GenerateMap.Interface;
 using AlsRitter.GenerateMap.Interface.Do;
 using AlsRitter.GenerateMap.V1.Do;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using UnityEngine;
 
 namespace AlsRitter.GenerateMap.V1 {
@@ -18,12 +17,12 @@ namespace AlsRitter.GenerateMap.V1 {
             // Debug.LogError("The local map is loaded");
             var text = Resources.Load<TextAsset>("Json/exportData");
             var json = text.text;
-
             var data = JsonConvert.DeserializeObject<ConvertMapData>(json);
-            var initial = new Initial(data.Initial.X, data.Initial.Y, data.Initial.Speed, data.Initial.RunDivisor,
-                                      (float) data.Initial.JumpSpeedDivisor, (float) data.Initial.ClimbSpeed,
-                                      data.Initial.CrouchSpeedDivisor, data.Initial.JumpForce,
-                                      data.Initial.Jump2ForceDivisor, data.Initial.ClimbLateralForce);
+            var initial = new Initial(data.Initial.X, data.Initial.Y, 
+                                      (float)data.Initial.Speed, 
+                                      (float)data.Initial.JumpMax, 
+                                      (float)data.Initial.JumpMin, 
+                                      (float)data.Initial.JumpSpeed);
 
             var prefabs = new List<PrefabsItem>();
             data.Prefabs.ForEach(x => { prefabs.Add(new PrefabsItem(x.PrefabId, x.X, x.Y)); });

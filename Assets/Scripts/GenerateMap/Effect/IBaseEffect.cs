@@ -1,4 +1,6 @@
-﻿namespace AlsRitter.V3.CustomTileFrame.TileEffect
+﻿using AlsRitter.V3.Player;
+
+namespace AlsRitter.V3.CustomTileFrame.TileEffect
 {
     /**
      * 效果基类

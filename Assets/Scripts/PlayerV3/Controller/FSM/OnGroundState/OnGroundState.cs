@@ -12,35 +12,29 @@ namespace AlsRitter.V3.PlayerController.FSM {
         private readonly StateContext stateContext;
 
         private readonly OnStandState  onStandState;
-        private readonly OnCrouchState onCrouchState;
 
         public OnGroundState() {
             onStandState = new OnStandState();
-            onCrouchState = new OnCrouchState();
             stateContext = new StateContext(onStandState, UseStore.GetStore());
         }
 
         public void UpdateHandle(UseStore useStore) {
-            // 一只脚着地无法蹲下
-            if (useStore.inputModel.CrouchKey && !useStore.stateModel.isExistTop) {
-                if (!useStore.stateModel.isHalfFoot) {
-                    useStore.stateModel.isStand = false;
-                    useStore.stateModel.isCrouch = true;
-                    useStore.stateModel.playState = PlayState.Crouch;
-                }
-            }
-            else {
-                useStore.stateModel.isStand = true;
-                useStore.stateModel.isCrouch = false;
-            }
-    
-
-            if (!useStore.stateModel.isStand) {
-                stateContext.TransitionState(onCrouchState);
-            }
-            else {
-                stateContext.TransitionState(onStandState);
-            }
+            // // 一只脚着地无法蹲下
+            // if (useStore.inputModel.CrouchKey && !useStore.stateModel.isExistTop) {
+            //     if (!useStore.stateModel.isHalfFoot) {
+            //         useStore.stateModel.isStand = false;
+            //     }
+            // }
+            // else {
+            //     useStore.stateModel.isStand = true;
+            // }
+            //
+            //
+            // if (!useStore.stateModel.isStand) {
+            // }
+            // else {
+            //     stateContext.TransitionState(onStandState);
+            // }
 
 
             stateContext.UpdateHandle();

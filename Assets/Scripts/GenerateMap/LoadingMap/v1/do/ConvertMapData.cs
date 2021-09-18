@@ -10,21 +10,13 @@ namespace AlsRitter.GenerateMap.V1.Do {
 
         [JsonProperty("y")] public int Y { get; set; }
 
-        [JsonProperty("speed")] public int Speed { get; set; }
+        [JsonProperty("speed")] public double Speed { get; set; }
 
-        [JsonProperty("runDivisor")] public int RunDivisor { get; set; }
+        [JsonProperty("jumpMin")] public double JumpMin { get; set; }
 
-        [JsonProperty("jumpSpeedDivisor")] public double JumpSpeedDivisor { get; set; }
+        [JsonProperty("jumpMax")] public double JumpMax { get; set; }
 
-        [JsonProperty("climbSpeed")] public double ClimbSpeed { get; set; }
-
-        [JsonProperty("crouchSpeedDivisor")] public int CrouchSpeedDivisor { get; set; }
-
-        [JsonProperty("jumpForce")] public int JumpForce { get; set; }
-
-        [JsonProperty("jump2ForceDivisor")] public int Jump2ForceDivisor { get; set; }
-
-        [JsonProperty("climbLateralForce")] public int ClimbLateralForce { get; set; }
+        [JsonProperty("jumpSpeed")] public double JumpSpeed { get; set; }
     }
 
     public class JBackground {

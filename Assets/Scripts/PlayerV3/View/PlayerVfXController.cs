@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using AlsRitter.EventFrame;
+﻿using AlsRitter.EventFrame;
 using UnityEngine;
 
 namespace AlsRitter.V3.Sundry

@@ -1,9 +1,5 @@
-﻿using System;
-using AlsRitter.EventFrame;
-using AlsRitter.EventFrame.CustomEvent;
-using AlsRitter.Global.Store.Player;
+﻿using AlsRitter.Global.Store.Player;
 using AlsRitter.Global.Store.Player.Model;
-using AlsRitter.PlayerController.FSM;
 using UnityEngine;
 
 
@@ -68,19 +64,19 @@ namespace AlsRitter.V3.PlayerController {
                 Debug.DrawLine(view.Position, view.HorizontalBox[0].point, Color.yellow);
                 Gizmos.DrawWireCube (view.Position + Vector3.right * basic.horizCheckDistance 
                                                                    * (state.playDir == PlayDir.Right ? 1 : -1), 
-                                     view.boxSize);
+                                     view.BoxSize);
             }
             
             if (view.UpBox != null && view.UpBox.Length > 0 && view.UpBox[0]) {
                 Gizmos.color = Color.blue;
                 Debug.DrawLine(view.Position, view.UpBox[0].point, Color.red);
-                Gizmos.DrawWireCube (view.Position + Vector3.up * basic.upCheckDistance, view.boxSize);
+                Gizmos.DrawWireCube (view.Position + Vector3.up * basic.upCheckDistance, view.BoxSize);
             }
 
             if (view.DownBox.collider != null) {
                 Gizmos.color = Color.cyan;
                 Debug.DrawLine(view.Position, view.DownBox.point, Color.cyan);
-                Gizmos.DrawWireCube (view.Position + Vector3.down * basic.downCheckDistance, view.boxSize);
+                Gizmos.DrawWireCube (view.Position + Vector3.down * basic.downCheckDistance, view.BoxSize);
             }
         }
 
@@ -96,26 +92,26 @@ namespace AlsRitter.V3.PlayerController {
             // 只要在箱形投射的上方都能检测到
             view.RightBox =
                 Physics2D.BoxCastAll(view.Position,
-                                     view.boxSize, 0,
+                                     view.BoxSize, 0,
                                      Vector3.right,
                                      basic.horizCheckDistance,
                                      groundLayer);
 
             view.LeftBox =
                 Physics2D.BoxCastAll(view.Position,
-                                     view.boxSize, 0,
+                                     view.BoxSize, 0,
                                      Vector3.left,
                                      basic.horizCheckDistance,
                                      groundLayer);
             view.UpBox =
                 Physics2D.BoxCastAll(view.Position,
-                                     view.boxSize, 0,
+                                     view.BoxSize, 0,
                                      Vector3.up,
                                      basic.upCheckDistance,
                                      groundLayer);
             view.DownBox =
                 Physics2D.BoxCast(view.Position,
-                                  view.boxSize, 0,
+                                  view.BoxSize, 0,
                                   Vector3.down,
                                   basic.downCheckDistance,
                                   groundLayer);

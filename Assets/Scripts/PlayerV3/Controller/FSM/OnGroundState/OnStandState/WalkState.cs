@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using AlsRitter.Global.Store.Player;
-using AlsRitter.Global.Store.Player.Model;
-using AlsRitter.PlayerController.FSM;
-using UnityEngine;
+﻿using AlsRitter.Global.Store.Player;
 
 namespace AlsRitter.V3.PlayerController.FSM {
     public class WalkState : IBaseState {
@@ -21,6 +16,5 @@ namespace AlsRitter.V3.PlayerController.FSM {
 
         public void Exit(UseStore useStore) {
         }
-
     }
 }

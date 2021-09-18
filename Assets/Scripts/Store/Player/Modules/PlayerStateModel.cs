@@ -17,8 +17,7 @@ namespace AlsRitter.Global.Store.Player.Model {
         Normal,
         Jump,
         Fall,
-        Run,
-        Crouch
+        Run
     }
 
     /**
@@ -39,8 +38,7 @@ namespace AlsRitter.Global.Store.Player.Model {
         public bool isGround; //是否在地面上
         public bool isStand; //是否站着
         public bool isHalfFoot; //半只脚着地
-        public bool isJump;
-        public bool isCrouch; //是否下蹲
         public bool isExistTop; // 判断头顶是否有墙
+        public bool isDie;  //死亡
     }
 }

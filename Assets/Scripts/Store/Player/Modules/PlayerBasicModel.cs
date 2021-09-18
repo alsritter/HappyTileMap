@@ -28,8 +28,7 @@ namespace AlsRitter.Global.Store.Player.Model {
 
         [Header("移动参数")]
         public float speed = 3.5f; //速度
-        public float runSpeed    = 7.5f;
-        public float crouchSpeed = 1.5f; // 下蹲走路
+        public float runSpeed => speed * 1.5f;
 
 
         [Header("跳跃参数")]

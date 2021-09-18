@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed63977f1674690b67382d721eaa338, type: 3}
   m_Name: 02
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d0991d2474ef96c41808448fa417c8aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -35,6 +35,6 @@ MonoBehaviour:
   m_Flags: 1
   m_ColliderType: 1
   effectKeys: []
-  tileSpriteId: 
-  layer: 0
+  tileSpriteId: 002
+  layer: 2
   tags: 

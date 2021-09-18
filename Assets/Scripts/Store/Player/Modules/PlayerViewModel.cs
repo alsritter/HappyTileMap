@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace AlsRitter.Global.Store.Player.Model {
     /**
@@ -7,8 +8,11 @@ namespace AlsRitter.Global.Store.Player.Model {
      * 角色的四肢
      */
     public class PlayerViewModel : MonoBehaviour {
-        public Animator      playAnimator;
-        public BoxCollider2D boxCollider2D;
+        public Animator       playAnimator;
+        public SpriteRenderer spriteRenderer;
+        public BoxCollider2D boxCollider;
+
+        public Vector2 BoxSize => boxCollider.size * 0.9f;
 
         [Header("角色身体部件")]
         public GameObject rightFoot;
@@ -17,7 +21,7 @@ namespace AlsRitter.Global.Store.Player.Model {
         [Header("身体中心点")]
         public GameObject bodyCentre; // 身体中心点
         
-        public Vector2 boxSize;
+        
 
         public Vector3 Position => bodyCentre.transform.position;
         // public Vector3 Position => boxCollider2D.transform.position;
@@ -35,11 +39,9 @@ namespace AlsRitter.Global.Store.Player.Model {
         public RaycastHit2D[] LeftBox;
 
         public RaycastHit2D[] HorizontalBox;
-        
+
         private void Start() {
-            boxCollider2D = GetComponent<BoxCollider2D>();
-            //设置盒子射线的大小
-            boxSize = boxCollider2D.size * 0.9f;
+            boxCollider = GetComponent<BoxCollider2D>();
         }
     }
 }
