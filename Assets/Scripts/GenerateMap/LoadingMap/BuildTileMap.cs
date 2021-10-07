@@ -13,9 +13,13 @@ namespace AlsRitter.GenerateMap {
         public Tilemap crashMap; // 碰撞层 Map
         public Tilemap foregroundMap; // 前景层 Map
 
+        [HideInInspector]
+        public bool finish;  // 当前地图是否生成好
+
         private Dictionary<string, CustomTile> tileDictionary; // 全部 Tile，Map 用于读取
 
         public void StartCreateMap(GameMap mapData) {
+            finish = false;
             ClearMap();
             LoadingTile(mapData);
             StartCoroutine(InitData(mapData));
@@ -70,9 +74,10 @@ namespace AlsRitter.GenerateMap {
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
-
-                yield return null;
             }
+            yield return null;
+            // 地图生成好
+            finish = true;
         }
     }
 }

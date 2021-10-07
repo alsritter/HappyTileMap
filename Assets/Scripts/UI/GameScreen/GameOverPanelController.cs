@@ -9,11 +9,9 @@ namespace AlsRitter.UIFrame.Controller {
         public override UIPanelType uiType => UIPanelType.GameOverPanel;
 
         private readonly EventData resetEvent;
-        private readonly EventData returnMenuEvent;
 
         public GameOverPanelController() {
             resetEvent = EventData.CreateEvent(EventID.ResetGame);
-            returnMenuEvent = EventData.CreateEvent(EventID.ReturnMenu);
         }
 
         /// <summary>
@@ -31,11 +29,11 @@ namespace AlsRitter.UIFrame.Controller {
             if (IsPause) return;
             switch (sender.name) {
                 case "RetryButton":
-                    PanelManager.instance.PopPanel();
+                    
+                    Debug.Log("VAR");
+                    
                     resetEvent.Send();
-                    break;
-                case "BreakButton":
-                    returnMenuEvent.Send();
+                    PanelManager.instance.PopPanel();
                     break;
             }
         }

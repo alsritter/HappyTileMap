@@ -16,11 +16,11 @@ namespace AlsRitter.V3.CustomTileFrame.TileEffect.SpecialEffects {
         public int    versionUID => 1;
         public string name       => "GameVictoryEffect";
 
-        private readonly EventData harmEvent;
+        private readonly EventData winEvent;
         private          bool      flag = true;
 
         public GameVictoryEffect() {
-            harmEvent = EventData.CreateEvent(EventID.Win);
+            winEvent = EventData.CreateEvent(EventID.Win);
             EventManager.Register(this, EventID.ResetGame, EventID.ReturnMenu);
         }
 
@@ -29,7 +29,7 @@ namespace AlsRitter.V3.CustomTileFrame.TileEffect.SpecialEffects {
             if (!flag) return;
             //Debug.Log("发送了");
             flag = false;
-            harmEvent.Send();
+            winEvent.Send();
         }
         
         public void HandleEvent(EventData resp) {

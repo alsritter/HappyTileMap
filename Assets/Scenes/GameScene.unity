@@ -569,6 +569,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &786270577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 786270579}
+  - component: {fileID: 786270578}
+  m_Layer: 0
+  m_Name: JsTalker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &786270578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786270577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da844ac26f4ff76408c76f2641b48d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &786270579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786270577}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1098607002
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +740,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 401430301072993260, guid: f08a82faaf2cd2441a48c7b950b613a0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 401430301072993262, guid: f08a82faaf2cd2441a48c7b950b613a0,
         type: 3}
       propertyPath: m_RootOrder
@@ -800,7 +848,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7792642, y: 1}
+    m_SensorSize: {x: 1.776675, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -856,6 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257ddc4d79cb5bf4eaa0f108bb019e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  callJs: {fileID: 786270578}
   fade: {fileID: 464218446}
 --- !u!4 &1256933057
 Transform:
@@ -886,6 +935,7 @@ MonoBehaviour:
   backgroundMap: {fileID: 1989652201}
   crashMap: {fileID: 2015353290}
   foregroundMap: {fileID: 1636965312}
+  finish: 0
 --- !u!114 &1256933059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,7 +1244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1562618874
 MonoBehaviour:
   m_ObjectHideFlags: 0

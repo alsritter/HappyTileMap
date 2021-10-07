@@ -68,7 +68,6 @@ namespace AlsRitter.UIFrame {
             }
 
             PanelManager.instance.Register(this);
-
             OnInitUI();
         }
 

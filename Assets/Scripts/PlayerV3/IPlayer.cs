@@ -16,6 +16,16 @@ namespace AlsRitter.V3.Player {
         void MoveRight();
 
         /**
+         * 停止角色移动
+         */
+        void StopMove();
+
+        /**
+         * 恢复角色的移动功能
+         */
+        void CanMove();
+
+        /**
          * 跳跃
          */
         void Jump(float jumpDynamics);

@@ -13,7 +13,6 @@ namespace AlsRitter.UIFrame.Controller {
 
         public GameWinPanelController() {
             resetEvent = EventData.CreateEvent(EventID.ResetGame);
-            returnMenuEvent = EventData.CreateEvent(EventID.ReturnMenu);
         }
 
         /// <summary>
@@ -33,9 +32,6 @@ namespace AlsRitter.UIFrame.Controller {
                 case "RetryButton":
                     PanelManager.instance.PopPanel();
                     resetEvent.Send();
-                    break;
-                case "BreakButton":
-                    returnMenuEvent.Send();
                     break;
             }
         }

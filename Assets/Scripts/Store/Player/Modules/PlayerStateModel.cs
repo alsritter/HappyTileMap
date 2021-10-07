@@ -32,7 +32,7 @@ namespace AlsRitter.Global.Store.Player.Model {
         [Header("角色当前状态")]
         public PlayState playState;
 
-        public bool isMove = true; //是否允许左右移动
+        public bool isMove = true; //是否允许移动
         public bool isIntroJump; //是否是刚进入跳跃的状态
 
         public bool isGround; //是否在地面上

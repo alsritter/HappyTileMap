@@ -43,8 +43,6 @@ namespace AlsRitter.GenerateMap.V1.Do {
         [JsonProperty("color")] public string Color { get; set; }
 
         [JsonProperty("effect_keys")] public List<string> EffectKeys { get; set; }
-
-        [JsonProperty("tags")] public List<int> Tags { get; set; }
     }
 
     public class JTilePoint {

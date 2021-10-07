@@ -10,15 +10,13 @@ namespace AlsRitter.GenerateMap.Interface.Do
      */
     public class TileData
     {
-        public TileData(string key, DisplayLayer layer, string tileSpriteId, string color, string[] effectKeys,
-            TileTag[] tags)
+        public TileData(string key, DisplayLayer layer, string tileSpriteId, string color, string[] effectKeys)
         {
             this.key = key;
             this.layer = layer;
             TileSpriteId = tileSpriteId;
             Color = color;
             EffectKeys = effectKeys;
-            Tags = tags;
         }
 
         /**

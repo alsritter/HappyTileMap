@@ -27,6 +27,14 @@ namespace AlsRitter.V3.Player {
         public void MoveRight() {
         }
 
+        public void StopMove() {
+            UseStore.GetStore().stateModel.isMove = false;
+        }
+
+        public void CanMove() {
+            UseStore.GetStore().stateModel.isMove = true;
+        }
+
         public void Jump(float jumpDynamics) {
         }
 

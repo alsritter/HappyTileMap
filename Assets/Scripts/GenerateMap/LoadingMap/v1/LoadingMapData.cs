@@ -10,13 +10,32 @@ using UnityEngine;
 namespace AlsRitter.GenerateMap.V1 {
     public class LoadingMapData : ILoadingMapData {
         /**
+         * 取得 Game Map 数据
+         */
+        public GameMap GetGameMapData(string json) {
+            return string.IsNullOrEmpty(json) ? ParseLocalMapJsonData() : ParseWebMapJsonData(json);
+        }
+        
+        
+        /**
          * 加载本地的地图数据
          */
         private GameMap ParseLocalMapJsonData() {
             // Assets/Resources/Json/testData.json
             // Debug.LogError("The local map is loaded");
-            var text = Resources.Load<TextAsset>("Json/exportData");
+            var text = Resources.Load<TextAsset>("LocalMap/exportData");
             var json = text.text;
+            return ParseJson(json);
+        }
+
+        /**
+         * 加载前端的地图数据
+         */
+        private GameMap ParseWebMapJsonData(string json) {
+            return ParseJson(json);
+        }
+
+        private GameMap ParseJson(string json) {
             var data = JsonConvert.DeserializeObject<ConvertMapData>(json);
             var initial = new Initial(data.Initial.X, data.Initial.Y, 
                                       (float)data.Initial.Speed, 
@@ -33,8 +52,7 @@ namespace AlsRitter.GenerateMap.V1 {
                                            NumberConvertEnumTool.NumberToLayer(x.Layer),
                                            x.TileSpriteId,
                                            x.Color,
-                                           x.EffectKeys.ToArray(),
-                                           NumberConvertEnumTool.NumbersToTags(x.Tags).ToArray()));
+                                           x.EffectKeys.ToArray()));
             });
 
             var tiles = new List<TilePoint>();
@@ -50,16 +68,6 @@ namespace AlsRitter.GenerateMap.V1 {
             // return string.IsNullOrEmpty(json) ? null : null;
             return new GameMap(data.CreateTime, data.Version, data.Author, initial, background, prefabs,
                                tilesData, tiles);
-        }
-
-        public GameMap GetGameMapData(string json) {
-            // if (json == null) {
-            //     return ParseLocalMapJsonData();
-            // }
-            //
-            // throw new NotImplementedException();
-            var map = ParseLocalMapJsonData();
-            return map;
         }
     }
 }

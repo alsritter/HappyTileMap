@@ -1,6 +1,13 @@
 mergeInto(LibraryManager.library, {
-  Hello: function () {
-    window.alert('Hello, world!')
-    Exit() //调用Js方法
+  getMapData: function () {
+    const map = localStorage.getItem('localMapData');
+    var bufferSize = lengthBytesUTF8(map) + 1;
+    var buffer = _malloc(bufferSize);
+    stringToUTF8(map, buffer, bufferSize);
+    return buffer;
+  },
+
+  ReportReady: function () {
+    window.ReportReady();
   }
 })

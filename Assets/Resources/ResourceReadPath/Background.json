@@ -27,16 +27,16 @@
     {
         "bg_id": "005",
         "name": "ocean bg 02",
-        "path": "Background/05/05_2"
+        "path": "Background/01/05_2"
     },
     {
         "bg_id": "006",
         "name": "mountain bg",
-        "path": "Background/05/05_3"
+        "path": "Background/01/05_3"
     },
     {
         "bg_id": "007",
         "name": "green bg",
-        "path": "Background/05/05_4"
+        "path": "Background/01/05_4"
     }
 ]

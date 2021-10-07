@@ -1,18 +1,19 @@
-﻿using AlsRitter.Global.Store.Player;
+﻿using AlsRitter.EventFrame;
+using AlsRitter.Global.Store.Player;
 using AlsRitter.Global.Store.Player.Model;
 using UnityEngine;
 
 
 namespace AlsRitter.V3.PlayerController {
     [DisallowMultipleComponent]
-    public class PlayerAnimation : MonoBehaviour {
+    public class PlayerAnimation : MonoBehaviour, IEventObserver {
         private PlayerInputModel input;
         private PlayerBasicModel basic;
         private PlayerViewModel  view;
         private PlayerStateModel state;
 
         private Animator anim;
-        
+
         private int isRunId;
         private int yVelocityId;
         private int xVelocityId;
@@ -29,11 +30,12 @@ namespace AlsRitter.V3.PlayerController {
             basic = UseStore.GetStore().basicModel;
             view = UseStore.GetStore().viewModel;
             state = UseStore.GetStore().stateModel;
+            
+            EventManager.Register(this, EventID.Harm);
         }
 
         private void Start() {
             anim = view.playAnimator;
-
             inGroundId = Animator.StringToHash("inGround");
             isRunId = Animator.StringToHash("isRun");
             isMoveId = Animator.StringToHash("isMove");
@@ -45,7 +47,6 @@ namespace AlsRitter.V3.PlayerController {
         }
 
 
-        
         // Update is called once per frame
         private void Update() {
             anim.SetFloat(yVelocityId, basic.moveSpeed.y);
@@ -53,15 +54,10 @@ namespace AlsRitter.V3.PlayerController {
 
             anim.SetBool(inGroundId, state.isGround);
 
-            if (state.isDie) {
-                anim.SetTrigger(isDieTriggerId);
-                return;
-            }
-
             DirToRotate();
 
             var move = input.MoveKey;
-            
+
             if (move) {
                 moveFrame = 6;
             }
@@ -70,8 +66,8 @@ namespace AlsRitter.V3.PlayerController {
                 anim.SetBool(isJumpId, false);
                 anim.SetBool(isFullId, false);
             }
-            
-            
+
+
             if (!state.isGround) {
                 if (state.playState == PlayState.Jump) {
                     anim.SetBool(isJumpId, true);
@@ -100,7 +96,7 @@ namespace AlsRitter.V3.PlayerController {
         }
 
         private int moveFrame;
-        
+
         // 缓存几帧移动状态
         private void FixedUpdate() {
             if (moveFrame != 0) {
@@ -120,6 +116,22 @@ namespace AlsRitter.V3.PlayerController {
                 anim.transform.Rotate(0, -180, 0);
                 nowDir = PlayDir.Left;
             }
+        }
+
+        public void HandleEvent(EventData resp) {
+            switch (resp.eid) {
+                // 受伤事件
+                case EventID.Harm:
+                    if (state.isDie) {
+                        anim.SetTrigger(isDieTriggerId);
+                    }
+                    // 受伤
+                    break;
+            }
+        }
+        
+        public void OnDestroy() {
+            EventManager.Remove(this);
         }
     }
 }

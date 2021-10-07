@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using AlsRitter.Global.Store.Player;
 using AlsRitter.Global.Store.Player.Model;
 using UnityEngine;
@@ -34,6 +35,8 @@ namespace AlsRitter.V3.PlayerController.FSM {
         }
 
         private void Update() {
+            if (!state.isMove) return;
+            
             if (basic.moveSpeed.x >= basic.currentSpeed) {
                 RepairHorizontalMove();
             }
@@ -65,7 +68,13 @@ namespace AlsRitter.V3.PlayerController.FSM {
             // 在地面才能跳跃
             if (input.JumpKeyDown) {
                 stateContext.TransitionState(inTheAirState);
-                Jump();
+                // Jump();
+                if (input.RunKey && (input.h > 0 && GetDirInt < 0) || (input.h < 0 && GetDirInt > 0)) {
+                    Jump(new Vector2(4 * input.moveDir, 0), new Vector2(42, 0));
+                }
+                else {
+                    Jump();
+                }
                 return;
             }
             else {
@@ -76,6 +85,8 @@ namespace AlsRitter.V3.PlayerController.FSM {
         }
 
         private void FixedUpdate() {
+            if (!state.isMove) return;
+            
             stateContext.FixedUpdateHandle();
 
             if (basic.coyotetimeFram > 0) {
@@ -248,12 +259,14 @@ namespace AlsRitter.V3.PlayerController.FSM {
 
         /**
          * 记录初始位置和计算最高能跳到的位置，根据按键时间进行跳跃高度判断
+         * 
+         * vel.x 为传入的横向加速度，maxVel.x 为最大横向加速度
          */
         private void Jump(Vector2 vel, Vector2 maxVel) {
             state.playState = PlayState.Jump;
-
             basic.startJumpPos = transform.position.y;
             state.isIntroJump = true;
+
             if (vel.y >= 0) basic.moveSpeed.y = vel.y;
 
             StartCoroutine(IntroJump(vel, maxVel));

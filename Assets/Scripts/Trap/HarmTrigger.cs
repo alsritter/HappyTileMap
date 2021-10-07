@@ -17,9 +17,11 @@ namespace AlsRitter.Sundry {
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
-            if (Time.time > tempTime) {
-                tempTime = Time.time + waitTile;
-                harmEvent.Send();
+            if (other.gameObject.CompareTag("Player")) {
+                if (Time.time > tempTime) {
+                    tempTime = Time.time + waitTile;
+                    harmEvent.Send();
+                }
             }
         }
     }
