@@ -23,7 +23,7 @@ namespace AlsRitter.CallWeb {
          */
         public string GetJsonData() {
             var map = getMapData();
-            Debug.Log(map);
+            // Debug.Log(map);
             return map;
         }
 

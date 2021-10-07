@@ -22,5 +22,13 @@
     {
         "name": "CuteTile",
         "path": "TileSprite/Cute/CuteTileSpritePath"
+    },
+    {
+        "name": "DungeonTile02",
+        "path": "TileSprite/Dungeon02/ForgottenDungeon"
+    },
+    {
+        "name": "UnknownDD",
+        "path": "TileSprite/Unknown/Unknown"
     }
 ]

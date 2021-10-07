@@ -176,7 +176,7 @@
     "size_w": 5,
     "size_h": 6,
     "type": "0",
-    "describe": "春天的花圃",
+    "describe": "高大的树",
     "path": "Prefabs/Environment/Baubles/Tall_Tree01"
   },
   {
@@ -331,5 +331,221 @@
     "type": "0",
     "describe": "积雪",
     "path": "Prefabs/Environment/Baubles/snow"
+  },
+  {
+    "prefab_id": "0038",
+    "name": "高大的树02",
+    "size_w": 11,
+    "size_h": 7,
+    "type": "0",
+    "describe": "高大的树02",
+    "path": "Prefabs/Environment/Baubles/Tall_Tree02"
+  },
+  {
+    "prefab_id": "0039",
+    "name": "杂草04",
+    "size_w": 2,
+    "size_h": 1,
+    "type": "0",
+    "describe": "杂草04",
+    "path": "Prefabs/Environment/Baubles/Weed04"
+  },
+  {
+    "prefab_id": "0040",
+    "name": "杂草05",
+    "size_w": 1,
+    "size_h": 1,
+    "type": "0",
+    "describe": "杂草05",
+    "path": "Prefabs/Environment/Baubles/Weed05"
+  },
+  {
+    "prefab_id": "0041",
+    "name": "石头03",
+    "size_w": 2,
+    "size_h": 1,
+    "type": "0",
+    "describe": "石头03",
+    "path": "Prefabs/Environment/Baubles/Stone03"
+  },
+  {
+    "prefab_id": "0042",
+    "name": "石头04",
+    "size_w": 2,
+    "size_h": 1,
+    "type": "0",
+    "describe": "石头04",
+    "path": "Prefabs/Environment/Baubles/Stone04"
+  },
+  {
+    "prefab_id": "0043",
+    "name": "高大的树03",
+    "size_w": 5,
+    "size_h": 7,
+    "type": "0",
+    "describe": "高大的树03",
+    "path": "Prefabs/Environment/Baubles/Tall_Tree03"
+  },
+  {
+    "prefab_id": "0044",
+    "name": "高大的树04",
+    "size_w": 5,
+    "size_h": 7,
+    "type": "0",
+    "describe": "高大的树04",
+    "path": "Prefabs/Environment/Baubles/Tall_Tree04"
+  },
+  {
+    "prefab_id": "0045",
+    "name": "木块",
+    "size_w": 1,
+    "size_h": 1,
+    "type": "0",
+    "describe": "木块",
+    "path": "Prefabs/Environment/Baubles/wood_brick"
+  },
+  {
+    "prefab_id": "0046",
+    "name": "长木块",
+    "size_w": 2,
+    "size_h": 1,
+    "type": "0",
+    "describe": "长木块",
+    "path": "Prefabs/Environment/Baubles/long_wood_brick"
+  },
+  {
+    "prefab_id": "0047",
+    "name": "木桩",
+    "size_w": 1,
+    "size_h": 1,
+    "type": "0",
+    "describe": "木桩",
+    "path": "Prefabs/Environment/Baubles/deadman"
+  },
+  {
+    "prefab_id": "0048",
+    "name": "树苗",
+    "size_w": 2,
+    "size_h": 1,
+    "type": "0",
+    "describe": "树苗",
+    "path": "Prefabs/Environment/Baubles/sapling"
+  },
+  {
+    "prefab_id": "0049",
+    "name": "石头05",
+    "size_w": 3,
+    "size_h": 1,
+    "type": "0",
+    "describe": "石头05",
+    "path": "Prefabs/Environment/Baubles/Stone05"
+  },
+  {
+    "prefab_id": "0050",
+    "name": "高大的树05",
+    "size_w": 3,
+    "size_h": 5,
+    "type": "0",
+    "describe": "高大的树05",
+    "path": "Prefabs/Environment/Baubles/Tall_Tree05"
+  },
+  {
+    "prefab_id": "0051",
+    "name": "高大的树06",
+    "size_w": 3,
+    "size_h": 5,
+    "type": "0",
+    "describe": "高大的树06",
+    "path": "Prefabs/Environment/Baubles/Tall_Tree06"
+  },
+  {
+    "prefab_id": "0052",
+    "name": "倒下的木头",
+    "size_w": 4,
+    "size_h": 1,
+    "type": "0",
+    "describe": "倒下的木头",
+    "path": "Prefabs/Environment/Baubles/Fallen_wood"
+  },
+  {
+    "prefab_id": "0053",
+    "name": "倒下的木头02",
+    "size_w": 4,
+    "size_h": 1,
+    "type": "0",
+    "describe": "倒下的木头02",
+    "path": "Prefabs/Environment/Baubles/Fallen_wood02"
+  },
+  {
+    "prefab_id": "0054",
+    "name": "木桩02",
+    "size_w": 1,
+    "size_h": 1,
+    "type": "0",
+    "describe": "木桩02",
+    "path": "Prefabs/Environment/Baubles/deadman02"
+  },
+  {
+    "prefab_id": "0055",
+    "name": "破船",
+    "size_w": 7,
+    "size_h": 2,
+    "type": "0",
+    "describe": "破船",
+    "path": "Prefabs/Environment/Baubles/ship"
+  },
+  {
+    "prefab_id": "0056",
+    "name": "破船02",
+    "size_w": 5,
+    "size_h": 2,
+    "type": "0",
+    "describe": "破船02",
+    "path": "Prefabs/Environment/Baubles/ship02"
+  },
+  {
+    "prefab_id": "0057",
+    "name": "破船03",
+    "size_w": 3,
+    "size_h": 1,
+    "type": "0",
+    "describe": "破船03",
+    "path": "Prefabs/Environment/Baubles/ship03"
+  },
+  {
+    "prefab_id": "0058",
+    "name": "木块02",
+    "size_w": 1,
+    "size_h": 1,
+    "type": "0",
+    "describe": "木块02",
+    "path": "Prefabs/Environment/Baubles/wood_brick02"
+  },
+  {
+    "prefab_id": "0059",
+    "name": "木块03",
+    "size_w": 1,
+    "size_h": 1,
+    "type": "0",
+    "describe": "木块03",
+    "path": "Prefabs/Environment/Baubles/wood_brick03"
+  },
+  {
+    "prefab_id": "0060",
+    "name": "石头06",
+    "size_w": 1,
+    "size_h": 1,
+    "type": "0",
+    "describe": "石头06",
+    "path": "Prefabs/Environment/Baubles/Stone06"
+  },
+  {
+    "prefab_id": "0061",
+    "name": "木块04",
+    "size_w": 1,
+    "size_h": 1,
+    "type": "0",
+    "describe": "木块04",
+    "path": "Prefabs/Environment/Baubles/wood_brick04"
   }
 ]

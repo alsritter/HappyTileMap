@@ -10,7 +10,8 @@ namespace AlsRitter.Global.Store.Player.Model {
     public class PlayerViewModel : MonoBehaviour {
         public Animator       playAnimator;
         public SpriteRenderer spriteRenderer;
-        public BoxCollider2D boxCollider;
+        public BoxCollider2D  boxCollider;
+        public ParticleSystem runDust;
 
         public Vector2 BoxSize => boxCollider.size * 0.9f;
 

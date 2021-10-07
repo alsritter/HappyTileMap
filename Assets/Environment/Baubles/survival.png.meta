@@ -1,0 +1,836 @@
+fileFormatVersion: 2
+guid: 06b7b87556312c643b37a4f376fd5a7f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7831688794362381626
+    second: survival_0
+  - first:
+      213: 6246735077378340022
+    second: survival_1
+  - first:
+      213: -3253364455577356458
+    second: survival_2
+  - first:
+      213: 2839966426974576240
+    second: survival_3
+  - first:
+      213: -172730423522992882
+    second: survival_4
+  - first:
+      213: 653459612652572925
+    second: survival_5
+  - first:
+      213: 8746504131659102024
+    second: survival_6
+  - first:
+      213: 3417723149223874459
+    second: survival_7
+  - first:
+      213: -6177272645556270868
+    second: survival_8
+  - first:
+      213: 964431091583898806
+    second: survival_9
+  - first:
+      213: -8654907990690419503
+    second: survival_10
+  - first:
+      213: -5873173640846468170
+    second: survival_11
+  - first:
+      213: -5765536592031952132
+    second: survival_12
+  - first:
+      213: 3431869142906903056
+    second: survival_13
+  - first:
+      213: -3883057131596099194
+    second: survival_14
+  - first:
+      213: 7933521528690519914
+    second: survival_15
+  - first:
+      213: -9193221820502078760
+    second: survival_16
+  - first:
+      213: 5787146603266080826
+    second: survival_17
+  - first:
+      213: 287937846487379490
+    second: survival_18
+  - first:
+      213: 8213404682599335216
+    second: survival_19
+  - first:
+      213: -7192761860806738536
+    second: survival_20
+  - first:
+      213: -1802345162286241662
+    second: survival_21
+  - first:
+      213: -8913559401399809325
+    second: survival_22
+  - first:
+      213: -5705129759361883211
+    second: survival_23
+  - first:
+      213: 1933115286598046134
+    second: survival_24
+  - first:
+      213: 6950712795364694120
+    second: survival_25
+  - first:
+      213: 7495017052854495011
+    second: survival_26
+  - first:
+      213: 1656406781269568899
+    second: survival_27
+  - first:
+      213: -6707051033097993884
+    second: survival_28
+  - first:
+      213: 2763796903456629070
+    second: survival_29
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: survival_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 119
+        width: 80
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a358063e67fbfac60800000000000000
+      internalID: 7831688794362381626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 109
+        width: 80
+        height: 118
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b4bb1dc47cd0b650800000000000000
+      internalID: 6246735077378340022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_2
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 109
+        width: 80
+        height: 118
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 657fd64c34ab9d2d0800000000000000
+      internalID: -3253364455577356458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_3
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 109
+        width: 80
+        height: 118
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07edad52b66996720800000000000000
+      internalID: 2839966426974576240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_4
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 148
+        width: 8
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d520058965a9df0800000000000000
+      internalID: -172730423522992882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_5
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 132
+        width: 24
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df098373e0e811900800000000000000
+      internalID: 653459612652572925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_6
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 109
+        width: 13
+        height: 9
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 847f602ba23d16970800000000000000
+      internalID: 8746504131659102024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_7
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 108
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9f4e1aa8113e6f20800000000000000
+      internalID: 3417723149223874459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_8
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 112
+        width: 23
+        height: 19
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce881e8e14be54aa0800000000000000
+      internalID: -6177272645556270868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_9
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 112
+        width: 51
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b45330d7f8526d00800000000000000
+      internalID: 964431091583898806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 36
+        width: 55
+        height: 73
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dc2533c90793e780800000000000000
+      internalID: -8654907990690419503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_11
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 36
+        width: 55
+        height: 72
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bb9829e0bb4e7ea0800000000000000
+      internalID: -5873173640846468170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_12
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 46
+        width: 55
+        height: 62
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf25b644403bcffa0800000000000000
+      internalID: -5765536592031952132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_13
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 58
+        width: 62
+        height: 11
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01a179a7dc270af20800000000000000
+      internalID: 3431869142906903056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_14
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 49
+        width: 26
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 681daa4bc1c9c1ac0800000000000000
+      internalID: -3883057131596099194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_15
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 44
+        width: 62
+        height: 11
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f2387fbc7891e60800000000000000
+      internalID: 7933521528690519914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_16
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 36
+        width: 20
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8da8a97467d1b6080800000000000000
+      internalID: -9193221820502078760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_17
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 5
+        width: 104
+        height: 30
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3088ce8c23105050800000000000000
+      internalID: 5787146603266080826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_18
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 5
+        width: 83
+        height: 23
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22e654122f5fef300800000000000000
+      internalID: 287937846487379490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_19
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 5
+        width: 44
+        height: 18
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0350dd6da00ebf170800000000000000
+      internalID: 8213404682599335216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_20
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 22
+        width: 22
+        height: 6
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89df2ac423d2e2c90800000000000000
+      internalID: -7192761860806738536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_21
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 14
+        width: 16
+        height: 7
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 288e847cf98ccf6e0800000000000000
+      internalID: -1802345162286241662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_22
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 12
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3da883353fcac4480800000000000000
+      internalID: -8913559401399809325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_23
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 21
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b3a9bff5be43d0b0800000000000000
+      internalID: -5705129759361883211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_24
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 21
+        width: 22
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b1dd8f6c1ec3da10800000000000000
+      internalID: 1933115286598046134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_25
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 14
+        width: 12
+        height: 4
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 868997ff574e57060800000000000000
+      internalID: 6950712795364694120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_26
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 14
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32723ec9c46a30860800000000000000
+      internalID: 7495017052854495011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_27
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 1
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38dee19013dbcf610800000000000000
+      internalID: 1656406781269568899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_28
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 11
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46107c1fe94cbe2a0800000000000000
+      internalID: -6707051033097993884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: survival_29
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 4
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e416bd5f3aafa5620800000000000000
+      internalID: 2763796903456629070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

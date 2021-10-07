@@ -60,12 +60,6 @@
     "describe": "石砖区域1"
   },
   {
-    "spriteId": "501",
-    "mode": "1",
-    "path": "TileSprite/Dungeon02/tileset",
-    "describe": "石砖区域1"
-  },
-  {
     "spriteId": "511",
     "mode": "1",
     "path": "TileSprite/Dungeon02/tileset",

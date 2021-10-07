@@ -12,7 +12,8 @@ namespace AlsRitter.V3.PlayerController {
         private PlayerViewModel  view;
         private PlayerStateModel state;
 
-        private Animator anim;
+        private Animator       anim;
+        private ParticleSystem runDust;
 
         private int isRunId;
         private int yVelocityId;
@@ -33,9 +34,11 @@ namespace AlsRitter.V3.PlayerController {
             
             EventManager.Register(this, EventID.Harm);
         }
-
+        
         private void Start() {
             anim = view.playAnimator;
+            runDust = view.runDust;
+
             inGroundId = Animator.StringToHash("inGround");
             isRunId = Animator.StringToHash("isRun");
             isMoveId = Animator.StringToHash("isMove");
@@ -72,6 +75,7 @@ namespace AlsRitter.V3.PlayerController {
                 if (state.playState == PlayState.Jump) {
                     anim.SetBool(isJumpId, true);
                 }
+
                 else if (state.playState == PlayState.Fall) {
                     anim.SetBool(isJumpId, false);
                     anim.SetBool(isFullId, true);
@@ -109,10 +113,12 @@ namespace AlsRitter.V3.PlayerController {
         /// </summary>
         private void DirToRotate() {
             if (nowDir == PlayDir.Left && basic.moveSpeed.x > 0) {
+                runDust.Play();
                 anim.transform.Rotate(0, 180, 0);
                 nowDir = PlayDir.Right;
             }
             else if (nowDir == PlayDir.Right && basic.moveSpeed.x < 0) {
+                runDust.Play();
                 anim.transform.Rotate(0, -180, 0);
                 nowDir = PlayDir.Left;
             }

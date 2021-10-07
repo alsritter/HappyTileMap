@@ -38,5 +38,30 @@
         "bg_id": "007",
         "name": "green bg",
         "path": "Background/01/05_4"
+    },
+    {
+        "bg_id": "008",
+        "name": "city",
+        "path": "Background/02/bg"
+    },
+    {
+        "bg_id": "009",
+        "name": "wood",
+        "path": "Background/02/bg02"
+    },
+    {
+        "bg_id": "010",
+        "name": "night city",
+        "path": "Background/02/bg03"
+    },
+    {
+        "bg_id": "011",
+        "name": "night wood",
+        "path": "Background/02/bg04"
+    },
+    {
+        "bg_id": "012",
+        "name": "night city02",
+        "path": "Background/02/bg05"
     }
 ]
