@@ -18,5 +18,9 @@
     {
         "name": "DungeonTile",
         "path": "TileSprite/Dungeon/DungeonTileSpritePath"
+    },
+    {
+        "name": "CuteTile",
+        "path": "TileSprite/Cute/CuteTileSpritePath"
     }
 ]

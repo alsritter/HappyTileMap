@@ -1,0 +1,338 @@
+[
+  {
+    "spriteId": "501",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域1"
+  },
+  {
+    "spriteId": "502",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域1"
+  },
+  {
+    "spriteId": "503",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域1"
+  },
+  {
+    "spriteId": "504",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域1"
+  },
+  {
+    "spriteId": "505",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域1"
+  },
+  {
+    "spriteId": "506",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域1"
+  },
+  {
+    "spriteId": "507",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域1"
+  },
+  {
+    "spriteId": "508",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域1"
+  },
+  {
+    "spriteId": "509",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域1"
+  },
+  {
+    "spriteId": "510",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域1"
+  },
+  {
+    "spriteId": "501",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域1"
+  },
+  {
+    "spriteId": "511",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域1"
+  },
+  {
+    "spriteId": "512",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域2"
+  },
+  {
+    "spriteId": "513",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域2"
+  },
+  {
+    "spriteId": "514",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域2"
+  },
+  {
+    "spriteId": "515",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域2"
+  },
+  {
+    "spriteId": "516",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域2"
+  },
+  {
+    "spriteId": "517",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域2"
+  },
+  {
+    "spriteId": "518",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域2"
+  },
+  {
+    "spriteId": "519",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域2"
+  },
+  {
+    "spriteId": "520",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域2"
+  },
+  {
+    "spriteId": "521",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域3"
+  },
+  {
+    "spriteId": "522",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域3"
+  },
+  {
+    "spriteId": "523",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域3"
+  },
+  {
+    "spriteId": "524",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域4"
+  },
+  {
+    "spriteId": "525",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域4"
+  },
+  {
+    "spriteId": "526",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域4"
+  },
+  {
+    "spriteId": "527",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域4"
+  },
+  {
+    "spriteId": "528",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域4"
+  },
+  {
+    "spriteId": "529",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域4"
+  },
+  {
+    "spriteId": "530",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域4"
+  },
+  {
+    "spriteId": "531",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域4"
+  },
+  {
+    "spriteId": "532",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域4"
+  },
+  {
+    "spriteId": "533",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域4"
+  },
+  {
+    "spriteId": "534",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域4"
+  },
+  {
+    "spriteId": "535",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域4"
+  },
+  {
+    "spriteId": "536",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域5"
+  },
+  {
+    "spriteId": "537",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域5"
+  },
+  {
+    "spriteId": "538",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域5"
+  },
+  {
+    "spriteId": "539",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域5"
+  },
+  {
+    "spriteId": "540",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域5"
+  },
+  {
+    "spriteId": "541",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域5"
+  },
+  {
+    "spriteId": "542",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域5"
+  },
+  {
+    "spriteId": "543",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域5"
+  },
+  {
+    "spriteId": "544",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域5"
+  },
+  {
+    "spriteId": "545",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域5"
+  },
+  {
+    "spriteId": "546",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域6"
+  },
+  {
+    "spriteId": "547",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域6"
+  },
+  {
+    "spriteId": "548",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域6"
+  },
+  {
+    "spriteId": "549",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域6"
+  },
+  {
+    "spriteId": "550",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域6"
+  },
+  {
+    "spriteId": "551",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域6"
+  },
+  {
+    "spriteId": "552",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域6"
+  },
+  {
+    "spriteId": "553",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域6"
+  },
+  {
+    "spriteId": "554",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域6"
+  },
+  {
+    "spriteId": "555",
+    "mode": "1",
+    "path": "TileSprite/Dungeon02/tileset",
+    "describe": "石砖区域6"
+  }
+]

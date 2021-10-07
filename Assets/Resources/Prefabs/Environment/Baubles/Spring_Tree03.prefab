@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2538180015278790699}
   - component: {fileID: 1358293127788797409}
   m_Layer: 0
-  m_Name: Weed02
+  m_Name: Spring_Tree03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 1005101958320914242, guid: 91c29ef691cedcb43b650fd3c19d063d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
